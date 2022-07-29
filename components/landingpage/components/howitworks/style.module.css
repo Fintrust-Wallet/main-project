@@ -1,9 +1,10 @@
 .hcontainer{
+  z-index: 2;
 width: 100%;
   min-height: 400px;
   height: fit-content;
   padding: 20px 0;
-  background-color: #006685;
+  /* background-color: #006685; */
 }
 
 .howItWorksContainer {
@@ -15,12 +16,12 @@ width: 100%;
   justify-content: center;
   align-items: center;
   gap: .75rem;
-  /* background: linear-gradient(
+  background: linear-gradient(
     105.42deg,
     rgba(255, 255, 255, 0.11) -9.07%,
     rgba(255, 255, 255, 0.11) 49.04%,
     rgba(255, 255, 255, 0) 97.84%
-  ); */
+  );
   box-shadow: 0 0 3px 2px rgb(6,106,138);
   border-radius: 20px;
   margin: 0 auto;
@@ -40,7 +41,7 @@ font-style: normal;
   display: flex;
   flex-flow: row wrap;
   height: fit-content;
-  align-items: start;
+  align-items: flex-start;
 
   margin: 0 auto;
 }
