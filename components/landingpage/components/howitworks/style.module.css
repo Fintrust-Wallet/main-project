@@ -62,13 +62,9 @@ font-style: normal;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid red;
+ color:hsla(194, 100%, 44%, 1);
 }
-.spanNum img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
+
 .textc {
   text-align: center;
   margin: 0;

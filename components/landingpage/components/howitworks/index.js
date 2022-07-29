@@ -45,7 +45,7 @@ const MiniFutureCard = ({ Icon, headingtext, paragraph }) => {
   return (
     <div className={styles.miniCardWrap}>
       <div className={styles.SpanNum}>
-        <Icon size={30} />
+        <Icon size={30} color={"hsla(194, 100%, 44%, 1)"} />
       </div>
       <h4 className={styles.textc}>{headingtext}</h4>
       <p className={styles.textc}>{paragraph}</p>
