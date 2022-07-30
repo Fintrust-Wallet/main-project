@@ -12,8 +12,9 @@
   max-width: 1200px;
   margin: 0 auto;
   margin-top: calc(100vh - 80vh);
-  border: 1px solid blue;
   z-index: 1;
+  display: flex;
+  justify-content: space-between;
 }
 .container::before, .container::after{
   content: "";
@@ -89,4 +90,8 @@ background: #057CA1;
   font-size: 1rem;
   color: #D6F6FF;
   margin: 0;
+}
+.heroImage{
+  height: fit-content;
+  margin: auto;
 }

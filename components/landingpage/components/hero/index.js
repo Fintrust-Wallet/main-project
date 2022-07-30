@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./style.module.css";
 import { BsFillPlayFill } from "react-icons/bs";
+import { walletImage } from "../../../images";
+import Image from "next/image";
 const Hero = () => {
   return (
     <div className={styles.container}>
@@ -28,7 +30,7 @@ const Hero = () => {
           </div>
         </div>
         <div className={styles.heroImage}>
-          <img />
+          <Image src={walletImage} />
         </div>
       </div>
     </div>

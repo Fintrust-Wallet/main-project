@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import { duck } from "../../../images";
 import styles from "./style.module.css";
 
 const AboutUs = () => {
@@ -7,12 +8,7 @@ const AboutUs = () => {
     <div className={styles.aboutContainer}>
       <div className={styles.aboutInner}>
         <div className={styles.imageWrap}>
-          <Image
-            width={"100%"}
-            height="100%"
-            src="/images/about-us.png"
-            alt="About Us"
-          />
+          <Image src={duck} alt="About Us" />
         </div>
         <div className={styles.textWrap}>
           <span>What we do at Fintrust</span>
