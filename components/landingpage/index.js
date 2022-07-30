@@ -5,6 +5,7 @@ import {
   HowItWorks,
   OurFeatures,
   SupportedWalletBanner,
+  WhyFintrust,
 } from "./components";
 import Image from "next/image";
 import { spiral } from "../images";
@@ -22,6 +23,7 @@ const LandinPage = () => {
         <HowItWorks />
         <OurFeatures />
       </div>
+      <WhyFintrust />
     </div>
   );
 };

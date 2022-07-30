@@ -22,6 +22,7 @@ width: 100%;
     rgba(255, 255, 255, 0.11) 49.04%,
     rgba(255, 255, 255, 0) 97.84%
   );
+  mix-blend-mode: overlay;
   box-shadow: 0 0 3px 2px rgb(6,106,138);
   border-radius: 20px;
   margin: 0 auto;
