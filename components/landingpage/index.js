@@ -4,6 +4,7 @@ import {
   Hero,
   HowItWorks,
   OurFeatures,
+  RoadMap,
   SupportedWalletBanner,
   WhyFintrust,
 } from "./components";
@@ -24,6 +25,7 @@ const LandinPage = () => {
         <OurFeatures />
       </div>
       <WhyFintrust />
+      <RoadMap />
     </div>
   );
 };

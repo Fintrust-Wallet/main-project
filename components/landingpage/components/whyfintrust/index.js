@@ -20,8 +20,8 @@ const WhyFintrust = () => {
     <div className={styles.whyFintrustContainer}>
       <div className={styles.whyFintrustContainerInner}>
         <div className={styles.whyFintrustHeading}>
-          <span>What we do at Fintrust</span>
-          <h2>Our Features</h2>
+          <span>Why use Fintrust</span>
+          <h2>Benefits of using Fintrust</h2>
         </div>
         <div className={styles.whyFintrustCards}>{cards}</div>
       </div>

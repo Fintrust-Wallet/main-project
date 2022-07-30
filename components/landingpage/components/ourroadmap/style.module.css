@@ -1,0 +1,73 @@
+.roadMapContainer {
+  min-height: 100vh;
+  width: 100%;
+  background-color: hsla(194, 100%, 26%, 1);
+  position: relative;
+  isolation: isolate;
+}
+
+.roadMap {
+  min-height: 100%;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border: 1px solid blue;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.roadMapContainer::before,
+.roadMapContainer::after {
+  content: "";
+  position: absolute;
+  width: 559px;
+  height: 559px;
+  border-radius: 100%;
+  z-index: -1;
+}
+
+.roadMapContainer::before {
+  top: -45px;
+  left: -260px;
+  background: rgba(23, 183, 168, 0.69);
+  filter: blur(85.15px);
+}
+
+.roadMapContainer::after {
+  bottom: 0%;
+  right: 0%;
+  background: #057ca1;
+  filter: blur(69.074px);
+}
+
+.roadMapHeading {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.roadMapHeading span,
+.roadMapHeading h2 {
+  margin: 0;
+}
+
+.roadMapHeading span {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  color: #05FAE4;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.roadMapHeading h2 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  color: #fff;
+  margin-bottom: 28px;
+  text-align: center;
+}
