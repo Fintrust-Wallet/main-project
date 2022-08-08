@@ -1,35 +1,20 @@
 import Head from "next/head";
 import Image from "next/image";
-import { NavBar } from "../components/navbar";
-import { LandingPage } from "../components/landingpage";
-import { Banner } from "../components/Banner";
-import { Team } from "../components/Team";
-import { Footer } from "../components/Footer";
-import LBlurBg from "../public/Ellipse26.svg";
-import BlurBg from "../public/Ellipse24.svg";
+import LandinPage from "../components/landingpage";
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (
-    <div>
+    <div className={styles.container}>
       <Head>
-        <title>Fintrust Wallet</title>
-        <meta name="description" content="Fintrust Wallet" />
+        <title>Fintrust</title>
+        <meta
+          name="description"
+          content="Democratizing fundraising through blockchain."
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className="pb-10">
-        {/* <div className="fixed bottom-0 right-0 z-0">
-          <Image src={BlurBg} alt="BlurBg" className="object-contain" />
-        </div> */}
-        <div className="fixed top-0 left-0">
-          <Image src={LBlurBg} alt="LBlurBg" className="object-contain" />
-        </div>
-        <NavBar />
-        <LandingPage />
-        <Banner />
-        <Team />
-        <Footer />
-      </main>
+      <LandinPage />
     </div>
   );
 }

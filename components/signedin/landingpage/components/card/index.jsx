@@ -1,5 +1,5 @@
-import Line from "../../../../public/Line.svg";
-import Line1 from "../../../../public/Line1.svg";
+// import Line from "../../../../../public/Line.svg";
+// import Line1 from "../../../../../public/Line1.svg";
 
 import Image from "next/image";
 

@@ -19,7 +19,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        "nomaden-slab": ["nomaden-slab"],
+        "monument": ["monument"],
         "sora-bold": ["sora-bold"],
         "sora-extrabold": ["sora-extrabold"],
         "sora-extralight": ["sora-extralight"],
