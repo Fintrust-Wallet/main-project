@@ -1,0 +1,75 @@
+.aboutContainer {
+ width: 100%;
+ min-height: 600px;
+ height: fit-content;
+ padding: 70px 0;
+ background-color: #006685;
+}
+.aboutContainer .aboutInner{
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: fit-content;
+  display: flex;
+  gap:clamp(1.5rem, 5vw,3.31rem);
+}
+.aboutContainer .aboutInner .imageWrap{
+  height: 500px;
+  width: 550px;
+  border:1px solid #fff;
+  border-radius: 20px;
+  padding-top: 53px;
+}
+.aboutContainer .aboutInner .imageWrap img{
+  width: 100%;
+  height: 550px;
+  
+}
+.aboutContainer .aboutInner .textWrap{
+  width: calc(100% - 550px);
+  height: fit-content;
+  margin: auto 0;
+}
+.textWrap span,.textWrap h2,.textWrap p{
+  margin: 0;
+}
+.textWrap span{
+font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  color: #05FAE4;
+  margin-bottom: 12px;
+}
+.textWrap h2{
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  color: #fff;
+  margin-bottom: 28px;
+}
+.textWrap p{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+line-height: 179.9%;
+  color: #D6F6FF;
+  margin-bottom: 28px;
+}
+.textWrap div{
+  width: fit-content;
+  height: fit-content;
+}
+.textWrap > div > a{
+  width: fit-content;
+    height: fit-content;
+}
+.textWrap>div>a > button{
+  width: fit-content;
+  height: fit-content;
+background: #06C4B2;
+  border-radius: 10px;
+  border: none;
+  color: #fff;
+  padding: 17px 31px;
+  cursor: pointer;
+}

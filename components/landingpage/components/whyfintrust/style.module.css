@@ -1,0 +1,95 @@
+.whyFintrustContainer {
+  width: 100%;
+  height: fit-content;
+  padding: 3.5rem;
+  background-color: #006685;
+  background-size: cover;
+  position: relative;
+  isolation: isolate;
+}
+
+.whyFintrustContainer .whyFintrustContainerInner {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.whyFintrustHeading {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.whyFintrustHeading span,
+.whyFintrustHeading h2 {
+  margin: 0;
+}
+
+.whyFintrustHeading span {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  color: #05FAE4;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.whyFintrustHeading h2 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  color: #fff;
+  margin-bottom: 28px;
+  text-align: center;
+}
+.whyFintrustCards {
+  display:flex;
+  height: fit-content;
+  width: 100%;
+  /* border: 1px solid red; */
+  gap:20px;
+}
+.whyFintrustCards .card{
+  width: 386px;
+  height: 150px;
+    background: linear-gradient(105.42deg, rgba(255, 255, 255, 0.11) -3.07%, rgba(255, 255, 255, 0.11) 49.04%, rgba(255, 255, 255, 0) 97.84%);
+    /* mix-blend-mode: overlay; */
+    border: 1.30058px solid #05bbac;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cardInner{
+  width: 80%;
+  margin: auto;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 3.2rem;
+}
+.cardInner .image{
+  height: 5rem;
+  width: 5rem;
+  border: 1px solid #05bbac;
+  border-radius: 100%;
+  background: #31697a;
+}
+.cardInner .image img{
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  background: #31697a;
+}
+.cardInner span {
+  font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 179.9%;
+    color: #FFFFFF;
+}
