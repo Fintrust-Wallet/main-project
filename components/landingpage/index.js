@@ -11,9 +11,14 @@ import {
 import Image from "next/image";
 import { spiral } from "../images";
 import styles from "./style.module.css";
+import { NavBar } from "../navbar";
+import { Team } from "../Team";
+import { Footer } from "../Footer";
+import { Banner } from "../Banner";
 const LandinPage = () => {
   return (
     <div>
+      <NavBar />
       <Hero />
       <SupportedWalletBanner />
       <AboutUs />
@@ -24,8 +29,12 @@ const LandinPage = () => {
         <HowItWorks />
         <OurFeatures />
       </div>
+      <Banner />
+
       <WhyFintrust />
       <RoadMap />
+      <Team />
+      <Footer />
     </div>
   );
 };

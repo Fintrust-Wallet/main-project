@@ -68,11 +68,12 @@
   color: #fff;
   margin-bottom: 28px;
   text-align: center;
+  font-family: "monument";
 }
 .roadMapWrap {
   display: flex;
   flex-direction: column;
-  height: 46rem;
+  height: 56rem;
   padding: 0;
   width: 100%;
   margin-bottom: 2rem;
@@ -87,20 +88,23 @@
   width: fit-content;
   padding: 0;
     position: relative;
-}
-.roadMapItem .mapHeading{
-  width: 281px;
+    isolation: isolate;
+  }
+  .roadMapItem .mapHeading{
+    width: 281px;
     height: 81px;
+    
     background: linear-gradient(105.42deg, rgba(255, 255, 255, 0.11) -3.07%, rgba(255, 255, 255, 0.11) 49.04%, rgba(255, 255, 255, 0) 97.84%);
     display: flex;
     align-items: center;
     justify-content: center;
     border: 2px solid #057ca1;
-}
-.roadMapItem .mapHeading > h4 {
-font-family: 'Sora';
-  font-style: normal;
-  font-weight: 400;
+   transition: all 0.3s ease-in-out;
+  }
+  .roadMapItem .mapHeading > h4 {
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 400;
   font-size: 24px;
   line-height: 179.9%;
   color: #FFFFFF;
@@ -111,11 +115,11 @@ font-family: 'Sora';
   left: calc(281px / 2);
   width: 2px;
   height: calc(100% - 81px);
-background-color: #057ca1;
-
+  background-color: #057ca1;
+  
 }
 .roadMapItem:last-of-type > .absoluteArrowDown{
-display: none;
+  display: none;
 }
 .absoluteLine{
   position: absolute;
@@ -123,7 +127,9 @@ display: none;
   right:100% ;
   width: 53px;
   height: 2px;
-background-color: #057ca1;
+  background-color: #057ca1;
+  z-index: -1;
+  transition: all 0.3s ease-in-out;
 }
 .roadMapItem:nth-of-type(even) > .absoluteLine{
   right: 0;
@@ -138,15 +144,92 @@ background-color: #057ca1;
   border: 2px solid #057ca1;
   padding: 0;
   right: calc(100% + 50px);
+  z-index: 1;
   background: linear-gradient(105.42deg, rgba(255, 255, 255, 0.11) -3.07%, rgba(255, 255, 255, 0.11) 49.04%, rgba(255, 255, 255, 0) 97.84%);
+  transition: all 0.3s ease-in-out;
 }
 .roadMapItem:nth-of-type(even) .mapContent {
   /* background-color: red; */
   right: calc(-100% - 50px);
   clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 100% 100%, 0 100%, 0% 80%, 0 0);
 }
+.roadMapItem:nth-of-type(even) .mapContent .mapDot{
+  left: 8%;
+  top: 20px;
+width: 21px;
+  height: 21px;;
+  border-radius: 50%;
+  position: absolute;
+  background-color: #057ca1;
+}
 .roadMapItem:nth-of-type(odd) .mapContent {
   /* background-color: #057ca1; */
   clip-path: polygon(20% 0%, 80% 0%, 99% 0, 100% 80%, 100% 99%, 0 100%, 0% 80%, 0% 20%);
+}
+.roadMapItem:nth-of-type(odd) .mapContent .mapDot {
+  right: 8%;
+  top: 20px;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: #057ca1;
+}
+.mapContent .mapDot:after {
+  content: "";
+ position: absolute;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+ top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease-in-out;
+  background: #06C4B2;
+}
+.mapContent .mapContentBody {
+  display: flex;
+  flex-direction: column;
+  gap:12px;
+  height: calc(100% - 71px);
+  margin-top: 71px;
+  width: 90%;
+  padding: 0;
+  margin-left: 10%;
+}
+.mapContent .mapContentBody > li {
+  color:#fff;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content:start;
+  gap:1rem;
+}
+.mapContent .mapContentBody > li > span:first-of-type{
+  width: 4px;
+  height: 4px;
+  transition: all 0.3s ease-in-out;
+  background: #fff;
+}
+.roadMapItem:hover > .mapContent {
+  transition: all 0.3s ease-in-out;
+  border-color: #05fae4;
+}
+
+ .roadMapItem:hover > .absoluteLine{
+  transition: all 0.3s ease-in-out;
+  background-color: #05fae4;
+}
+.roadMapItem:hover >.absoluteArrowDown{
+  transition: all 0.3s ease-in-out;
+  background-color: #05fae4;
+}
+.roadMapItem:hover  .mapHeading  {
+   transition: all 0.3s ease-in-out;
+   border-color: #05fae4;
+ }
+.mapContent:hover .mapDot:after {
+background:  #05fae4;
+  transition: all 0.3s ease-in-out;
 }
 

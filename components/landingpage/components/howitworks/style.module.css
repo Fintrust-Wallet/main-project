@@ -27,15 +27,17 @@ width: 100%;
   border-radius: 20px;
   margin: 0 auto;
   padding: 2rem 0;
+  padding-bottom: 4rem;
 }
 .howItWorksContainer .howItWorksTitle {
-font-style: normal;
-  font-weight: 400;
-  font-size: 40px;
-  line-height: 115.9%;
-  color: #FFFFFF;
+  font-weight: 200;
+  font-size: 35px;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  font-family: "monument";
+ color: #fff;
+  
 }
 .howItWorksContainer .wrap {
   width: 100%;
@@ -43,7 +45,6 @@ font-style: normal;
   flex-flow: row wrap;
   height: fit-content;
   align-items: flex-start;
-
   margin: 0 auto;
 }
 
@@ -53,7 +54,6 @@ font-style: normal;
   height: fit-content;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   align-items: center;
   margin-top: 1.5rem;
   position: relative;
@@ -65,24 +65,35 @@ font-style: normal;
   align-items: center;
   justify-content: center;
  color:hsla(194, 100%, 44%, 1);
+ margin-bottom: 29px;
+}
+.spanNum  img {
+  max-width: 50px;
+  max-height: 50px;
+  border:1px solid red;
 }
 
 .textc {
   text-align: center;
   margin: 0;
+  
+  
 }
 .miniCardWrap h4{
   color: #fff;
-font-style: normal;
+  font-style: normal;
   font-weight: 600;
   font-size: 24px;
   margin: 0;
+  margin-bottom: 1rem;
+  font-family: 'Sora';
 }
 .miniCardWrap p{
 font-style: normal;
   font-weight: 400;
+  font-family: "sora";
   font-size: 16px;
-  line-height: 179.9%;
+  line-height: 149.9%;
   color: #D6F6FF;
 }
 

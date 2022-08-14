@@ -15,6 +15,8 @@
   z-index: 1;
   display: flex;
   justify-content: space-between;
+  position: relative;
+  isolation: isolate;
 }
 .container::before, .container::after{
   content: "";
@@ -41,13 +43,20 @@ background: #057CA1;
   display: flex;
   flex-direction: column;
   gap:1rem;
+  height: fit-content;
+  margin: auto 0;
+  width: 894px;
+  z-index: 1;
 }
 .heroText > h1{
-  font-size: 4rem;
-  font-weight: 300;
-  color: #fff;
-  font-family: 'Kelly Slab', cursive;
-  margin-bottom: 0;
+font-family: 'monument';
+  width:100%;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 47px;
+  line-height: 130.9%;
+  color: #FFFFFF;
+  margin: 0;
 }
 .heroText > p{
   font-size: 1rem;
@@ -92,6 +101,10 @@ background: #057CA1;
   margin: 0;
 }
 .heroImage{
-  height: fit-content;
-  margin: auto;
+width: 607.62px;
+  height: 319.71px;
+  position: absolute;
+  top: 31%;
+  right: 4%;
+  z-index: -1;
 }

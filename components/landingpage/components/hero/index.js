@@ -10,8 +10,9 @@ const Hero = () => {
         <div className={styles.heroText}>
           <h1>
             Democratizing
-            <br /> fundraising through <br />
-            blockchain.
+            <br />
+            fundraising through
+            <br /> blockchain.
           </h1>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse

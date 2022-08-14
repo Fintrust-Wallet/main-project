@@ -7,7 +7,7 @@
   background-color: #006685;
   }
   
-  .ourFeaturesAbsolute {
+.ourFeaturesAbsolute {
     position: absolute;
     top: 30%;
     bottom: 0;
@@ -19,7 +19,7 @@
     pointer-events: none;
   
   }
-    .ourFeaturesAbsolute > img {
+.ourFeaturesAbsolute > img {
       height: 100%;
       width: 100%;
-    }
+ }

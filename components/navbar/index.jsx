@@ -6,7 +6,7 @@ import { Search } from "./components/search";
 export const NavBar = () => {
   return (
     <>
-      <div className="p-[0_2rem] neon absolute top-10 left-16 flex flex-row justify-between items-center px-8 py-3 bg-[rgba(5,_124,_160,_0.79)] rounded-[20px] mx-auto container">
+      <div className="p-[0_2rem] neon absolute top-10 max-w-6xl left-40 flex flex-row justify-between items-center px-8 py-3 bg-[rgba(5,_124,_160,_0.79)] rounded-[20px] mx-auto container z-50">
         <div>
           <Image
             src={logo}

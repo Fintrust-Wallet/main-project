@@ -1,4 +1,6 @@
+import Image from "next/image";
 import React from "react";
+import { iconfeature } from "../../../images";
 
 import styles from "./style.module.css";
 const OurFeatures = () => {
@@ -11,7 +13,14 @@ const OurFeatures = () => {
         </div>
         <div className={styles.featuresWrap}>
           <div className={styles.circleAbsolute}>
-            <div></div>
+            <div>
+              <Image
+                src={iconfeature}
+                alt="image"
+                height={"100%"}
+                width="100%"
+              />
+            </div>
           </div>
           <div className={styles.card}>
             <h3>Public Fundraise</h3>
