@@ -1,0 +1,49 @@
+
+.alertContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top:140px;
+  right:5%;
+  z-index: 100;
+  width: fit-content;
+  height: fit-content;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  border:1px solid red;
+  background: #006685;
+    border: 3px solid #0093BF;
+    border-radius: 20px;
+    gap:.2rem;
+}
+.alertContainer .alertClose {
+ font-size: 30px;
+ line-height: .2;
+ margin: 0;
+ border:1px solid red;
+ height: fit-content;
+ width: fit-content;
+ align-self: flex-end;
+ padding: .1rem 0;
+ color:#fff;
+}
+.alertContainer .alertClose:hover {
+  cursor: pointer;
+}
+.alertContent {
+  font-size: 20px;
+  font-family: "Monument";
+  margin: 0;
+  height: fit-content;
+  width: fit-content;
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-bottom:.5rem ;
+  color: #fff;
+}
