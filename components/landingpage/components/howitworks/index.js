@@ -28,11 +28,12 @@ const HowItWorks = () => {
       <div className={styles.howItWorksContainer}>
         <div className={styles.howItWorksTitle}>How it works</div>
         <span className={styles.wrap}>
-          {data.map(({ Icon, headingtext, paragraph }) => (
+          {data.map(({ Icon, headingtext, paragraph }, i) => (
             <MiniFutureCard
               Icon={Icon}
               headingtext={headingtext}
               paragraph={paragraph}
+              key={i}
             />
           ))}
         </span>

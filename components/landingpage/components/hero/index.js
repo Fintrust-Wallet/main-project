@@ -3,9 +3,12 @@ import styles from "./style.module.css";
 import { BsFillPlayFill } from "react-icons/bs";
 import { walletImage } from "../../../images";
 import Image from "next/image";
+import { NavBar } from "../../../navbar";
+
 const Hero = () => {
   return (
     <div className={styles.container}>
+      <NavBar />
       <div className={styles.hero}>
         <div className={styles.heroText}>
           <h1>
