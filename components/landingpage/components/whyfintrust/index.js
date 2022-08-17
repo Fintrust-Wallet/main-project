@@ -7,10 +7,10 @@ const WhyFintrust = () => {
     { image: "", text: "Secured" },
     { image: "", text: "Support" },
   ].map(({ image, text }, i) => (
-    <div className={styles.card}>
+    <div className={styles.card} key={i}>
       <div className={styles.cardInner}>
         <div className={styles.image}>
-          <Image src={image} />
+          <Image src={image} alt={text} />
         </div>
         <span>{text}</span>
       </div>

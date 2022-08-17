@@ -5,9 +5,10 @@
   position: relative;
     isolation: isolate;
   background-color: #006685;
+  padding: 0 26px;
   }
   
-  .ourFeaturesAbsolute {
+.ourFeaturesAbsolute {
     position: absolute;
     top: 30%;
     bottom: 0;
@@ -19,7 +20,7 @@
     pointer-events: none;
   
   }
-    .ourFeaturesAbsolute > img {
+.ourFeaturesAbsolute > img {
       height: 100%;
       width: 100%;
-    }
+ }

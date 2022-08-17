@@ -42,10 +42,11 @@
 .whyFintrustHeading h2 {
   font-style: normal;
   font-weight: 700;
-  font-size: 40px;
+  font-size: 35px;
   color: #fff;
   margin-bottom: 28px;
   text-align: center;
+  font-family: "monument";
 }
 .whyFintrustCards {
   display:flex;

@@ -1,13 +1,13 @@
 import Head from "next/head";
 import Image from "next/image";
-import { NavBar } from "../components/navbar";
-import { LandingPage } from "../components/signedin/landingpage";
-import { Banner } from "../components/Banner";
-import { Team } from "../components/Team";
-import { Footer } from "../components/Footer";
-import LBlurBg from "../public/Ellipse26.svg";
+import { NavBar } from "../../components/navbar";
+import { DonationPage } from "../../components/signedin/DonationCard";
+import { Banner } from "../../components/Banner";
+import { Team } from "../../components/Team";
+import { Footer } from "../../components/Footer";
+import LBlurBg from "../../public/Ellipse26.svg";
 
-export default function Landing() {
+export default function Donation() {
   return (
     <div>
       <Head>
@@ -21,7 +21,7 @@ export default function Landing() {
           <Image src={LBlurBg} alt="LBlurBg" className="object-contain" />
         </div>
         <NavBar />
-        <LandingPage />
+        <DonationPage />
         <Banner />
         <Team />
         <Footer />

@@ -2,22 +2,24 @@ import React from "react";
 import styles from "./style.module.css";
 import { BsBookmarkDash, BsFileEarmarkArrowUp } from "react-icons/bs";
 import { FaWallet } from "react-icons/fa";
+import { mark, pocket, upload } from "../../../../public/images";
+import Image from "next/image";
 const HowItWorks = () => {
   const data = [
     {
-      Icon: BsBookmarkDash,
+      icon: mark,
       headingtext: "Setup Campaign",
       paragraph:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est at libero, cras eu auctor hac lacus, tempus. Eget sit in sit nunc, aliquam. ",
     },
     {
-      Icon: BsFileEarmarkArrowUp,
+      icon: upload,
       headingtext: "Share Invite",
       paragraph:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est at libero, cras eu auctor hac lacus, tempus. Eget sit in sit nunc, aliquam. ",
     },
     {
-      Icon: FaWallet,
+      icon: pocket,
       headingtext: "Receive Donations",
       paragraph:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est at libero, cras eu auctor hac lacus, tempus. Eget sit in sit nunc, aliquam. ",
@@ -28,11 +30,12 @@ const HowItWorks = () => {
       <div className={styles.howItWorksContainer}>
         <div className={styles.howItWorksTitle}>How it works</div>
         <span className={styles.wrap}>
-          {data.map(({ Icon, headingtext, paragraph }) => (
+          {data.map(({ icon, headingtext, paragraph }, i) => (
             <MiniFutureCard
-              Icon={Icon}
+              icon={icon}
               headingtext={headingtext}
               paragraph={paragraph}
+              key={i}
             />
           ))}
         </span>
@@ -41,11 +44,11 @@ const HowItWorks = () => {
   );
 };
 
-const MiniFutureCard = ({ Icon, headingtext, paragraph }) => {
+const MiniFutureCard = ({ icon, headingtext, paragraph }) => {
   return (
     <div className={styles.miniCardWrap}>
       <div className={styles.SpanNum}>
-        <Icon size={30} color={"hsla(194, 100%, 44%, 1)"} />
+        <Image src={icon} alt="image" height={"50px"} width="40px" />
       </div>
       <h4 className={styles.textc}>{headingtext}</h4>
       <p className={styles.textc}>{paragraph}</p>

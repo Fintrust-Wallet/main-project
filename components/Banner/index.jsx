@@ -1,6 +1,8 @@
 import Image from "next/image";
 import leftIcon from "../../public/Polygonscan0.png";
 import rightIcon from "../../public/Polygonscan1.svg";
+import styles from "./styles.module.css";
+
 
 export const Banner = () => {
   return (
@@ -10,20 +12,22 @@ export const Banner = () => {
           <Image
             src={leftIcon}
             alt="Polygonscan"
-            className="w-20 h-20 object-contain"
+            className="md:w-20 md:h-20 w-[21px] h-[21px] object-contain"
           />
         </div>
-        <h1 className="font-nomaden-slab text-white text-[48px] text-center leading-[115.9%] font-[400] w-[793px] h-[112px]">
+        <h1
+          className={`${styles.textmon} text-white md:text-[41px] text-[32px] text-center leading-[115.9%] font-[400] md:w-[793px] w-[343px] h-[102px]`}
+        >
           All transactions on Fintrust are secured on Polygon network.
         </h1>
-        <button className="w-[221px] h-[57px] text-white bg-green-100 p-[17px_31px] flex flex-row justify-center items-center gap-[10px] rounded-[10px]">
+        <button className="w-[221px] h-[57px] text-white bg-green-500 p-[17px_31px] flex flex-row justify-center items-center gap-[10px] rounded-[10px]">
           Create campaign
         </button>
         <div className="absolute right-0 top-10">
           <Image
             src={rightIcon}
             alt="Polygonscan"
-            className="w-20 h-20 object-contain absolute right-0"
+            className="md:w-20 md:h-20 w-[21px] h-[21px] object-contain absolute right-0"
           />
         </div>
       </div>
