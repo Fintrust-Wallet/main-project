@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import LandinPage from "../components/landingpage";
 import { Team } from "../components/Team";
 import { Footer } from "../components/Footer";
@@ -17,6 +16,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <LandinPage />
+
       <Team />
       <Footer />
     </div>

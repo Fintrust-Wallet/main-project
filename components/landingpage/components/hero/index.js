@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./style.module.css";
 import { BsFillPlayFill } from "react-icons/bs";
-import { walletImage } from "../../../images";
+import { walletImage } from "../../../../public/images";
 import Image from "next/image";
 import { NavBar } from "../../../navbar";
 
@@ -13,8 +13,9 @@ const Hero = () => {
         <div className={styles.heroText}>
           <h1>
             Democratizing
-            <br /> fundraising through <br />
-            blockchain.
+            <br />
+            fundraising through
+            <br /> blockchain.
           </h1>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse

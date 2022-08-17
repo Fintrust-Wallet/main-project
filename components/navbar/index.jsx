@@ -6,10 +6,12 @@ import { ethers } from "ethers";
 import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { Search } from "./components/search";
+import { ConnectWallet } from "../modals/connectwalletmodal";
 
 export const NavBar = () => {
   const [userAccount, setUserAccount] = useState("");
   const [web3Modal, setWeb3Modal] = useState({});
+  const [openWalletOptions, setOpenWalletOptions] = useState(false);
 
   const providerOptions = {
       walletconnect: {
@@ -41,6 +43,7 @@ export const NavBar = () => {
   }, []);
 
   const connect = async () => {
+
     try {
       const instance = await web3Modal.connect();
       const provider = new ethers.providers.Web3Provider(instance);
@@ -60,7 +63,9 @@ export const NavBar = () => {
 
   return (
     <>
-      <div className="p-[0_2rem] neon absolute top-10 max-w-6xl md:left-16 flex flex-row justify-between items-center px-8 py-3 bg-[rgba(5,_124,_160,_0.79)] rounded-[20px] md:mx-auto md:container">
+    <ConnectWallet open={openWalletOptions} onClose={() => setOpenWalletOptions(false)} onConnect={connect} />
+      <div className="p-[0_2rem] neon absolute top-10 max-w-6xl left-40 flex flex-row justify-between items-center px-8 py-3 bg-[rgba(5,_124,_160,_0.79)] rounded-[20px] mx-auto container z-50">
+
         <div>
           <Image
             src={logo}
@@ -86,7 +91,7 @@ export const NavBar = () => {
             <Search w="42" h="42" />
             <div>
               <button
-                onClick={connect}
+                onClick={() => setOpenWalletOptions(true)}
                 className="w-[221px] h-[57px] text-white bg-primary-900 p-[17px_31px] flex flex-row justify-center items-center gap-[10px] rounded-[10px] connected-btn"
               >
                 {userAccount

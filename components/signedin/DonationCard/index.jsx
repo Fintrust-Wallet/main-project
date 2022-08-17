@@ -9,8 +9,13 @@ import donation_photo from "../../../public/donation_photo.svg";
 import image1 from "../../../public/img1.png";
 import ukrain from "../../../public/ukrain.png";
 import polio from "../../../public/polio.png";
+import { MakeDonations } from "../../modals/makedonations";
+import { useState } from "react";
+import { ShareCampaign } from "../../modals/sharecampaign";
 
 export const DonationPage = ({ amount, raised }) => {
+  const [showMakeDonationsModal, setShowMakeDonationsModal] = useState(false);
+  const [showShareThisCampaignModal, setShowShareThisCampaignModal] = useState(false)
   const history = [
     {
       time: "12/06/2022, 08:01AM",
@@ -63,6 +68,8 @@ export const DonationPage = ({ amount, raised }) => {
   ];
   return (
     <>
+    <MakeDonations open={showMakeDonationsModal} onClose={setShowMakeDonationsModal} />
+    <ShareCampaign open={showShareThisCampaignModal} onClose={setShowShareThisCampaignModal} />
       <div className="mt-44 relative font-sora-light">
         <div className="mx-12">
           <div>
@@ -129,12 +136,18 @@ export const DonationPage = ({ amount, raised }) => {
                   </div>
                 </div>
                 <div className="flex flex-col space-y-4 justify-center items-center mt-8">
-                  <button className="w-[428px] h-[59px] text-white bg-green-500 p-[17px_31px] flex flex-row justify-center items-center gap-[10px] rounded-[10px]">
+                {/* Make donation button */}
+                  <button onClick={()=> setShowMakeDonationsModal(!showMakeDonationsModal)} className="w-[428px] h-[59px] text-white bg-green-500 p-[17px_31px] flex flex-row justify-center items-center gap-[10px] rounded-[10px]" >
                     Donate
                   </button>
-                  <button className="w-[428px] h-[59px] text-white bg-primary-900 p-[17px_31px] flex flex-row justify-center items-center gap-[10px] rounded-[10px] connected-btn">
+                {/* Make donation button */}
+                {/* share donation button */}
+                 
+                  <button onClick={()=> setShowShareThisCampaignModal(!showShareThisCampaignModal)} className="w-[428px] h-[59px] text-white bg-primary-900 p-[17px_31px] flex flex-row justify-center items-center gap-[10px] rounded-[10px] connected-btn">
                     <span>Share this Campaign</span>
                   </button>
+                {/* Make donation button */}
+
                 </div>
                 <div className="mt-12 grid space-y-3">
                   <div className="flex flex-row gap-4 items-center">

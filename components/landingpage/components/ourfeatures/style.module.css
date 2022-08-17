@@ -2,7 +2,6 @@
   width: 100%;
   height: fit-content;
   padding: 4.5rem;
-  /* background-color: #006685; */
   background-size: cover;
   position: relative;
   isolation: isolate;
@@ -45,6 +44,7 @@ flex-direction: column;
   color: #fff;
   margin-bottom: 28px;
   text-align: center;
+  font-family: "monument";
 }
 .ourFeaturesContainerInner .featuresWrap {
   width: 100%;
@@ -105,5 +105,11 @@ flex-direction: column;
   height: 80%;
   width: 80%;
   border-radius: 50%;
-  background-color: #05FAE4;
+
+}
+.circleAbsolute > div > img{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
 }
