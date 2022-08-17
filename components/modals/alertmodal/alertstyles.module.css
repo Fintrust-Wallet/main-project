@@ -5,7 +5,7 @@
   align-items: center;
   position: absolute;
   top:140px;
-  right:5%;
+  right:15%;
   z-index: 100;
   width: fit-content;
   height: fit-content;
@@ -13,6 +13,7 @@
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   padding: 10px 20px;
+  padding-top: 2rem;
   border:1px solid red;
   background: #006685;
     border: 3px solid #0093BF;
@@ -23,12 +24,13 @@
  font-size: 30px;
  line-height: .2;
  margin: 0;
- border:1px solid red;
  height: fit-content;
  width: fit-content;
  align-self: flex-end;
  padding: .1rem 0;
  color:#fff;
+ position: absolute;
+ top: 5px;
 }
 .alertContainer .alertClose:hover {
   cursor: pointer;
@@ -46,4 +48,15 @@
   gap: 10px;
   padding-bottom:.5rem ;
   color: #fff;
+  font-style: normal;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 115.9%;
+   
+}
+.alertContent span:first-of-type  {
+  color: hsla(0, 87%, 49%, 1);
+} 
+.alertContent span:first-of-type span.active {
+ color:hsla(122, 100%, 50%, 1);
 }

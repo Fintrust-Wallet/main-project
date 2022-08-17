@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./style.module.css";
 import { BsFillPlayFill } from "react-icons/bs";
-import { walletImage } from "../../../images";
+import { walletImage } from "../../../../public/images";
 import Image from "next/image";
 import { NavBar } from "../../../navbar";
 

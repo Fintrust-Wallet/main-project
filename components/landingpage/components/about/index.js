@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { duck } from "../../../images";
+import { duck } from "../../../../public/images";
 import styles from "./style.module.css";
 
 const AboutUs = () => {

@@ -1,13 +1,13 @@
 import Image from "next/image";
 import React from "react";
-import "../../../images";
+import "../../../../public/images";
 import {
   Exoduslogo,
   MetaMaskIcon,
   salfal,
   trust,
   walletConnect,
-} from "../../../images";
+} from "../../../../public/images";
 import styles from "./style.module.css";
 const SupportedWalletBanner = () => {
   const supportedWallets = [

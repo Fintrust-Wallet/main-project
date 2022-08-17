@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { iconfeature } from "../../../images";
+import { iconfeature } from "../../../../public/images";
 
 import styles from "./style.module.css";
 const OurFeatures = () => {

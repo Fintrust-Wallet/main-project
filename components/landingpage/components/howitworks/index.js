@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./style.module.css";
 import { BsBookmarkDash, BsFileEarmarkArrowUp } from "react-icons/bs";
 import { FaWallet } from "react-icons/fa";
-import { mark, pocket, upload } from "../../../images";
+import { mark, pocket, upload } from "../../../../public/images";
 import Image from "next/image";
 const HowItWorks = () => {
   const data = [
