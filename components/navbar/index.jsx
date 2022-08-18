@@ -7,11 +7,17 @@ import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { Search } from "./components/search";
 import { ConnectWallet } from "../modals/connectwalletmodal";
+import { RaiseCampaign } from "../modals/raisecampaign";
+import { SuccessForm } from "../modals/raisecampaign/successForm";
+import { AlertModal } from "../modals/alertmodal";
 
 export const NavBar = () => {
   const [userAccount, setUserAccount] = useState("");
   const [web3Modal, setWeb3Modal] = useState({});
   const [openWalletOptions, setOpenWalletOptions] = useState(false);
+  const [openRaiseCampaignModal, setOpenRaiseCampaignModal] = useState(false)
+  const [openSuccessForm, setOpenSuccessForm] = useState(false)
+  const [showAlert, setShowAlert] = useState(false)
 
   const providerOptions = {
       walletconnect: {
@@ -43,8 +49,8 @@ export const NavBar = () => {
   }, []);
 
   const connect = async () => {
-
     try {
+      setShowAlert(!showAlert)
       const instance = await web3Modal.connect();
       const provider = new ethers.providers.Web3Provider(instance);
       const signer = provider.getSigner();
@@ -52,6 +58,8 @@ export const NavBar = () => {
       setUserAccount(accounts[0]);
       console.log(signer)
     } catch (err) {
+      setShowAlert(!showAlert)
+
       console.error(err);
       alert("There is an error")
     }
@@ -63,7 +71,10 @@ export const NavBar = () => {
 
   return (
     <>
+    <AlertModal showAlert={showAlert} setShowAlert={setShowAlert}  connectStatus={showAlert} />
     <ConnectWallet open={openWalletOptions} onClose={() => setOpenWalletOptions(false)} onConnect={connect} />
+    <RaiseCampaign open={openRaiseCampaignModal} onClose={()=> setOpenRaiseCampaignModal(!openRaiseCampaignModal)}setOpenSuccessForm={setOpenSuccessForm}/>
+    <SuccessForm open={openSuccessForm} onClose={()=> setOpenSuccessForm(!openSuccessForm)} setOpenSuccessForm={setOpenSuccessForm}/>
       <div className="p-[0_2rem] neon absolute top-10 max-w-6xl left-40 flex flex-row justify-between items-center px-8 py-3 bg-[rgba(5,_124,_160,_0.79)] rounded-[20px] mx-auto container z-50">
 
         <div>
@@ -79,8 +90,8 @@ export const NavBar = () => {
               <li>
                 <Link href="/donations">Donations</Link>
               </li>
-              <li>
-                <Link href="/create/campaigns">Create Campaigns</Link>
+              <li onClick={()=> setOpenRaiseCampaignModal(!openRaiseCampaignModal)}>
+                <>Create Campaigns</>
               </li>
               <li>
                 <Link href="/portfolio">My Portfolio</Link>
