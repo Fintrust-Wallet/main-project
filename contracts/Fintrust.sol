@@ -67,12 +67,7 @@
 //         bool withdrawInitiated;
 //         uint id; 
 //         bytes32 url;
-//     }
-
-//     mapping(uint256 => Campaign) campaigns;
-
-//     //Keeps a record of signatories that have actually confirmed or rejected a campaign's withdrawal
-//     mapping(uint256 => address[]) campaignToSigner;
+//     }       
 
 //     mapping(address => Campaign[]) creators;
 //     mapping(address => CampaignRef[]) signatories;
@@ -198,29 +193,6 @@
 //         _campaign.balance += msg.value;
 //         _campaign.deposited += msg.value;
 //         _campaigns[_campaignId] = _campaign;
-//     }
-
-//     function getCampaign(uint256 _campaignId)
-//         external
-//         view
-//         returns (Campaign memory)
-//     {
-//         return campaigns[_campaignId];
-//     }
-
-//     function allCampaigns() external view returns (Campaign[] memory) {
-//         uint256 count = _campaignIdCounter.current();
-//         uint256 currentIndex = 0;
-
-//         Campaign[] memory items = new Campaign[](count);
-
-//         for (uint256 i = 1; i < count; i++) {
-//             Campaign memory currentCampaign = campaigns[i];
-//             items[currentIndex] = currentCampaign;
-//             currentIndex++;
-//         }
-
-//         return items;
 //     }
 
 //     function confirmWithdraw(address creator, uint256 _campaignId)
@@ -349,5 +321,40 @@
 //         }
 
 //         return false;            
+//     }
+
+    
+//     function getCampaign(uint256 _campaignId, address creator)
+//         external
+//         view
+//         returns (Campaign memory)
+//     {
+//         return creators[creator][_campaignId];
+//     }
+
+//     function allCampaigns(address creator) external view returns (Campaign[] memory) {
+//         return creators[creator];        
+//     }
+
+//     function allRef(address signatory) external view returns (CampaignRef[] memory){
+//         return signatories[signatory];
+//     }
+
+//     function allWithdrawRequest(address signatory) external view returns (Campaign[] memory campaigns){
+//         CampaignRef[] memory _campaignRefs = signatories[signatory];      
+//         uint index = 0;
+
+//         for (uint i = 0 ; i < _campaignRefs.length; i++){
+//             address initiator = _campaignRefs[i].initiator;
+//             uint id = _campaignRefs[i].id;
+
+//             Campaign memory _campaign = creators[initiator][id];
+
+//             if(_campaign.withdrawInitiated){
+//                 campaigns[index] = _campaign;
+//                 index += 1;
+//             }
+                        
+//         }
 //     }
 // }
