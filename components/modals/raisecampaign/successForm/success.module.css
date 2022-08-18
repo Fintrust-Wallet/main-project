@@ -89,6 +89,31 @@ div.open {
   line-height: 141.9%;
   color: #FFFFFF;
 }
+.heading{
+  display: flex;
+  flex-direction: column;
+   margin: 0 auto;
+  width: 80%;
+  height: fit-content;
+  gap:.2rem;
+}
+.heading > h2{
+  font-family: 'monument';
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  line-height: 141.9%;
+  color: #FFFFFF;
+  text-align: center;
+}
+.heading > p{
+  text-align: center;
+}
+.heading > span{
+  color:#06C4B2;
+  width: fit-content;
+  margin: 0 auto;
+}
 
 .modalContent .modalBodyParagraph {
   font-family: 'sora';
@@ -116,7 +141,7 @@ div.open {
   border-radius: 10px;
   align-items: center;
   justify-content: space-between;
-  padding:0 .5rem;
+  padding: 0 .5rem;
 }
 
 
@@ -135,31 +160,37 @@ div.open {
   width: fit-content;
   padding: 0 .5rem;
 }
-.modalContent .modalBody .inputContainer span:last-of-type{
-  border:1px solid red;
+
+.modalContent .modalBody .inputContainer span:last-of-type {
+  border: 1px solid red;
   height: 34px;
-  width:40px;
+  width: 40px;
 }
 
-.modalContent .modalBody .text{
-  color:#fff;
+.modalContent .modalBody .text {
+  color: #fff;
 }
-.modalContent .modalBody .social{
-  display:flex;
+
+.modalContent .modalBody .social {
+  display: flex;
   justify-content: space-between;
 }
-.modalContent .modalBody .social > div {
+
+.modalContent .modalBody .social>div {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap:.75rem;
+  gap: .75rem;
 }
-.modalContent .modalBody .social>div > span:first-of-type{
-  color:#06C4B2;
+
+.modalContent .modalBody .social>div>span:first-of-type {
+  color: #06C4B2;
 }
+
 .modalContent .modalBody .social>div>span:last-of-type {
   color: #fff;
 }
+
 .modalContent .modalBody .modalBodyBtn {
   width: 100%;
 }

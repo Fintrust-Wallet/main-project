@@ -7,9 +7,7 @@ import { BiLogInCircle, BiLogOutCircle } from "react-icons/bi";
 const AlertModal = ({ connectStatus }) => {
   const [isBrowser, setIsBrowser] = useState(false);
 
-  useEffect(() => {
-    setIsBrowser(true);
-  }, []);
+  useEffect(() => {}, [connectStatus]);
   if (isBrowser) {
     return ReactDOM.createPortal(
       <div className={styles.alertContainer}>
