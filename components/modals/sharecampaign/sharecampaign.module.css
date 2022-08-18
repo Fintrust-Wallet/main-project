@@ -1,0 +1,188 @@
+.ShareCampaignContainer {
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  z-index: -20;
+  transform: scale(0);
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+form.active {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0%;
+  left: 0%;
+  background: rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.modalContainer {
+  transition-delay: 0.3s;
+  transition: all 0.3s ease-in-out;
+  transform: scale(0);
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+div.open {
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+  transition: all 0.3s ease-in-out;
+  transform: scale(1);
+  transition-delay: 0.3s;
+  width: 535px;
+  height: fit-content;
+  background: #006685;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modalContent {
+  padding: 20px;
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.modalContent .modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+}
+
+.modalContent .modalHeader .close {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  color: #fff;
+}
+
+.modalContent .modalHeader .close:hover {
+  color: #006685;
+  background: #fff;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+.modalContent .modalHeader>h2 {
+  font-family: 'monument';
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  line-height: 141.9%;
+  color: #FFFFFF;
+}
+
+.modalContent .modalBodyParagraph {
+  font-family: 'sora';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 141.9%;
+  color: #FFFFFF;
+  margin-bottom: 47px;
+}
+
+.modalContent .modalBody {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 2rem;
+}
+
+.modalContent .modalBody .inputContainer {
+  display: flex;
+  height: 58px;
+  border: 2px solid #05FAE4;
+  /* border-image-source: linear-gradient(90.34deg, #05FAE4 0.73%, #0093BF 99.8%); */
+  background: #005170;
+  border-radius: 10px;
+  align-items: center;
+}
+
+.modalContent .modalBody .inputContainer>div {
+  width: 65%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 .5rem;
+}
+
+.modalContent .modalBody .inputContainer>div>label {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 141.9%;
+  color: #FFFFFF;
+}
+
+.modalContent .modalBody .inputContainer>div>input {
+  width: calc(90%);
+  border-radius: 10px 0 0 10px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 0 .2rem;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 141.9%;
+  color: #FFFFFF;
+}
+
+.modalContent .modalBody .inputContainer span {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+
+  color: #FFFFFF;
+  border-left: 1px solid #fff;
+  height: 80%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 0 .5rem;
+}
+
+.modalContent .modalBody .modalBodyBtn {
+  width: 100%;
+}
+
+.modalContent .modalBody .modalBodyBtn button {
+  width: 100%;
+  height: 59px;
+  left: 40px;
+  top: 260px;
+  background: #06C4B2;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid transparent;
+}
+
+.modalContent .modalBody .modalBodyBtn button:hover {
+  background: #006685;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid #fff;
+}

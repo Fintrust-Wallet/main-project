@@ -15,25 +15,96 @@ const RoadMap = () => {
             <div className={styles.mapHeading}>
               <h4>Launch🚀</h4>
             </div>
-            <div className={styles.mapContent}></div>
+            <div className={styles.mapContent}>
+              <span className={styles.mapDot}></span>
+              <ul className={styles.mapContentBody}>
+                <li>
+                  {" "}
+                  <span className="before"></span>{" "}
+                  <span>hdb3jehfejfemfvefhef</span>
+                </li>{" "}
+                <li>
+                  {" "}
+                  <span className="before"></span>{" "}
+                  <span>hdb3jehfejfemfvefhef</span>
+                </li>
+                <li>
+                  {" "}
+                  <span className="before"></span>{" "}
+                  <span>hdb3jehfejfemfvefhef</span>
+                </li>
+                <li>
+                  <span className="before"></span>{" "}
+                  <span>hdb3jehfejfemfvefhef</span>
+                </li>
+              </ul>
+            </div>
+            <div className={styles.mapContentBody}></div>
           </div>
           <div className={styles.roadMapItem}>
             <div className={styles.absoluteArrowDown}></div>
             <div className={styles.absoluteLine}></div>
 
             <div className={styles.mapHeading}>
-              <h4>Launch🚀</h4>
+              <h4>Phase 2✨</h4>
             </div>
-            <div className={styles.mapContent}></div>
+            <div className={styles.mapContent}>
+              <span className={styles.mapDot}></span>
+              <ul className={styles.mapContentBody}>
+                <li>
+                  {" "}
+                  <span className="before"></span>{" "}
+                  <span>hdb3jehfejfemfvefhef</span>
+                </li>{" "}
+                <li>
+                  {" "}
+                  <span className="before"></span>{" "}
+                  <span>hdb3jehfejfemfvefhef</span>
+                </li>
+                <li>
+                  {" "}
+                  <span className="before"></span>{" "}
+                  <span>hdb3jehfejfemfvefhef</span>
+                </li>
+                <li>
+                  <span className="before"></span>{" "}
+                  <span>hdb3jehfejfemfvefhef</span>
+                </li>
+              </ul>
+            </div>
+            <div className={styles.mapContentBody}></div>
           </div>
           <div className={styles.roadMapItem}>
             <div className={styles.absoluteArrowDown}></div>
             <div className={styles.absoluteLine}></div>
 
             <div className={styles.mapHeading}>
-              <h4>Launch🚀</h4>
+              <h4>Phase 3✨</h4>
             </div>
-            <div className={styles.mapContent}></div>
+            <div className={styles.mapContent}>
+              <span className={styles.mapDot}></span>
+              <ul className={styles.mapContentBody}>
+                <li>
+                  {" "}
+                  <span className="before"></span>{" "}
+                  <span>hdb3jehfejfemfvefhef</span>
+                </li>{" "}
+                <li>
+                  {" "}
+                  <span className="before"></span>{" "}
+                  <span>hdb3jehfejfemfvefhef</span>
+                </li>
+                <li>
+                  {" "}
+                  <span className="before"></span>{" "}
+                  <span>hdb3jehfejfemfvefhef</span>
+                </li>
+                <li>
+                  <span className="before"></span>{" "}
+                  <span>hdb3jehfejfemfvefhef</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

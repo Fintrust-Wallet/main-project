@@ -9,13 +9,13 @@ export const LandingPage = () => {
   return (
     <>
       <div className="mt-44">
-        <div className="grid place-items-center">
-          <h1 className="font-nomaden-slab text-white text-[48px] text-center leading-[115.9%] font-[400] w-[793px] h-[112px]">
+        <div className="grid place-items-center relative z-[1000]">
+          <h1 className="font-nomaden-slab text-white md:text-[48px] text-[32px] text-center leading-[115.9%] font-[400] md:w-[793px] w-[393px] h-[112px]">
             Donating on a transparent platform powered by Polygon.
           </h1>
         </div>
         <div>
-          <div className="grid grid-cols-3 gap-10 px-10 relative top-20 mb-32">
+          <div className="grid grid-cols-1 place-items-center md:grid-cols-3 gap-10 px-10 relative top-20 mb-32">
             <Card img={image1} amount="$200,000" raised="$10,000" />
             <Card img={ukrain} amount="$2,000,000" raised="$150,000" />
             <Card img={polio} amount="$1,200,000" raised="$100,000" />
