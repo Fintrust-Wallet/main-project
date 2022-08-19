@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import styles from "../form.module.css";
 import { AiOutlineClose } from "react-icons/ai";
 const CampaignDetails = ({ showForm, setShowForm }) => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [mediaFiles, setMediaFiles] = useState([])
+
+  const [formInput, setFormInput] = useState({
+    title: "",
+    description: "",
+    mediaFiles: []
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,6 +30,7 @@ const CampaignDetails = ({ showForm, setShowForm }) => {
             <input
               id={"campaignName"}
               placeholder={"Whats the title of your campaign?"}
+              onChange={e => setFormInput({...formInput, title: e.target.value})}
             />
           </div>
           <div className={styles.inputWrap}>
@@ -34,6 +38,7 @@ const CampaignDetails = ({ showForm, setShowForm }) => {
             <textarea
               id={"campaignDesc"}
               placeholder={"Whats the title of your campaign?"}
+              onChange={e => setFormInput({...formInput, description: e.target.value})}
             />
           </div>
           <div className={styles.flex}>
