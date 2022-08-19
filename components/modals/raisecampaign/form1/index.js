@@ -1,11 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../form.module.css";
 import { AiOutlineClose } from "react-icons/ai";
-const CampaignDetails = ({ showForm, setShowForm }) => {
-  const handleSubmit = (e) => {
+const CampaignDetails = ({
+  showForm,
+  setShowForm,
+  campaignTitle,
+  setCampaignTitle,
+  campaignDescription,
+  setCampaignDescription,
+}) => {
+  const [file, setFiles] = useState([]);
+  const [imageUrl, setImageUrl] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setShowForm("transactForm");
+    const canContinue =
+      campaignTitle !== "" && campaignDescription !== "" && file !== [];
+
+    if (canContinue) {
+      if (file.length > 4) {
+        alert("You are only allowed to upload a maximum of 4 files at a time");
+        return;
+      }
+
+      //check file size
+      if (file.length > 0) {
+        for (let i = 0; i < file.length; i++) {
+          if (file[i].size / 1024 / 1024 > 5)
+            return alert("File size is too big");
+        }
+      }
+      setLoading(true);
+      setShowForm("transactForm");
+      try {
+        //make request to server
+        // setUploadProgress(progress)
+      } catch {
+        setLoading(false);
+        alert("Something went wrong");
+      }
+    } else {
+      alert("Please fill all the fields");
+    }
   };
+  const handleDeleteFileItem = (i) => {
+    setFiles([...file].filter((item, index) => index !== i));
+  };
+
   return (
     <form
       className={
@@ -22,6 +64,8 @@ const CampaignDetails = ({ showForm, setShowForm }) => {
             <label htmlFor="campaignName">Campaign title</label>
             <input
               id={"campaignName"}
+              value={campaignTitle}
+              onChange={(e) => setCampaignTitle(e.target.value)}
               placeholder={"Whats the title of your campaign?"}
             />
           </div>
@@ -29,6 +73,8 @@ const CampaignDetails = ({ showForm, setShowForm }) => {
             <label htmlFor="campaignDesc">Campaign description</label>
             <textarea
               id={"campaignDesc"}
+              value={campaignDescription}
+              onChange={(e) => setCampaignDescription(e.target.value)}
               placeholder={"Whats the title of your campaign?"}
             />
           </div>
@@ -39,41 +85,45 @@ const CampaignDetails = ({ showForm, setShowForm }) => {
               <span>You can add as much as 4 media, 20mb max per upload</span>
             </div>
             <div className={styles.upload}>
-              <label htmlFor="campaignMedia">Add media</label>
+              <label htmlFor={loading ? "" : "campaignMedia"}>
+                {loading ? `uploading  ${uploadProgress}%` : "Add media"}
+              </label>
               <input
                 type="file"
+                multiple
                 id="campaignMedia"
+                accept="image/*"
+                onChange={(e) => setFiles(e.target.files)}
                 style={{ display: "none" }}
               />
             </div>
           </div>
           <div className={styles.flexCol}>
-            {Array(3)
-              .fill(0)
-              .map((_, i) => {
-                return (
-                  <div className={styles.filepreview}>
-                    <div>
-                      <span className={styles.filepreviewtext}>
-                        IMG_321837302.png
-                      </span>
-                      <span className={styles.filepreviewsize}>
-                        <span>1.5</span>mb
-                      </span>
+            {[...file].map((_, i) => {
+              return (
+                <div className={styles.filepreview}>
+                  <div>
+                    <span className={styles.filepreviewtext}>{_?.name}</span>
+                    <span className={styles.filepreviewsize}>
+                      <span>{(_?.size / 1024 / 1024).toFixed(4)}</span>mb
+                    </span>
+                  </div>
+                  <div>
+                    <div className={styles.fileuploadprogress}>
+                      <div className={styles.fileuploadprogressbar}></div>
                     </div>
-                    <div>
-                      <div className={styles.fileuploadprogress}>
-                        <div className={styles.fileuploadprogressbar}></div>
-                      </div>
-                      <div className={styles.fileuploadclose}>
-                        <span>
-                          <AiOutlineClose size={20} />
-                        </span>
-                      </div>
+                    <div
+                      className={styles.fileuploadclose}
+                      onClick={() => handleDeleteFileItem(i)}
+                    >
+                      <span>
+                        <AiOutlineClose size={20} />
+                      </span>
                     </div>
                   </div>
-                );
-              })}
+                </div>
+              );
+            })}
           </div>
         </div>
         <div className={styles.BtnWrap}>

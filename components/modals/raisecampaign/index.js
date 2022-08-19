@@ -9,7 +9,11 @@ import { CampaignDetails } from "./form1";
 import { CampaignTransactionsDetails } from "./form2";
 const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
   const [isBrowser, setIsBrowser] = useState(false);
+  const [campaignTitle, setCampaignTitle] = useState("");
+  const [campaignDescription, setCampaignDescription] = useState("");
   const [showForm, setShowForm] = useState("detailsForm");
+  const [campaignAmount, setCampaignAmount] = useState("");
+  const [ArraySignatories, setArraySignatories] = useState([]);
 
   useEffect(() => {
     setIsBrowser(true);
@@ -20,26 +24,46 @@ const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
         <div className={open ? styles.open : styles.modalContainer}>
           <div className={styles.modalContent}>
             <div className={styles.modalHeader}>
-              <h2>Create a new campaign</h2>
+              <h2>
+                {showForm !== "detailsForm"
+                  ? "Transaction Details"
+                  : "Create a new campaign"}
+              </h2>
               <button
                 type="button"
                 className={styles.close}
-                onClick={() => onClose()}
+                onClick={() => {
+                  setOpenSuccessForm(false);
+                  setShowForm("detailsForm");
+                  onClose();
+                }}
               >
                 <AiOutlineClose size={25} />
               </button>
             </div>
             <p className={styles.modalBodyParagraph}>
-              Open a campaign in just a few step and get people to donate
-              seemlessly.
+              {showForm !== "detailsForm"
+                ? "Please confirm all info before proceeding to avoid loss of funds."
+                : "Open a campaign in just a few step and get people to donate seemlessly."}
             </p>
             <div className={styles.modalBody}>
-              <CampaignDetails showForm={showForm} setShowForm={setShowForm} />
+              <CampaignDetails
+                showForm={showForm}
+                setShowForm={setShowForm}
+                campaignTitle={campaignTitle}
+                setCampaignTitle={setCampaignTitle}
+                campaignDescription={campaignDescription}
+                setCampaignDescription={setCampaignDescription}
+              />
               <CampaignTransactionsDetails
                 showForm={showForm}
                 onClose={onClose}
                 setShowForm={setShowForm}
                 setShowSuccessForm={setOpenSuccessForm}
+                campaignAmount={campaignAmount}
+                setCampaignAmount={setCampaignAmount}
+                ArraySignatories={ArraySignatories}
+                setArraySignatories={setArraySignatories}
               />
             </div>
           </div>

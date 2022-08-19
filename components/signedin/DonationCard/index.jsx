@@ -70,7 +70,7 @@ export const DonationPage = ({ amount, raised }) => {
     <>
     <MakeDonations open={showMakeDonationsModal} onClose={setShowMakeDonationsModal} />
     <ShareCampaign open={showShareThisCampaignModal} onClose={setShowShareThisCampaignModal} />
-      <div className="mt-44 relative font-sora-light">
+      <div className="mt-44 relative font-sora-light max-w-7xl mx-auto">
         <div className="mx-12">
           <div>
             <button className="w-[221px] h-[57px] text-white bg-primary-900 p-[17px_31px] flex flex-row justify-center items-center gap-[10px] rounded-[10px] connected-btn">

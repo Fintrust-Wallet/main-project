@@ -101,11 +101,17 @@
   color: #fff;
   background-color: #005170;
   border-radius: 10px;
+  cursor: pointer;
   border:2px solid hsla(174, 94%, 40%, 1);
+}
+.upload >*{
+  cursor: pointer;
 }
 .formcontainer .inner .body .flex .upload2 {
   height: 58px;
   width: fit-content;
+  white-space: nowrap;
+  cursor: pointer;
   margin-top: 33px;
   margin-left: 20px;
   padding: 0 1rem;
@@ -134,6 +140,9 @@
   font-size: 13px;
   font-weight: 600;
   color: #fff;
+}
+.fileuploadclose{
+  cursor: pointer;
 }
 .filepreview{
   width: 100%;
