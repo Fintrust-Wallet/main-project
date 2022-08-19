@@ -1,4 +1,4 @@
-.ShareCampaignContainer {
+.RaiseCampaignContainer {
   transition: all 0.3s ease-in-out;
   opacity: 0;
   z-index: -20;
@@ -8,16 +8,17 @@
   overflow: hidden;
 }
 
-form.active {
-  position: fixed;
+div.active {
+  position: absolute;
   width: 100%;
-  height: 100vh;
+  height: fit-content;
   display: flex;
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
-  top: 0%;
+  padding: 2rem 0;
+  top:0%;
   left: 0%;
   background: rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease-in-out;
@@ -31,7 +32,7 @@ form.active {
   transform: scale(0);
   height: 0;
   width: 0;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 div.open {
@@ -41,14 +42,14 @@ div.open {
   transition: all 0.3s ease-in-out;
   transform: scale(1);
   transition-delay: 0.3s;
-  width: 535px;
-  height: fit-content;
+  width: 735px;
   background: #006685;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  /* border: 1px solid red; */
 }
 
 .modalContent {
-  padding: 20px;
+  padding: 25px 40px;
   height: fit-content;
   width: 100%;
   display: flex;
@@ -105,61 +106,11 @@ div.open {
   flex-direction: column;
   width: 100%;
   gap: 2rem;
-}
-
-.modalContent .modalBody .inputContainer {
-  display: flex;
-  height: 58px;
-  border: 2px solid #05FAE4;
-  /* border-image-source: linear-gradient(90.34deg, #05FAE4 0.73%, #0093BF 99.8%); */
-  background: #005170;
-  border-radius: 10px;
-  align-items: center;
-  justify-content: space-between;
-  padding:0 .5rem;
+  position: relative;
+  overflow-x: hidden;
 }
 
 
-
-
-.modalContent .modalBody .inputContainer span {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 15px;
-  color: #FFFFFF;
-  height: 80%;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: fit-content;
-  padding: 0 .5rem;
-}
-.modalContent .modalBody .inputContainer span:last-of-type{
-  border:1px solid red;
-  height: 34px;
-  width:40px;
-}
-
-.modalContent .modalBody .text{
-  color:#fff;
-}
-.modalContent .modalBody .social{
-  display:flex;
-  justify-content: space-between;
-}
-.modalContent .modalBody .social > div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap:.75rem;
-}
-.modalContent .modalBody .social>div > span:first-of-type{
-  color:#06C4B2;
-}
-.modalContent .modalBody .social>div>span:last-of-type {
-  color: #fff;
-}
 .modalContent .modalBody .modalBodyBtn {
   width: 100%;
 }
