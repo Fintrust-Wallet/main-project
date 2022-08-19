@@ -53,18 +53,6 @@ export const DonationPage = ({ amount, raised }) => {
       eth: "+0.23ETH",
       amount: "$1,700.00",
     },
-    {
-      time: "12/06/2022, 08:01AM",
-      address: "0x7bfgh5236457tyu6*****",
-      eth: "+0.23ETH",
-      amount: "$1,700.00",
-    },
-    {
-      time: "12/06/2022, 08:01AM",
-      address: "0x7bfgh5236457tyu6*****",
-      eth: "+0.23ETH",
-      amount: "$1,700.00",
-    },
   ];
   return (
     <>
