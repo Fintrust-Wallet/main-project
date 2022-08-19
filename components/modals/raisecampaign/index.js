@@ -11,14 +11,16 @@ import { validateFormInput } from "../../../Integrations/Utils/ipfshandler";
 const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
   const [isBrowser, setIsBrowser] = useState(false);
   const [showForm, setShowForm] = useState("detailsForm");
-  conse[(FormOneData, setFormOneData)] = useState({});
+  const [formOneData, setFormOneData] = useState({});
+  const [hasSetFormOne, setHasSetFromOne] = useState(false);
 
   handleFormOneSubmit = async (formOneResultObject) => {
     const isValidData = await validateFormInput(formOneResultObject);
 
     if (isValidData) {
       setFormOneData(formOneResultObject);
-    }
+      setHasSetFromOne(true);      
+    }  
   };
 
   useEffect(() => {
@@ -54,7 +56,7 @@ const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
                 onClose={onClose}
                 setShowForm={setShowForm}
                 setShowSuccessForm={setOpenSuccessForm}
-                formOne={FormOneData}
+                formOne = {hasSetFormOne ? formOneData : null}
               />
             </div>
           </div>
