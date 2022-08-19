@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../form.module.css";
 import { AiOutlineClose } from "react-icons/ai";
 const CampaignDetails = ({ showForm, setShowForm }) => {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [mediaFiles, setMediaFiles] = useState([])
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setShowForm("transactForm");
@@ -36,7 +40,7 @@ const CampaignDetails = ({ showForm, setShowForm }) => {
             <div className={styles.text}>
               {" "}
               <h1>Campaign Media</h1>
-              <span>You can add as much as 4 media, 20mb max per upload</span>
+              <span>You can add as much as 3 media, 20mb max per upload</span>
             </div>
             <div className={styles.upload}>
               <label htmlFor="campaignMedia">Add media</label>

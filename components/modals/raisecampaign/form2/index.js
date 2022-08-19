@@ -1,18 +1,23 @@
 import React from "react";
 import styles from "../form.module.css";
 import { AiOutlineClose } from "react-icons/ai";
+import { createCampaign } from "../../../../Integrations/Implementations/Fintrust";
+
 const CampaignTransactionsDetails = ({
   showForm,
   setShowForm,
   setShowSuccessForm,
   onClose,
 }) => {
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setShowForm("detailsForm");
     onClose();
     setShowSuccessForm(true);
   };
+
+
   return (
     <form
       className={

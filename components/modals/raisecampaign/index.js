@@ -7,9 +7,19 @@ import { trustIcon } from "../../../public/images";
 import { FaFacebook } from "react-icons/fa";
 import { CampaignDetails } from "./form1";
 import { CampaignTransactionsDetails } from "./form2";
+import { validateFormInput } from "../../../Integrations/Utils/ipfshandler";
 const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
   const [isBrowser, setIsBrowser] = useState(false);
   const [showForm, setShowForm] = useState("detailsForm");
+  conse[(FormOneData, setFormOneData)] = useState({});
+
+  handleFormOneSubmit = async (formOneResultObject) => {
+    const isValidData = await validateFormInput(formOneResultObject);
+
+    if (isValidData) {
+      setFormOneData(formOneResultObject);
+    }
+  };
 
   useEffect(() => {
     setIsBrowser(true);
@@ -34,12 +44,17 @@ const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
               seemlessly.
             </p>
             <div className={styles.modalBody}>
-              <CampaignDetails showForm={showForm} setShowForm={setShowForm} />
+              <CampaignDetails
+                showForm={showForm}
+                setShowForm={setShowForm}
+                handleFormOneSubmit={handleFormOneSubmit}
+              />
               <CampaignTransactionsDetails
                 showForm={showForm}
                 onClose={onClose}
                 setShowForm={setShowForm}
                 setShowSuccessForm={setOpenSuccessForm}
+                formOne={FormOneData}
               />
             </div>
           </div>
