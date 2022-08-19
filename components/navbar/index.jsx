@@ -21,7 +21,7 @@ export const NavBar = () => {
   const [openSuccessForm, setOpenSuccessForm] = useState(false)
   const [showAlert, setShowAlert] = useState(false)
 
-  const [connected, setConnected] = useState(false)
+  const [connected, setConnected] = useState(true)
 
   const providerOptions = {
     walletconnect: {
@@ -80,7 +80,7 @@ export const NavBar = () => {
     <ConnectWallet open={openWalletOptions} onClose={() => setOpenWalletOptions(false)} onConnect={connect} />
     <RaiseCampaign open={openRaiseCampaignModal} onClose={()=> setOpenRaiseCampaignModal(!openRaiseCampaignModal)}setOpenSuccessForm={setOpenSuccessForm}/>
     <SuccessForm open={openSuccessForm} onClose={()=> setOpenSuccessForm(!openSuccessForm)} setOpenSuccessForm={setOpenSuccessForm}/>
-      <div className="neon absolute top-10 max-w-6xl left-3 flex flex-row items-center px-8 py-3 bg-[rgba(5,_124,_160,_0.79)] rounded-[20px] mx-auto container z-50">
+      <div className="neon left-40 absolute top-10 max-w-6xl  flex flex-row items-center px-8 py-3 bg-[rgba(5,_124,_160,_0.79)] rounded-[20px] mx-auto container z-50">
         <ConnectWallet
           open={openWalletOptions}
           onClose={() => setOpenWalletOptions(false)}
@@ -132,9 +132,9 @@ export const NavBar = () => {
             {/* <Search w="42" h="42" /> */}
             <div>
               {connected ? (
-                <div className="flex flex-row justify-between items-center">
+                <div className="flex flex-row justify-between gap-4 items-center">
                   <button
-                    onClick={() => setOpenWalletOptions(true)}
+                    onClick={() => setOpenRaiseCampaignModal(!openRaiseCampaignModal)}
                     className="w-[221px] h-[57px] text-white bg-primary-100 p-[17px_31px] flex flex-row justify-center items-center gap-[10px] rounded-[10px] connected-btn"
                   >
                     Create Campaigns
