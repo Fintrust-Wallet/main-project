@@ -10,7 +10,6 @@ const CampaignDetails = ({
   campaignDescription,
   setCampaignDescription,
   file,
-  setFiles,
   handleFormOneSubmit,
 }) => {
   const [mediaFiles, setFiles] = useState([]);

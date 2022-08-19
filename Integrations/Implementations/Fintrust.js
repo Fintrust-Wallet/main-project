@@ -22,7 +22,7 @@ async function createDisputeContractInstance() {
 async function createCampaign(urlAsBytes32, amount, arrayOfAddresses) {
   const contractInstance = await createDisputeContractInstance();
 
-  const transaction = await contractInstance.createCampaign(
+  let transaction = await contractInstance.createCampaign(
     urlAsBytes32,
     amount,
     arrayOfAddresses
@@ -35,7 +35,7 @@ async function createCampaign(urlAsBytes32, amount, arrayOfAddresses) {
 async function deposit(creatorsAddress, campaignId, amount) {
   const contractInstance = await createDisputeContractInstance();
 
-  const transaction = await contractInstance.deposit(
+  let transaction = await contractInstance.deposit(
     creatorsAddress,
     campaignId,
     amount
@@ -48,7 +48,7 @@ async function deposit(creatorsAddress, campaignId, amount) {
 async function requestWithdraw(campaignId) {
   const contractInstance = await createDisputeContractInstance();
 
-  const transaction = await contractInstance.requestWithdraw(campaignId);
+  let transaction = await contractInstance.requestWithdraw(campaignId);
   transaction = await transaction.wait();
 
   return transaction.events[0];
@@ -57,7 +57,7 @@ async function requestWithdraw(campaignId) {
 async function confirmWithdraw(creatorsAddress, campaignId) {
   const contractInstance = await createDisputeContractInstance();
 
-  const transaction = await contractInstance.confirmWithdraw(
+  let transaction = await contractInstance.confirmWithdraw(
     creatorsAddress,
     campaignId
   );
@@ -69,7 +69,7 @@ async function confirmWithdraw(creatorsAddress, campaignId) {
 async function rejectWithdraw(creatorsAddress, campaignId) {
   const contractInstance = await createDisputeContractInstance();
 
-  const transaction = await contractInstance.rejectWithdraw(
+  let transaction = await contractInstance.rejectWithdraw(
     creatorsAddress,
     campaignId
   );
@@ -81,7 +81,7 @@ async function rejectWithdraw(creatorsAddress, campaignId) {
 async function withdraw(creatorsAddress, campaignId) {
   const contractInstance = await createDisputeContractInstance();
 
-  const transaction = await contractInstance.withdraw(
+  let transaction = await contractInstance.withdraw(
     campaignId,
     creatorsAddress
   );
