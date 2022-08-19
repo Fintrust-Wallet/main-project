@@ -10,7 +10,11 @@ import { CampaignTransactionsDetails } from "./form2";
 import { validateFormInput } from "../../../Integrations/Utils/ipfshandler";
 const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
   const [isBrowser, setIsBrowser] = useState(false);
+  const [campaignTitle, setCampaignTitle] = useState("");
+  const [campaignDescription, setCampaignDescription] = useState("");
   const [showForm, setShowForm] = useState("detailsForm");
+  const [campaignAmount, setCampaignAmount] = useState("");
+  const [ArraySignatories, setArraySignatories] = useState([]);
   const [formOneData, setFormOneData] = useState({});
   const [hasSetFormOne, setHasSetFromOne] = useState(false);
 
@@ -32,23 +36,39 @@ const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
         <div className={open ? styles.open : styles.modalContainer}>
           <div className={styles.modalContent}>
             <div className={styles.modalHeader}>
-              <h2>Create a new campaign</h2>
+              <h2>
+                {showForm !== "detailsForm"
+                  ? "Transaction Details"
+                  : "Create a new campaign"}
+              </h2>
               <button
                 type="button"
                 className={styles.close}
-                onClick={() => onClose()}
+                onClick={() => {
+                  setOpenSuccessForm(false);
+                  setShowForm("detailsForm");
+                  onClose();
+                }}
               >
                 <AiOutlineClose size={25} />
               </button>
             </div>
             <p className={styles.modalBodyParagraph}>
-              Open a campaign in just a few step and get people to donate
-              seemlessly.
+              {showForm !== "detailsForm"
+                ? "Please confirm all info before proceeding to avoid loss of funds."
+                : "Open a campaign in just a few step and get people to donate seemlessly."}
             </p>
             <div className={styles.modalBody}>
               <CampaignDetails
+               
                 showForm={showForm}
+               
                 setShowForm={setShowForm}
+                campaignTitle={campaignTitle}
+                setCampaignTitle={setCampaignTitle}
+                campaignDescription={campaignDescription}
+                setCampaignDescription={setCampaignDescription}
+             
                 handleFormOneSubmit={handleFormOneSubmit}
               />
               <CampaignTransactionsDetails
@@ -56,6 +76,10 @@ const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
                 onClose={onClose}
                 setShowForm={setShowForm}
                 setShowSuccessForm={setOpenSuccessForm}
+                campaignAmount={campaignAmount}
+                setCampaignAmount={setCampaignAmount}
+                ArraySignatories={ArraySignatories}
+                setArraySignatories={setArraySignatories}
                 formOne = {hasSetFormOne ? formOneData : null}
               />
             </div>

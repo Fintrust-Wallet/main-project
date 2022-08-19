@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../form.module.css";
 import { AiOutlineClose } from "react-icons/ai";
 import { createCampaign } from "../../../../Integrations/Implementations/Fintrust";
@@ -8,13 +8,36 @@ const CampaignTransactionsDetails = ({
   setShowForm,
   setShowSuccessForm,
   onClose,
+  campaignAmount,
+  setCampaignAmount,
+  ArraySignatories,
+  setArraySignatories,
 }) => {
-
+  const [sig, setSig] = useState("");
+  const handleSig = (e) => {
+    setArraySignatories([...ArraySignatories, sig]);
+    setSig("");
+  };
+  const handleRemoveSig = (i) => {
+    setArraySignatories(
+      [...ArraySignatories].filter((item, index) => index !== i)
+    );
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    setShowForm("detailsForm");
-    onClose();
-    setShowSuccessForm(true);
+
+    const canContinue = campaignAmount !== "";
+    if (canContinue) {
+      if (ArraySignatories.length < 3) {
+        alert("Please add atleast 3 signatories");
+        return;
+      }
+      setShowForm("detailsForm");
+      onClose();
+      setShowSuccessForm(true);
+    } else {
+      alert("Please fill all the fields");
+    }
   };
 
 
@@ -29,7 +52,7 @@ const CampaignTransactionsDetails = ({
     >
       <div className={styles.inner}>
         <div className={styles.body}>
-          <h1>Campaign Details</h1>
+          <h1>Campaign Amount</h1>
           <div className={styles.inputWrap}>
             <label htmlFor="amount">Amount</label>
             <div className={styles.inputContainer}>
@@ -40,9 +63,15 @@ const CampaignTransactionsDetails = ({
                   placeholder="Enter amount"
                   className={styles.input}
                   id="amount"
+                  name="amount"
+                  required
+                  value={campaignAmount}
+                  onChange={(e) => setCampaignAmount(e.target.value)}
                 />
               </div>
-              <span className={styles.currency}>2.012 Polygon MATIC</span>
+              <span className={styles.currency}>
+                {campaignAmount / 100} Polygon MATIC
+              </span>
             </div>
             <label>
               Kindly note that all transactions are carried out on the polygon
@@ -60,43 +89,42 @@ const CampaignTransactionsDetails = ({
           </div>
           <div className={styles.flex}>
             <div className={styles.inputWrap}>
-              <label htmlFor="campaignName">Campaign title</label>
+              <label htmlFor="campaignName">Wallet address</label>
               <input
-                id={"campaignName"}
-                placeholder={"Whats the title of your campaign?"}
+                id={"campaignSignatory"}
+                placeholder={"Please paste the person’s Matic Wallet address?"}
+                value={sig}
+                onChange={(e) => setSig(e.target.value)}
               />
             </div>
-            <div className={styles.upload2}>
-              <select>
-                <option value="">Select role</option>
-              </select>
+            <div className={styles.upload2} onClick={handleSig}>
+              <span>Add signatory</span>
             </div>
           </div>
           <span className={styles.spanText}>
             Only Polygon Matic address are accepted.
           </span>
           <div className={styles.flexCol}>
-            {Array(2)
-              .fill(0)
-              .map((_, i) => {
-                return (
-                  <div className={styles.filepreview}>
-                    <div>
-                      <span className={styles.filepreviewtext}>
-                        0x7bfgh5236457tyu689573542tg4624347c677
+            {ArraySignatories?.map((_, i) => {
+              return (
+                <div className={styles.filepreview}>
+                  <div>
+                    <span className={styles.filepreviewtext}>{_}</span>
+                  </div>
+                  <div>
+                    <div className={styles.filepreviewtext}>Signatory</div>
+                    <div
+                      className={styles.fileuploadclose}
+                      onClick={() => handleRemoveSig(i)}
+                    >
+                      <span>
+                        <AiOutlineClose size={20} />
                       </span>
                     </div>
-                    <div>
-                      <div className={styles.filepreviewtext}>Signatory</div>
-                      <div className={styles.fileuploadclose}>
-                        <span>
-                          <AiOutlineClose size={20} />
-                        </span>
-                      </div>
-                    </div>
                   </div>
-                );
-              })}
+                </div>
+              );
+            })}
           </div>
           <div className={styles.flexCol}>
             <div className={styles.flex1}>

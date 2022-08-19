@@ -1,13 +1,12 @@
 import Head from "next/head";
 import Image from "next/image";
 import { NavBar } from "../../components/navbar";
-import { DonationPage } from "../../components/signedin/DonationCard";
-import { Banner } from "../../components/Banner";
-import { Team } from "../../components/Team";
 import { Footer } from "../../components/Footer";
 import LBlurBg from "../../public/Ellipse26.svg";
+import { ProfileCard } from "../../components/profilecard";
+import { Tabs } from "../../components/Tabs";
 
-export default function Donation() {
+export default function Profile() {
   return (
     <div>
       <Head>
@@ -21,10 +20,11 @@ export default function Donation() {
           <Image src={LBlurBg} alt="LBlurBg" className="object-contain" />
         </div>
         <NavBar />
-        <DonationPage />
-        <Banner />
-        <Team />
-        <Footer />
+        <div className="mt-44 relative font-sora-light max-w-7xl mx-auto">
+          <ProfileCard />
+          <Tabs />
+          <Footer />
+        </div>
       </main>
     </div>
   );
