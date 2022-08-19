@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "../form.module.css";
 import { AiOutlineClose } from "react-icons/ai";
+
 const CampaignDetails = ({
   showForm,
   setShowForm,
@@ -8,38 +9,36 @@ const CampaignDetails = ({
   setCampaignTitle,
   campaignDescription,
   setCampaignDescription,
+  handleFormOneSubmit,
 }) => {
 
-  const [formInput, setFormInput] = useState({
-    title: "",
-    description: "",
-    mediaFiles: []
-  });
-
-  const [file, setFiles] = useState([]);
-  const [imageUrl, setImageUrl] = useState("");
+  const [mediaFiles, setFiles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const canContinue =
-      campaignTitle !== "" && campaignDescription !== "" && file !== [];
+      campaignTitle !== "" && campaignDescription !== "" && mediaFiles !== [];
 
     if (canContinue) {
-      if (file.length > 4) {
-        alert("You are only allowed to upload a maximum of 4 files at a time");
+      if (mediaFiles.length > 3) {
+        alert("You are only allowed to upload a maximum of 3 files at a time");
         return;
       }
 
       //check file size
-      if (file.length > 0) {
-        for (let i = 0; i < file.length; i++) {
-          if (file[i].size / 1024 / 1024 > 5)
+      if (mediaFiles.length > 0) {
+        for (let i = 0; i < mediaFiles.length; i++) {
+          if (mediaFiles[i].size / 1024 / 1024 > 5)
             return alert("File size is too big");
         }
       }
+      let formInput = { campaignTitle, campaignDescription, mediaFiles };
+      handleFormOneSubmit(formInput);
       setLoading(true);
       setShowForm("transactForm");
+
       try {
         //make request to server
         // setUploadProgress(progress)
@@ -51,9 +50,12 @@ const CampaignDetails = ({
       alert("Please fill all the fields");
     }
   };
+
   const handleDeleteFileItem = (i) => {
-    setFiles([...file].filter((item, index) => index !== i));
+    setFiles([...mediaFiles].filter((item, index) => index !== i));
   };
+
+  console.log(formInput, "FORMINPUT🤔🤔")
 
   return (
     <form
@@ -73,8 +75,7 @@ const CampaignDetails = ({
               id={"campaignName"}
               value={campaignTitle}
               onChange={(e) => setCampaignTitle(e.target.value)}
-              placeholder={"Whats the title of your campaign?"}
-              onChange={e => setFormInput({...formInput, title: e.target.value})}
+              placeholder={"Whats the title of your campaign?"}              
             />
           </div>
           <div className={styles.inputWrap}>
@@ -83,8 +84,7 @@ const CampaignDetails = ({
               id={"campaignDesc"}
               value={campaignDescription}
               onChange={(e) => setCampaignDescription(e.target.value)}
-              placeholder={"Whats the title of your campaign?"}
-              onChange={e => setFormInput({...formInput, description: e.target.value})}
+              placeholder={"Whats the title of your campaign?"}              
             />
           </div>
           <div className={styles.flex}>
@@ -108,7 +108,7 @@ const CampaignDetails = ({
             </div>
           </div>
           <div className={styles.flexCol}>
-            {[...file].map((_, i) => {
+            {[...mediaFiles].map((_, i) => {
               return (
                 <div className={styles.filepreview}>
                   <div>

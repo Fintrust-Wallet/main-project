@@ -1,7 +1,8 @@
 import * as IPFS from "ipfs-core";
-const ipfs = await IPFS.create();
+
 
 export async function addFiles(arrayOfFiles) {
+  const ipfs = await IPFS.create();
   const result = [];
 
   for await (const resultPart of ipfs.addAll(arrayOfFiles)) {
@@ -11,6 +12,7 @@ export async function addFiles(arrayOfFiles) {
 }
 
 export async function addAFile(file) {
+  const ipfs = await IPFS.create();
   const { cid } = await ipfs.add(file);
   return `https://ipfs.io/ipfs/${cid}`;
 }

@@ -8,6 +8,7 @@ import { FaFacebook } from "react-icons/fa";
 import { CampaignDetails } from "./form1";
 import { CampaignTransactionsDetails } from "./form2";
 import { validateFormInput } from "../../../Integrations/Utils/ipfshandler";
+
 const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
   const [isBrowser, setIsBrowser] = useState(false);
   const [campaignTitle, setCampaignTitle] = useState("");
@@ -15,15 +16,13 @@ const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
   const [showForm, setShowForm] = useState("detailsForm");
   const [campaignAmount, setCampaignAmount] = useState("");
   const [ArraySignatories, setArraySignatories] = useState([]);
-  const [formOneData, setFormOneData] = useState({});
-  const [hasSetFormOne, setHasSetFromOne] = useState(false);
+  const [formOneData, setFormOneData] = useState({});  
 
-  handleFormOneSubmit = async (formOneResultObject) => {
+  const handleFormOneSubmit = async (formOneResultObject) => {
     const isValidData = await validateFormInput(formOneResultObject);
 
     if (isValidData) {
-      setFormOneData(formOneResultObject);
-      setHasSetFromOne(true);      
+      setFormOneData(formOneResultObject);          
     }  
   };
 
@@ -60,15 +59,12 @@ const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
             </p>
             <div className={styles.modalBody}>
               <CampaignDetails
-               
                 showForm={showForm}
-               
                 setShowForm={setShowForm}
                 campaignTitle={campaignTitle}
                 setCampaignTitle={setCampaignTitle}
                 campaignDescription={campaignDescription}
                 setCampaignDescription={setCampaignDescription}
-             
                 handleFormOneSubmit={handleFormOneSubmit}
               />
               <CampaignTransactionsDetails
@@ -80,7 +76,7 @@ const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
                 setCampaignAmount={setCampaignAmount}
                 ArraySignatories={ArraySignatories}
                 setArraySignatories={setArraySignatories}
-                formOne = {hasSetFormOne ? formOneData : null}
+                formOneData = {formOneData}
               />
             </div>
           </div>
