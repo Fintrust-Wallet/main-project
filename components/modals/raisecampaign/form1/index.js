@@ -8,8 +8,9 @@ const CampaignDetails = ({
   setCampaignTitle,
   campaignDescription,
   setCampaignDescription,
+  file,
+  setFiles,
 }) => {
-  const [file, setFiles] = useState([]);
   const [imageUrl, setImageUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
@@ -85,9 +86,7 @@ const CampaignDetails = ({
               <span>You can add as much as 4 media, 20mb max per upload</span>
             </div>
             <div className={styles.upload}>
-              <label htmlFor={loading ? "" : "campaignMedia"}>
-                {loading ? `uploading  ${uploadProgress}%` : "Add media"}
-              </label>
+              <label htmlFor={"campaignMedia"}>{"Add media"}</label>
               <input
                 type="file"
                 multiple

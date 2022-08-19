@@ -10,11 +10,16 @@ const CampaignTransactionsDetails = ({
   setCampaignAmount,
   ArraySignatories,
   setArraySignatories,
+  reset,
 }) => {
   const [sig, setSig] = useState("");
   const handleSig = (e) => {
-    setArraySignatories([...ArraySignatories, sig]);
-    setSig("");
+    if (sig === "") {
+      return alert("enter a valid signatory");
+    } else {
+      setArraySignatories([...ArraySignatories, sig]);
+      setSig("");
+    }
   };
   const handleRemoveSig = (i) => {
     setArraySignatories(
@@ -33,6 +38,7 @@ const CampaignTransactionsDetails = ({
       setShowForm("detailsForm");
       onClose();
       setShowSuccessForm(true);
+      reset();
     } else {
       alert("Please fill all the fields");
     }

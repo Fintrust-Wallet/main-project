@@ -13,8 +13,15 @@ const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
   const [campaignDescription, setCampaignDescription] = useState("");
   const [showForm, setShowForm] = useState("detailsForm");
   const [campaignAmount, setCampaignAmount] = useState("");
+  const [file, setFiles] = useState([]);
   const [ArraySignatories, setArraySignatories] = useState([]);
-
+  const handleReset = () => {
+    setCampaignTitle("");
+    setCampaignDescription("");
+    setCampaignAmount("");
+    setArraySignatories([]);
+    setFiles([]);
+  };
   useEffect(() => {
     setIsBrowser(true);
   }, []);
@@ -54,6 +61,8 @@ const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
                 setCampaignTitle={setCampaignTitle}
                 campaignDescription={campaignDescription}
                 setCampaignDescription={setCampaignDescription}
+                file={file}
+                setFiles={setFiles}
               />
               <CampaignTransactionsDetails
                 showForm={showForm}
@@ -64,6 +73,7 @@ const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
                 setCampaignAmount={setCampaignAmount}
                 ArraySignatories={ArraySignatories}
                 setArraySignatories={setArraySignatories}
+                reset={() => handleReset()}
               />
             </div>
           </div>
