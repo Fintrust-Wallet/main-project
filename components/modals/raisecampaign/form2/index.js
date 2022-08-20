@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styles from "../form.module.css";
 import { AiOutlineClose } from "react-icons/ai";
-import { createCampaign } from "../../../../Integrations/Implementations/Fintrust";
 
 const CampaignTransactionsDetails = ({
   showForm,
@@ -13,8 +12,11 @@ const CampaignTransactionsDetails = ({
   ArraySignatories,
   setArraySignatories,
   reset,
+  handleFormTwoSubmit,
 }) => {
   const [sig, setSig] = useState("");
+  const [formInput, setFormInput] = useState({});
+
   const handleSig = (e) => {
     if (sig === "") {
       return alert("enter a valid signatory");
@@ -23,12 +25,14 @@ const CampaignTransactionsDetails = ({
       setSig("");
     }
   };
+
   const handleRemoveSig = (i) => {
     setArraySignatories(
       [...ArraySignatories].filter((item, index) => index !== i)
     );
   };
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const canContinue = campaignAmount !== "";
@@ -40,12 +44,13 @@ const CampaignTransactionsDetails = ({
       setShowForm("detailsForm");
       onClose();
       setShowSuccessForm(true);
+      let formTwoData = { campaignAmount, ArraySignatories };
+     handleFormTwoSubmit(formTwoData);
       reset();
     } else {
       alert("Please fill all the fields");
     }
   };
-
 
   return (
     <form

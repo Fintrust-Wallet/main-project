@@ -1,9 +1,10 @@
 import { ethers } from "ethers";
 import fintrust from "../Abi/fintrust.json";
+import { convertStringToBytes32 } from "../Utils/bytes32Converter";
 
-let fintrustContractAddress = "0x93BF57d7b817a0a05da8527FC1c10C4872ED5C47";
+let fintrustContractAddress = "0x91714f5d287851931fA2c2983bb475dfe0776032";
 
-async function createDisputeContractInstance() {
+async function createFintrustContractInstance() {
   const { ethereum } = window;
 
   //if none is found, it means that a user does not
@@ -19,17 +20,45 @@ async function createDisputeContractInstance() {
   return new ethers.Contract(fintrustContractAddress, fintrust.abi, signer);
 }
 
-async function createCampaign(urlAsBytes32, amount, arrayOfAddresses) {
-  const contractInstance = await createDisputeContractInstance();
+async function createCampaign(cid, amount, arrayOfAddresses) { 
+
+  if (!cid || !amount || arrayOfAddresses.length == 0){
+    alert(`Invalid Input${cid} ${amount} ${arrayOfAddresses}`)
+    return;
+  }
+
+  let areValidAddresses = false;
+
+  try{
+    arrayOfAddresses.forEach(element => {
+    ethers.utils.getAddress(element)
+  });
+  areValidAddresses = true;
+  } catch (e){
+    console.log(e.message)
+  }
+
+  if (!areValidAddresses){
+    alert("Invalid Signatory account");
+    return;
+  }  
+  
+  const contractInstance = await createFintrustContractInstance();
+
+  let amountAsString = amount.toString();
+  let _amount = ethers.utils.parseEther(amountAsString);
+
+  
 
   const transaction = await contractInstance.createCampaign(
-    urlAsBytes32,
-    amount,
+    cid,
+    _amount,
     arrayOfAddresses
   );
-  transaction = await transaction.wait();
 
-  return transaction.events[0];
+  let waitedTransaction = await transaction.wait();
+    console.log(waitedTransaction.logs)
+  return waitedTransaction;
 }
 
 async function deposit(creatorsAddress, campaignId, amount) {
