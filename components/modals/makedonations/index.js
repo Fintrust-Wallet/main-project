@@ -4,6 +4,13 @@ import styles from "./makedonations.module.css";
 import { AiOutlineClose } from "react-icons/ai";
 const MakeDonations = ({ open, onClose, onConnect }) => {
   const [isBrowser, setIsBrowser] = useState(false);
+  const [amount, setAmount] = useState("");
+
+  const handleDonation = () => {
+    if (!amount){
+      alert("Please fill in an amount");
+    }
+  }
 
   useEffect(() => {
     setIsBrowser(true);
@@ -36,6 +43,7 @@ const MakeDonations = ({ open, onClose, onConnect }) => {
                     placeholder="Enter amount"
                     className={styles.input}
                     id="amount"
+                    onChange={e => setAmount(e.target.value)}
                   />
                 </div>
                 <span className={styles.currency}>2.012 Polygon MATIC</span>
