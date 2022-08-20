@@ -7,7 +7,7 @@ import { trustIcon } from "../../../public/images";
 import { FaFacebook } from "react-icons/fa";
 import { CampaignDetails } from "./form1";
 import { CampaignTransactionsDetails } from "./form2";
-import { validateFormInput } from "../../../Integrations/Utils/ipfshandler";
+// import { validateFormInput } from "../../../Integrations/Utils/ipfshandler";
 
 const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
   const [isBrowser, setIsBrowser] = useState(false);
@@ -17,14 +17,13 @@ const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
   const [campaignAmount, setCampaignAmount] = useState("");
   const [file, setFiles] = useState([]);
   const [ArraySignatories, setArraySignatories] = useState([]);
-  const [formOneData, setFormOneData] = useState({});  
+  const [formOneData, setFormOneData] = useState({});
 
   const handleFormOneSubmit = async (formOneResultObject) => {
-    const isValidData = await validateFormInput(formOneResultObject);
-
-    if (isValidData) {
-      setFormOneData(formOneResultObject);          
-    }  
+    // const isValidData = await validateFormInput(formOneResultObject);
+    // if (isValidData) {
+    //   setFormOneData(formOneResultObject);
+    // }
   };
   const handleReset = () => {
     setCampaignTitle("");
@@ -86,7 +85,7 @@ const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
                 ArraySignatories={ArraySignatories}
                 setArraySignatories={setArraySignatories}
                 reset={() => handleReset()}
-                formOneData = {formOneData}
+                formOneData={formOneData}
               />
             </div>
           </div>
