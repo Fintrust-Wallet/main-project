@@ -1,6 +1,5 @@
 import { ethers } from "ethers";
 import fintrust from "../Abi/fintrust.json";
-import { convertStringToBytes32 } from "../Utils/bytes32Converter";
 
 let fintrustContractAddress = "0x91714f5d287851931fA2c2983bb475dfe0776032";
 
@@ -58,8 +57,8 @@ async function createCampaign(cid, amount, arrayOfAddresses) {
   return waitedTransaction;
 }
 
-async function deposit(creatorsAddress, campaignId, amount) {
-  const contractInstance = await createDisputeContractInstance();
+async function donate(creatorsAddress, campaignId, amount) {
+  const contractInstance = await createFintrustContractInstance();
 
   let transaction = await contractInstance.deposit(
     creatorsAddress,
@@ -72,7 +71,7 @@ async function deposit(creatorsAddress, campaignId, amount) {
 }
 
 async function requestWithdraw(campaignId) {
-  const contractInstance = await createDisputeContractInstance();
+  const contractInstance = await createFintrustContractInstance();
 
   let transaction = await contractInstance.requestWithdraw(campaignId);
   transaction = await transaction.wait();
@@ -81,7 +80,7 @@ async function requestWithdraw(campaignId) {
 }
 
 async function confirmWithdraw(creatorsAddress, campaignId) {
-  const contractInstance = await createDisputeContractInstance();
+  const contractInstance = await createFintrustContractInstance();
 
   let transaction = await contractInstance.confirmWithdraw(
     creatorsAddress,
@@ -93,7 +92,7 @@ async function confirmWithdraw(creatorsAddress, campaignId) {
 }
 
 async function rejectWithdraw(creatorsAddress, campaignId) {
-  const contractInstance = await createDisputeContractInstance();
+  const contractInstance = await createFintrustContractInstance();
 
   let transaction = await contractInstance.rejectWithdraw(
     creatorsAddress,
@@ -105,7 +104,7 @@ async function rejectWithdraw(creatorsAddress, campaignId) {
 }
 
 async function withdraw(creatorsAddress, campaignId) {
-  const contractInstance = await createDisputeContractInstance();
+  const contractInstance = await createFintrustContractInstance();
 
   let transaction = await contractInstance.withdraw(
     campaignId,
@@ -117,7 +116,7 @@ async function withdraw(creatorsAddress, campaignId) {
 }
 
 async function getACampaign(creatorsAddress, campaignId) {
-  const contractInstance = await createDisputeContractInstance();
+  const contractInstance = await createFintrustContractInstance();
 
   const transaction = await contractInstance.getCampaign(
     campaignId,
@@ -129,7 +128,7 @@ async function getACampaign(creatorsAddress, campaignId) {
 }
 
 async function getAllCreatedCampaigns(creatorsAddress) {
-  const contractInstance = await createDisputeContractInstance();
+  const contractInstance = await createFintrustContractInstance();
 
   const transaction = await contractInstance.allCampaigns(creatorsAddress);
 
@@ -138,7 +137,7 @@ async function getAllCreatedCampaigns(creatorsAddress) {
 }
 
 async function getAllSignatoryCampaigns(signatoryAddress) {
-  const contractInstance = await createDisputeContractInstance();
+  const contractInstance = await createFintrustContractInstance();
 
   const transaction = await contractInstance.allRef(signatoryAddress);
 
@@ -147,7 +146,7 @@ async function getAllSignatoryCampaigns(signatoryAddress) {
 }
 
 async function getAllWithdrawRequest(signatoryAddress) {
-  const contractInstance = await createDisputeContractInstance();
+  const contractInstance = await createFintrustContractInstance();
 
   const transaction = await contractInstance.allWithdrawRequest(
     signatoryAddress
@@ -159,7 +158,7 @@ async function getAllWithdrawRequest(signatoryAddress) {
 
 export {
   createCampaign,
-  deposit,
+  donate,
   rejectWithdraw,
   requestWithdraw,
   confirmWithdraw,

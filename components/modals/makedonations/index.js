@@ -2,15 +2,31 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import styles from "./makedonations.module.css";
 import { AiOutlineClose } from "react-icons/ai";
+import { donate } from "../../../Integrations/Implementations/Fintrust";
 const MakeDonations = ({ open, onClose, onConnect }) => {
   const [isBrowser, setIsBrowser] = useState(false);
+  const [amount, setAmount] = useState("");
+
+  const handleSubmit = async (creatorsAddress, campaignId) => {
+    if (!amount){
+      alert ("Please set amount")
+      return;
+    }
+
+    await donate(creatorsAddress, campaignId, amount);
+
+    //After the donate function modal can show
+  }
 
   useEffect(() => {
     setIsBrowser(true);
   }, []);
   if (isBrowser) {
     return ReactDOM.createPortal(
-      <form className={open ? styles.active : styles.makeDonationsContainer}>
+      <form 
+      className={open ? styles.active : styles.makeDonationsContainer}
+      onSubmit={handleSubmit}
+      >
         <div className={open ? styles.open : styles.modalContainer}>
           <div className={styles.modalContent}>
             <div className={styles.modalHeader}>
@@ -36,6 +52,7 @@ const MakeDonations = ({ open, onClose, onConnect }) => {
                     placeholder="Enter amount"
                     className={styles.input}
                     id="amount"
+                    onChange={e => setAmount(e.target.value)}
                   />
                 </div>
                 <span className={styles.currency}>2.012 Polygon MATIC</span>
