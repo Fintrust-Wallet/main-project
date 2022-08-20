@@ -8,7 +8,7 @@ import polio from "../../../public/polio.png";
 export const LandingPage = () => {
   return (
     <>
-      <div className="mt-44">
+      <div className="mt-44  max-w-7xl mx-auto">
         <div className="grid place-items-center relative z-[1000]">
           <h1 className="font-nomaden-slab text-white md:text-[48px] text-[32px] text-center leading-[115.9%] font-[400] md:w-[793px] w-[393px] h-[112px]">
             Donating on a transparent platform powered by Polygon.

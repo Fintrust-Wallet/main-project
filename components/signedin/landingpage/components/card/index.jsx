@@ -6,7 +6,7 @@ import Image from "next/image";
 export const Card = ({ title, img, description,amount, raised }) => {
   return (
     <>
-      <div className="card-bg-blur relative">
+      <div className="card-bg-blur relative hover:cursor-pointer">
         <Image
           src={img}
           alt="Image1"

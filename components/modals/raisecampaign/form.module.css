@@ -1,0 +1,266 @@
+.formcontainer{
+  width: 100%;
+  height: fit-content;
+  overflow-x:hidden;
+  transition: all 0.3s ease-in-out;
+}
+.inactiveCampaignForm {
+  position:absolute;
+  overflow: hidden;
+  transform: translateX(-100%);
+  transition: all 0.3s ease-in-out;
+}
+.formcontainer .inner {
+  width: 100%;
+  height: fit-content;
+  overflow-x:hidden ;
+  display: flex;
+  flex-direction: column;
+  gap:1rem;
+}
+.formcontainer .inner .body {
+  width: 100%;
+  height: fit-content;
+  overflow-x:hidden ;
+  display: flex;
+  flex-direction: column;
+  gap:1rem;
+}
+.formcontainer .inner .body  h1{
+  font-family: 'monument';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    color: #FFFFFF;
+}
+.formcontainer .inner .body .inputWrap{
+  display:flex;
+  flex-direction: column;
+  gap:.5rem;
+  height: fit-content;
+  width: 100%;
+ box-sizing: border-box;
+}
+.formcontainer .inner .body .inputWrap >label, .spanText{
+  font-weight: 400;
+    font-size: 14px;
+    line-height: 25px;
+    color: #EEFFFF;
+}
+.formcontainer .inner .body .inputWrap >input{
+ box-sizing: border-box ;
+  width: 100%;
+  height: 58px;
+  background: #005170;
+  border-radius: 10px;
+  border:2px solid hsla(174, 94%, 40%, 1);
+  padding:0 .5rem;
+  outline: none;
+  color: #FFFFFF;
+  transition: all .3s ease-in-out;
+}
+.formcontainer .inner .body .inputWrap input::placeholder,.formcontainer .inner .body .inputWrap textarea::placeholder{
+  color:#ddd;
+}
+.formcontainer .inner .body .inputWrap > input:focus, .formcontainer .inner .body .inputWrap > textarea:focus{
+  border:2px solid #FFFFFF;
+  transition: all .3s ease-in-out;
+}
+.formcontainer .inner .body .inputWrap textarea{
+  width: 100%;
+  height: 200px;
+  background: #005170;
+  border-radius: 10px;
+  border:2px solid hsla(174, 94%, 40%, 1);
+  padding: .5rem;
+  outline: none;
+  color: #FFFFFF;
+  transition: all .3s ease-in-out;
+  max-height: 250px;
+}
+.formcontainer .inner .body .flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  overflow-x:hidden ;  
+}
+.formcontainer .inner .body .flex .text span {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 25px;
+    color: #FFFFFF;
+}
+.formcontainer .inner .body .flex .upload{
+  height: fit-content;
+  width: fit-content;
+  padding: .75rem 1rem ;
+  color: #fff;
+  background-color: #005170;
+  border-radius: 10px;
+  cursor: pointer;
+  border:2px solid hsla(174, 94%, 40%, 1);
+}
+.upload >*{
+  cursor: pointer;
+}
+.formcontainer .inner .body .flex .upload2 {
+  height: 58px;
+  width: fit-content;
+  white-space: nowrap;
+  cursor: pointer;
+  margin-top: 33px;
+  margin-left: 20px;
+  padding: 0 1rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #005170;
+  border-radius: 10px;
+  border: 2px solid hsla(174, 94%, 40%, 1);
+}
+.formcontainer .inner .body .flex .upload2 select{
+  background-color: transparent;
+  outline: none;
+  border: 0;
+  cursor: pointer;
+}
+.flexCol{
+  display: flex;
+  flex-direction: column;
+  gap:.5rem;
+}
+.flex1{
+  display:flex;
+  gap:1rem;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+}
+.fileuploadclose{
+  cursor: pointer;
+}
+.filepreview{
+  width: 100%;
+  height: fit-content;
+  overflow-x:hidden ;
+  display: flex;
+ justify-content: space-between;
+ color:#fff;
+ font-size: 13px;
+ font-weight: 600;
+}
+.filepreview > div{
+  display: flex;
+  align-items: center;
+  gap:1rem;
+}
+.filepreview>div:last-of-type{
+  gap:.2rem;
+}
+.fileuploadprogress{
+  height: 2px;
+  width:100px;
+  border-radius: 10px;
+  position: relative;
+  isolation: isolate;
+  background-color:rgba(6, 196, 178, 0.32);
+}
+.fileuploadprogressbar{
+  width: 80%;
+  height: 100%;
+  border-radius: inherit;
+  background-color: #06C4B2;
+}
+
+.formcontainer .inner .BtnWrap {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:1rem;
+}
+.formcontainer .inner .BtnWrap .btn {
+  width: 100%;
+  max-width: 425px;
+  height: 59px;
+  border: 2px solid transparent;
+  background-color:hsla(174, 94%, 40%, 1);
+font-family: 'Sora';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 141.9%;
+  color: #FFFFFF;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.formcontainer .inner .BtnWrap .btn:hover {
+  background-color:transparent;
+  color:hsla(174, 94%, 40%, 1);
+  border-color: hsla(174, 94%, 40%, 1);
+}
+
+.inputContainer {
+  display: flex;
+  height: 58px;
+  border: 2px solid #05FAE4;
+  /* border-image-source: linear-gradient(90.34deg, #05FAE4 0.73%, #0093BF 99.8%); */
+  background: #005170;
+  border-radius: 10px;
+  align-items: center;
+  
+}
+
+.inputContainer>div {
+  width: 65%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 .5rem;
+}
+
+.inputContainer>div>label {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 141.9%;
+  color: #FFFFFF;
+}
+
+.inputContainer>div>input {
+  width: calc(90%);
+  border-radius: 10px 0 0 10px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 0 .2rem;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 141.9%;
+  color: #FFFFFF;
+}
+
+.inputContainer span {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+
+  color: #FFFFFF;
+  border-left: 1px solid #fff;
+  height: 80%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 0 .5rem;
+}

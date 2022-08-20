@@ -1,0 +1,23 @@
+.profileCard{
+width: 100px;
+  height: 100px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  position: relative;
+}
+.profileCardId{
+  background: #04779A;
+    border-radius: 30px;
+    padding: .5rem 2rem;
+    color: #fff;
+    display: flex;
+    gap:1rem;
+ transition: all 0.3s ease-in-out;
+}
+.profileCardId:hover{
+ transform: scale(1.05);
+ cursor: pointer;
+ transition: all 0.3s ease-in-out;
+}

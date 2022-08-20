@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import styles from "./sharecampaign.module.css";
+import styles from "./success.module.css";
 import { AiOutlineClose } from "react-icons/ai";
-import Image from "next/image";
-import { trustIcon } from "../../../public/images";
 import { FaFacebook } from "react-icons/fa";
-const ShareCampaign = ({ open, onClose, onConnect }) => {
+import { AiFillCheckCircle } from "react-icons/ai";
+const SuccessForm = ({ open, onClose, onConnect }) => {
   const [isBrowser, setIsBrowser] = useState(false);
 
   useEffect(() => {
@@ -17,7 +16,7 @@ const ShareCampaign = ({ open, onClose, onConnect }) => {
         <div className={open ? styles.open : styles.modalContainer}>
           <div className={styles.modalContent}>
             <div className={styles.modalHeader}>
-              <h2>Share this campaign</h2>
+              <h2></h2>
               <button
                 type="button"
                 className={styles.close}
@@ -26,9 +25,17 @@ const ShareCampaign = ({ open, onClose, onConnect }) => {
                 <AiOutlineClose size={25} />
               </button>
             </div>
-            <p className={styles.modalBodyParagraph}>
-              Thanks for helping broadcast this campaign.
-            </p>
+
+            <div className={styles.heading}>
+              <span>
+                <AiFillCheckCircle size={60} />
+              </span>
+              <h2>Campaign Created Successfully.</h2>
+              <p className={styles.modalBodyParagraph}>
+                Your campaign has been created successfully, you can share this
+                campaign and start receiving donations.
+              </p>
+            </div>
             <div className={styles.modalBody}>
               <div className={styles.inputContainer}>
                 <span>www.fintrust.com/endsars-campaign</span>
@@ -82,4 +89,4 @@ const ShareCampaign = ({ open, onClose, onConnect }) => {
   }
 };
 
-export { ShareCampaign };
+export { SuccessForm };
