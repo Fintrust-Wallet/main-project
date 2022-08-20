@@ -7,7 +7,8 @@ import { trustIcon } from "../../../public/images";
 import { FaFacebook } from "react-icons/fa";
 import { CampaignDetails } from "./form1";
 import { CampaignTransactionsDetails } from "./form2";
-import { validateFormInput } from "../../../Integrations/Utils/ipfshandler";
+import { storeFiles } from "../../../Integrations/Utils/web3Storage";
+import { createCampaign } from "../../../Integrations/Implementations/Fintrust";
 
 const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
   const [isBrowser, setIsBrowser] = useState(false);
@@ -15,27 +16,62 @@ const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
   const [campaignDescription, setCampaignDescription] = useState("");
   const [showForm, setShowForm] = useState("detailsForm");
   const [campaignAmount, setCampaignAmount] = useState("");
-  const [file, setFiles] = useState([]);
   const [ArraySignatories, setArraySignatories] = useState([]);
-  const [formOneData, setFormOneData] = useState({});  
+  const [formOneData, setFormOneData] = useState({});
+  const [formTwoData, setFormTwoData] = useState({});
 
   const handleFormOneSubmit = async (formOneResultObject) => {
-    const isValidData = await validateFormInput(formOneResultObject);
+    setFormOneData(formOneResultObject);
+  };
 
-    if (isValidData) {
-      setFormOneData(formOneResultObject);          
-    }  
+  const handleFormTwoSubmit = async (formOneResultObject) => {
+    setFormTwoData(formOneResultObject);
+    await handleCreateCampaign();
   };
   const handleReset = () => {
+    setFormOneData({});
     setCampaignTitle("");
     setCampaignDescription("");
     setCampaignAmount("");
     setArraySignatories([]);
-    setFiles([]);
   };
+
+  const handleCreateCampaign = async () => {
+    const signatoryArray = Object.assign({}, formTwoData.ArraySignatories);
+
+    let { campaignTitle, campaignDescription, mediaFiles } = formOneData;
+    let { campaignAmount, _} = formTwoData;
+
+    try{
+      const files = [
+      new File([mediaFiles], "mediaFiles"),
+      new File([signatoryArray], "signatoryArray"),
+      new File([campaignDescription], campaignDescription),
+      new File([campaignTitle], campaignTitle),
+      new File([campaignAmount], campaignAmount),
+    ];
+
+    let cid = await storeFiles(files);
+
+    console.log(campaignAmount, "Campaign Amount")
+    console.log(formTwoData, "form two data")
+    
+
+    let ttransaction = await createCampaign(cid, campaignAmount, formTwoData.ArraySignatories);
+    
+
+    console.log(ttransaction, "EVEEEEEEEEEEEEEEEEEEEEEEENt");
+    } catch (e){
+      console.log("Error", e.message)
+    }
+
+    
+  };
+
   useEffect(() => {
     setIsBrowser(true);
   }, []);
+
   if (isBrowser) {
     return ReactDOM.createPortal(
       <div className={open ? styles.active : styles.RaiseCampaignContainer}>
@@ -72,8 +108,6 @@ const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
                 setCampaignTitle={setCampaignTitle}
                 campaignDescription={campaignDescription}
                 setCampaignDescription={setCampaignDescription}
-                file={file}
-                setFiles={setFiles}
                 handleFormOneSubmit={handleFormOneSubmit}
               />
               <CampaignTransactionsDetails
@@ -86,7 +120,7 @@ const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
                 ArraySignatories={ArraySignatories}
                 setArraySignatories={setArraySignatories}
                 reset={() => handleReset()}
-                formOneData = {formOneData}
+                handleFormTwoSubmit={handleFormTwoSubmit}
               />
             </div>
           </div>
