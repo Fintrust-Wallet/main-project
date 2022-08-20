@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styles from "../form.module.css";
 import { AiOutlineClose } from "react-icons/ai";
+import { createCampaign } from "../../../../Integrations/Implementations/Fintrust";
+
 const CampaignTransactionsDetails = ({
   showForm,
   setShowForm,
@@ -43,6 +45,8 @@ const CampaignTransactionsDetails = ({
       alert("Please fill all the fields");
     }
   };
+
+
   return (
     <form
       className={
