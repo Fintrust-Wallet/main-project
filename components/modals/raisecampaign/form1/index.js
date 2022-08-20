@@ -8,10 +8,10 @@ const CampaignDetails = ({
   campaignTitle,
   setCampaignTitle,
   campaignDescription,
-  setCampaignDescription,    
+  setCampaignDescription,
+  file,
   handleFormOneSubmit,
 }) => {
-
   const [mediaFiles, setFiles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
@@ -72,8 +72,8 @@ const CampaignDetails = ({
             <input
               id={"campaignName"}
               value={campaignTitle}
-              onChange={(e) => setCampaignTitle(e.target.value)}
-              placeholder={"Whats the title of your campaign?"}              
+              onChange={(e) => setCampaignTitle([...file, e.target.value])}
+              placeholder={"Whats the title of your campaign?"}
             />
           </div>
           <div className={styles.inputWrap}>
@@ -82,7 +82,7 @@ const CampaignDetails = ({
               id={"campaignDesc"}
               value={campaignDescription}
               onChange={(e) => setCampaignDescription(e.target.value)}
-              placeholder={"Whats the title of your campaign?"}              
+              placeholder={"Whats the title of your campaign?"}
             />
           </div>
           <div className={styles.flex}>
