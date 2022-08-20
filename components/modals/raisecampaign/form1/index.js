@@ -72,7 +72,7 @@ const CampaignDetails = ({
             <input
               id={"campaignName"}
               value={campaignTitle}
-              onChange={(e) => setCampaignTitle([...file, e.target.value])}
+              onChange={(e) => setCampaignTitle(e.target.value)}
               placeholder={"Whats the title of your campaign?"}
             />
           </div>
