@@ -34,8 +34,8 @@ const CampaignDetails = ({
             return alert("File size is too big");
         }
       }
-      // let formInput = { campaignTitle, campaignDescription, mediaFiles };
-      // handleFormOneSubmit(formInput);
+      let formInput = { campaignTitle, campaignDescription, mediaFiles };      
+      handleFormOneSubmit(formInput);
       setLoading(true);
       setShowForm("transactForm");
 
@@ -53,9 +53,7 @@ const CampaignDetails = ({
 
   const handleDeleteFileItem = (i) => {
     setFiles([...mediaFiles].filter((item, index) => index !== i));
-  };
-
-  // console.log(formInput, "FORMINPUT🤔🤔");
+  };  
 
   return (
     <form
@@ -74,7 +72,7 @@ const CampaignDetails = ({
             <input
               id={"campaignName"}
               value={campaignTitle}
-              onChange={(e) => setCampaignTitle([...file, e.target.value])}
+              onChange={(e) => setCampaignTitle(e.target.value)}
               placeholder={"Whats the title of your campaign?"}
             />
           </div>
