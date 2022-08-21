@@ -8,6 +8,7 @@ import { TransactionHistory } from "../../mycampaignsdetailscomponents/transacti
 import Image from "next/image";
 import { WidthdrawalModal } from "../../modals/widthdrawalmodal";
 import { SuccessModal } from "../../modals/widthdrawalmodal/successModal";
+
 const CampaignDetails = ({ handleBack }) => {
   const [showMakeDonationsModal, setShowMakeDonationsModal] = useState(false);
   const [showShareThisCampaignModal, setShowShareThisCampaignModal] =
