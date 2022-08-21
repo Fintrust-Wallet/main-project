@@ -19,12 +19,10 @@ export default function Donation() {
       <main className="pb-10 ">
         <div className="fixed top-0 left-0">
           <Image src={LBlurBg} alt="LBlurBg" className="object-contain" />
-        </div>
-        <NavBar />
+        </div>       
         <DonationPage />
         <Banner />
-        <Team />
-        <Footer />
+        <Team />        
       </main>
     </div>
   );

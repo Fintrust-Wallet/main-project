@@ -8,6 +8,7 @@ import {
   walletConnectIcon,
 } from "../../../public/images";
 import Image from "next/image";
+
 const ConnectWallet = ({ open, onClose, onConnect }) => {
   const [isBrowser, setIsBrowser] = useState(false);
 
@@ -29,6 +30,7 @@ const ConnectWallet = ({ open, onClose, onConnect }) => {
               Select the your preferred wallet below.
             </p>
             <div className={styles.modalBody}>
+              
               {[
                 {
                   name: "Metamask",

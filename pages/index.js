@@ -3,6 +3,7 @@ import LandinPage from "../components/landingpage";
 import { Team } from "../components/Team";
 import { Footer } from "../components/Footer";
 import styles from "../styles/Home.module.css";
+import { NavBar } from "../components/navbar";
 
 export default function Home() {
   return (
@@ -15,9 +16,9 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <NavBar />
       <LandinPage />
-      <Team />
-      <Footer />
+      <Team />     
     </div>
   );
 }

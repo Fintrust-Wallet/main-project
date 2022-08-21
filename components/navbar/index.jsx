@@ -3,90 +3,70 @@ import Image from "next/image";
 import Link from "next/Link";
 import logo from "../../public/logo.svg";
 import wallet_icon from "../../public/wallet-check.svg";
-import { ethers } from "ethers";
-import Web3Modal from "web3modal";
-import WalletConnectProvider from "@walletconnect/web3-provider";
 import { Search } from "./components/search";
 import { ConnectWallet } from "../modals/connectwalletmodal";
 import { RaiseCampaign } from "../modals/raisecampaign";
 import { SuccessForm } from "../modals/raisecampaign/successForm";
 import { AlertModal } from "../modals/alertmodal";
 
+import { useConnect } from "wagmi";
+
 export const NavBar = () => {
+  const { connect, connectors, error, isLoading, pendingConnector } =
+    useConnect();
+
+  console.log(connectors, "connectors");
+
   const [userAccount, setUserAccount] = useState("");
   const [web3Modal, setWeb3Modal] = useState({});
   const [openWalletOptions, setOpenWalletOptions] = useState(false);
 
-  const [openRaiseCampaignModal, setOpenRaiseCampaignModal] = useState(false)
-  const [openSuccessForm, setOpenSuccessForm] = useState(false)
-  const [showAlert, setShowAlert] = useState(false)
+  const [openRaiseCampaignModal, setOpenRaiseCampaignModal] = useState(false);
+  const [openSuccessForm, setOpenSuccessForm] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+  const [connected, setConnected] = useState(true);
 
-  const [connected, setConnected] = useState(true)
+  useEffect(() => {}, []);
 
-  const providerOptions = {
-    walletconnect: {
-      package: WalletConnectProvider, // required
-      options: {
-        // infuraId: process.env.NEXT_PUBLIC_INFURA_ID,
-      },
-    },
-  };
-
-  // let web3Modal;
-  // if (typeof window != "undefined") {
-  //   web3Modal = new Web3Modal({
-  //     network: "mainnet", // optional
-  //     cacheProvider: true, // optional
-  //     providerOptions, // required
-  //   });
-  // }
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const web3modal = new Web3Modal({
-        network: "testnet", // optional
-        cacheProvider: true, // optional
-        providerOptions, // required
-      });
-      setWeb3Modal(web3modal);
-    }
-  }, []);
-
-  const connect = async () => {
+  const connecter = async () => {
     try {
-      setShowAlert(!showAlert)
-      const instance = await web3Modal.connect();
-      const provider = new ethers.providers.Web3Provider(instance);
-      const signer = provider.getSigner();
-      const accounts = await provider.listAccounts();
-      setUserAccount(accounts[0]);
-      // console.log(signer);
+      setShowAlert(!showAlert);
     } catch (err) {
-      setShowAlert(!showAlert)
+      setShowAlert(!showAlert);
 
       console.error(err);
       alert("There is an error");
     }
   };
 
-  // provider.on("connect", (info) => {
-  //   Setaddress(info);
-  // });
-
   return (
     <>
-
-    <AlertModal showAlert={showAlert} setShowAlert={setShowAlert}  connectStatus={showAlert} />
-    <ConnectWallet open={openWalletOptions} onClose={() => setOpenWalletOptions(false)} onConnect={connect} />
-    <RaiseCampaign open={openRaiseCampaignModal} onClose={()=> setOpenRaiseCampaignModal(!openRaiseCampaignModal)}setOpenSuccessForm={setOpenSuccessForm}/>
-    <SuccessForm open={openSuccessForm} onClose={()=> setOpenSuccessForm(!openSuccessForm)} setOpenSuccessForm={setOpenSuccessForm}/>
+      <AlertModal
+        showAlert={showAlert}
+        setShowAlert={setShowAlert}
+        connectStatus={showAlert}
+      />
+      <ConnectWallet
+        open={openWalletOptions}
+        onClose={() => setOpenWalletOptions(false)}
+        onConnect={connect}
+      />
+      <RaiseCampaign
+        open={openRaiseCampaignModal}
+        onClose={() => setOpenRaiseCampaignModal(!openRaiseCampaignModal)}
+        setOpenSuccessForm={setOpenSuccessForm}
+      />
+      <SuccessForm
+        open={openSuccessForm}
+        onClose={() => setOpenSuccessForm(!openSuccessForm)}
+        setOpenSuccessForm={setOpenSuccessForm}
+      />
       <div className="neon left-40 absolute top-10 max-w-6xl  flex flex-row items-center px-8 py-3 bg-[rgba(5,_124,_160,_0.79)] rounded-[20px] mx-auto container z-50">
         <ConnectWallet
           open={openWalletOptions}
           onClose={() => setOpenWalletOptions(false)}
           onConnect={connect}
         />
-
 
         <div>
           <Image
@@ -134,7 +114,9 @@ export const NavBar = () => {
               {connected ? (
                 <div className="flex flex-row justify-between gap-4 items-center">
                   <button
-                    onClick={() => setOpenRaiseCampaignModal(!openRaiseCampaignModal)}
+                    onClick={() =>
+                      setOpenRaiseCampaignModal(!openRaiseCampaignModal)
+                    }
                     className="w-[221px] h-[57px] text-white bg-primary-100 p-[17px_31px] flex flex-row justify-center items-center gap-[10px] rounded-[10px] connected-btn"
                   >
                     Create Campaigns
@@ -167,7 +149,7 @@ export const NavBar = () => {
                       userAccount.substring(35, 40)
                     ) : (
                       <div className="flex flex-row gap-4">
-                        <span className="text-sm">Connect Wallet</span>
+                        <span className="text-sm">Connect Wallet</span>`` ``
                         <Image src={wallet_icon} alt="wallet" />
                       </div>
                     )}
@@ -181,4 +163,3 @@ export const NavBar = () => {
     </>
   );
 };
-
