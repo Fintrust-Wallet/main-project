@@ -1,0 +1,86 @@
+
+.cardContainer{
+    width: 100%;
+    height: 164px;  
+    background: linear-gradient(0deg, #04779A, #04779A), linear-gradient(105.42deg, rgba(255, 255, 255, 0.11) -3.07%, rgba(255, 255, 255, 0.11) 49.04%, rgba(255, 255, 255, 0) 97.84%);
+    /* opacity: 0.4; */
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+.flexText{
+  display:flex;
+  height: fit-content;
+  width: fit-content;
+  gap:1rem;
+}
+.flexText .imageWrap {
+  width: 143px;
+    height: 145px;
+    border-radius: 10px;
+}
+.flexText .imageWrap  img{
+  width: 143px !important;
+  height: 145px !important;
+  border-radius: 10px;
+}
+.textCol{
+  display:flex;
+  flex-direction: column;
+height: 135px;
+  max-width:630px;
+  width: fit-content;
+  justify-content: space-between;
+  margin: auto 0;
+
+}
+.textCol > h3{
+  font-family: 'monument';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 115.9%;
+    color:#fff;
+}
+.textCol>p{
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    color: #D6F6FF;
+}
+.textCol .textRow{
+  height: 36px;
+    background: #006685;
+    display: flex;
+    align-items: center;
+    gap:1rem;
+    padding: 0 .4rem;
+}
+.textCol .textRow > div{
+  display: flex;
+  align-items: center;
+  gap:.4rem;
+}
+.textCol .textRow > div > span.wSt{
+  font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    color: #D6F6FF;
+}
+.textCol .textRow>div>span:last-of-type{
+  font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 18px;
+    color: #D6F6FF;
+}
+.ctaStatus{
+  height: 100%;
+  width:fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

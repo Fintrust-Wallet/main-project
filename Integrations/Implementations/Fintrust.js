@@ -20,35 +20,32 @@ async function createFintrustContractInstance() {
   return new ethers.Contract(fintrustContractAddress, fintrust.abi, signer);
 }
 
-async function createCampaign(cid, amount, arrayOfAddresses) { 
-
-  if (!cid || !amount || arrayOfAddresses.length == 0){
-    alert(`Invalid Input${cid} ${amount} ${arrayOfAddresses}`)
+async function createCampaign(cid, amount, arrayOfAddresses) {
+  if (!cid || !amount || arrayOfAddresses.length == 0) {
+    alert(`Invalid Input${cid} ${amount} ${arrayOfAddresses}`);
     return;
   }
 
   let areValidAddresses = false;
 
-  try{
-    arrayOfAddresses.forEach(element => {
-    ethers.utils.getAddress(element)
-  });
-  areValidAddresses = true;
-  } catch (e){
-    console.log(e.message)
+  try {
+    arrayOfAddresses.forEach((element) => {
+      ethers.utils.getAddress(element);
+    });
+    areValidAddresses = true;
+  } catch (e) {
+    console.log(e.message);
   }
 
-  if (!areValidAddresses){
+  if (!areValidAddresses) {
     alert("Invalid Signatory account");
     return;
-  }  
-  
+  }
+
   const contractInstance = await createFintrustContractInstance();
 
   let amountAsString = amount.toString();
   let _amount = ethers.utils.parseEther(amountAsString);
-
-  
 
   const transaction = await contractInstance.createCampaign(
     cid,
@@ -57,14 +54,14 @@ async function createCampaign(cid, amount, arrayOfAddresses) {
   );
 
   let waitedTransaction = await transaction.wait();
-    console.log(waitedTransaction.logs)
+  console.log(waitedTransaction.logs);
   return waitedTransaction;
 }
 
 async function deposit(creatorsAddress, campaignId, amount) {
   const contractInstance = await createDisputeContractInstance();
 
-  const transaction = await contractInstance.deposit(
+  let transaction = await contractInstance.deposit(
     creatorsAddress,
     campaignId,
     amount
@@ -77,7 +74,7 @@ async function deposit(creatorsAddress, campaignId, amount) {
 async function requestWithdraw(campaignId) {
   const contractInstance = await createDisputeContractInstance();
 
-  const transaction = await contractInstance.requestWithdraw(campaignId);
+  let transaction = await contractInstance.requestWithdraw(campaignId);
   transaction = await transaction.wait();
 
   return transaction.events[0];
@@ -86,7 +83,7 @@ async function requestWithdraw(campaignId) {
 async function confirmWithdraw(creatorsAddress, campaignId) {
   const contractInstance = await createDisputeContractInstance();
 
-  const transaction = await contractInstance.confirmWithdraw(
+  let transaction = await contractInstance.confirmWithdraw(
     creatorsAddress,
     campaignId
   );
@@ -98,7 +95,7 @@ async function confirmWithdraw(creatorsAddress, campaignId) {
 async function rejectWithdraw(creatorsAddress, campaignId) {
   const contractInstance = await createDisputeContractInstance();
 
-  const transaction = await contractInstance.rejectWithdraw(
+  let transaction = await contractInstance.rejectWithdraw(
     creatorsAddress,
     campaignId
   );
@@ -110,7 +107,7 @@ async function rejectWithdraw(creatorsAddress, campaignId) {
 async function withdraw(creatorsAddress, campaignId) {
   const contractInstance = await createDisputeContractInstance();
 
-  const transaction = await contractInstance.withdraw(
+  let transaction = await contractInstance.withdraw(
     campaignId,
     creatorsAddress
   );

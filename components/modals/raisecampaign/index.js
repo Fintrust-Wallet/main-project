@@ -20,14 +20,16 @@ const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
   const [formOneData, setFormOneData] = useState({});
   const [formTwoData, setFormTwoData] = useState({});
 
+
   const handleFormOneSubmit = async (formOneResultObject) => {
     setFormOneData(formOneResultObject);
   };
 
   const handleFormTwoSubmit = async (formOneResultObject) => {
     setFormTwoData(formOneResultObject);
-    await handleCreateCampaign();
+    await handleCreateCampaign(formOneResultObject);
   };
+
   const handleReset = () => {
     setFormOneData({});
     setCampaignTitle("");
@@ -36,11 +38,11 @@ const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
     setArraySignatories([]);
   };
 
-  const handleCreateCampaign = async () => {
+  const handleCreateCampaign = async (_formTwoData) => {
     const signatoryArray = Object.assign({}, formTwoData.ArraySignatories);
 
     let { campaignTitle, campaignDescription, mediaFiles } = formOneData;
-    let { campaignAmount, _} = formTwoData;
+    let { campaignAmount, _} = _formTwoData;
 
     try{
       const files = [
