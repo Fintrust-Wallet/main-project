@@ -10,7 +10,6 @@ import {
 import Image from "next/image";
 import { useConnect } from "wagmi";
 
-
 const ConnectWallet = ({ open, onClose, onConnect }) => {
   const { connect, connectors, error, isLoading, pendingConnector } =
     useConnect();
@@ -20,6 +19,13 @@ const ConnectWallet = ({ open, onClose, onConnect }) => {
   useEffect(() => {
     setIsBrowser(true);
   }, []);
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [open]);
   if (isBrowser) {
     return ReactDOM.createPortal(
       <div className={open ? styles.active : styles.connectWalletModal}>

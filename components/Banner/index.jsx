@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import leftIcon from "../../public/Polygonscan0.png";
 import rightIcon from "../../public/Polygonscan1.svg";
 import styles from "./styles.module.css";
@@ -20,8 +21,11 @@ export const Banner = () => {
         >
           All transactions on Fintrust are secured on Polygon network.
         </h1>
+      
         <button className="w-[221px] h-[57px] text-white bg-green-500 p-[17px_31px] flex flex-row justify-center items-center gap-[10px] rounded-[10px]">
-          Create campaign
+         <Link href="/campaigns">
+          View Campaigns
+         </Link>
         </button>
         <div className="absolute right-0 top-10">
           <Image

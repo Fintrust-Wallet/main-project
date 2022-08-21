@@ -4,8 +4,19 @@ import Pagination from "../../../public/Pagination.svg";
 import image1 from "../../../public/img1.png";
 import ukrain from "../../../public/ukrain.png";
 import polio from "../../../public/polio.png";
+import { EmptyState } from "../../emptystate";
 
-export const LandingPage = () => {
+export const getStaticProps = async () => {
+  const data = await fetch("api.fintrust.io/campaigns");
+  const campaigns = await data.json();
+  return {
+    props: {
+      campaigns: campaigns ? campaigns : [],
+    },
+  };
+};
+
+export const LandingPage = ({ campaigns }) => {
   return (
     <>
       <div className="mt-44  max-w-7xl mx-auto">
@@ -14,22 +25,30 @@ export const LandingPage = () => {
             Donating on a transparent platform powered by Polygon.
           </h1>
         </div>
-        <div>
-          <div className="grid grid-cols-1 place-items-center md:grid-cols-3 gap-10 px-10 relative top-20 mb-32">
-            <Card img={image1} amount="$200,000" raised="$10,000" />
-            <Card img={ukrain} amount="$2,000,000" raised="$150,000" />
-            <Card img={polio} amount="$1,200,000" raised="$100,000" />
-            <Card img={image1} amount="$200,000" raised="$10,000" />
-            <Card img={ukrain} amount="$2,000,000" raised="$150,000" />
-            <Card img={polio} amount="$1,200,000" raised="$100,000" />
-          </div>
-          <div className="grid place-items-center mb-10">
-            <Image
-              src={Pagination}
-              alt="Pagination"
-              className="object-contain"
-            />
-          </div>
+        <div className="w-full">
+          {campaigns ?? [].length < 0 ? (
+            <div className="grid grid-cols-1 place-items-center md:grid-cols-3 gap-10 px-10 relative top-20 mb-32">
+              {campaigns.map((campaign) => (
+                <Card key={campaign.id} campaign={campaign} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center w-full mx-auto flex items-center justify-end">
+              <EmptyState
+                text={"No campaign has been created yet on Fintrust."}
+                font="monument"
+              />
+            </div>
+          )}
+          {campaigns?.length > 0 && (
+            <div className="grid place-items-center mb-10">
+              <Image
+                src={Pagination}
+                alt="Pagination"
+                className="object-contain"
+              />
+            </div>
+          )}
         </div>
       </div>
     </>
