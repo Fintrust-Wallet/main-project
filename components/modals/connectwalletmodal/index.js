@@ -8,8 +8,13 @@ import {
   walletConnectIcon,
 } from "../../../public/images";
 import Image from "next/image";
+import { useConnect } from "wagmi";
+
 
 const ConnectWallet = ({ open, onClose, onConnect }) => {
+  const { connect, connectors, error, isLoading, pendingConnector } =
+    useConnect();
+
   const [isBrowser, setIsBrowser] = useState(false);
 
   useEffect(() => {
@@ -30,34 +35,41 @@ const ConnectWallet = ({ open, onClose, onConnect }) => {
               Select the your preferred wallet below.
             </p>
             <div className={styles.modalBody}>
-              
               {[
                 {
                   name: "Metamask",
                   icon: MetaMaskEmblem,
+                  connector: connectors[0],
                 },
                 {
-                  name: "Trust Wallet",
+                  name: "Coinbase",
                   icon: trustIcon,
+                  connector: connectors[1],
                 },
                 {
                   name: "Walletconnect",
                   icon: walletConnectIcon,
+                  connector: connectors[2],
+                },
+                {
+                  name: "Injected Connector",
+                  icon: walletConnectIcon,
+                  connector: connectors[3],
                 },
               ].map((_, index) => (
                 <div
                   className={styles.wallet}
                   key={index}
                   onClick={() => {
-                    onConnect(_.name);
+                    onConnect(_.connector);
                     onClose();
                   }}
                 >
                   <div className={styles.walletIcon}>
-                    <Image src={_.icon} alt={_.name} />
+                    <Image src={_.icon} alt={_.connector.name} />
                   </div>
                   <div className={styles.walletName}>
-                    <h3>{_.name}</h3>
+                    <h3>{_.connector.name}</h3>
                   </div>
                 </div>
               ))}

@@ -8,29 +8,36 @@ import { ConnectWallet } from "../modals/connectwalletmodal";
 import { RaiseCampaign } from "../modals/raisecampaign";
 import { SuccessForm } from "../modals/raisecampaign/successForm";
 import { AlertModal } from "../modals/alertmodal";
-
-import { useConnect } from "wagmi";
+import { useAccount, useConnect, useDisconnect } from "wagmi";
 
 export const NavBar = () => {
-  const { connect, connectors, error, isLoading, pendingConnector } =
-    useConnect();
-
-  console.log(connectors, "connectors");
+  const { disconnect } = useDisconnect();
+  const { connect } = useConnect();
+  const { address, connector, isConnected } = useAccount();
 
   const [userAccount, setUserAccount] = useState("");
-  const [web3Modal, setWeb3Modal] = useState({});
   const [openWalletOptions, setOpenWalletOptions] = useState(false);
-
   const [openRaiseCampaignModal, setOpenRaiseCampaignModal] = useState(false);
   const [openSuccessForm, setOpenSuccessForm] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-  const [connected, setConnected] = useState(true);
+  const [connected, setConnected] = useState(false)
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (isConnected) {
+      setConnected(isConnected)
+      setUserAccount(address);
+    } else {
+      disconnect();
+      setUserAccount("");
+    }
+  }, [address]);
 
-  const connecter = async () => {
+  const handleConnect = async (connector) => {
     try {
       setShowAlert(!showAlert);
+      connect({ connector });
+      setConnected(isConnected)
+      setUserAccount(address);
     } catch (err) {
       setShowAlert(!showAlert);
 
@@ -49,7 +56,7 @@ export const NavBar = () => {
       <ConnectWallet
         open={openWalletOptions}
         onClose={() => setOpenWalletOptions(false)}
-        onConnect={connect}
+        onConnect={handleConnect}
       />
       <RaiseCampaign
         open={openRaiseCampaignModal}
@@ -62,12 +69,6 @@ export const NavBar = () => {
         setOpenSuccessForm={setOpenSuccessForm}
       />
       <div className="neon left-40 absolute top-10 max-w-6xl  flex flex-row items-center px-8 py-3 bg-[rgba(5,_124,_160,_0.79)] rounded-[20px] mx-auto container z-50">
-        <ConnectWallet
-          open={openWalletOptions}
-          onClose={() => setOpenWalletOptions(false)}
-          onConnect={connect}
-        />
-
         <div>
           <Image
             src={logo}
