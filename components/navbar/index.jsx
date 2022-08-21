@@ -170,7 +170,7 @@ export const NavBar = () => {
                       className="w-[221px] h-[57px] text-white bg-[#06C4B2] p-[17px_31px] flex flex-row justify-center items-center gap-[10px] rounded-[10px] "
                     >
                       <div className="flex flex-row gap-4">
-                        <span className="text-sm">Connect Wallet</span>`` ``
+                        <span className="text-sm">Connect Wallet</span>
                         <Image src={wallet_icon} alt="wallet" />
                       </div>
                     </button>
