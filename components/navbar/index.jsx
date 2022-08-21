@@ -9,12 +9,14 @@ import { RaiseCampaign } from "../modals/raisecampaign";
 import { SuccessForm } from "../modals/raisecampaign/successForm";
 import { AlertModal } from "../modals/alertmodal";
 import { useAccount, useConnect, useDisconnect } from "wagmi";
+import { Cookies } from "next/dist/server/web/spec-extension/cookies";
 
 export const NavBar = () => {
   const { disconnect } = useDisconnect();
   const { connect } = useConnect();
   const { address, connector, isConnected } = useAccount();
 
+ const loc = "/"
   const [userAccount, setUserAccount] = useState("");
   const [openWalletOptions, setOpenWalletOptions] = useState(false);
   const [openRaiseCampaignModal, setOpenRaiseCampaignModal] = useState(false);
@@ -46,6 +48,10 @@ export const NavBar = () => {
     }
   };
 
+  // provider.on("connect", (info) => {
+  //   Setaddress(info);
+  // });
+
   return (
     <>
       <AlertModal
@@ -70,22 +76,24 @@ export const NavBar = () => {
       />
       <div className="neon left-40 absolute top-10 max-w-6xl  flex flex-row items-center px-8 py-3 bg-[rgba(5,_124,_160,_0.79)] rounded-[20px] mx-auto container z-50">
         <div>
+          <Link href={"/"} className="cursor pointer">
           <Image
             src={logo}
             alt="Fintrust Wallet Logo"
             className="md:w-20 w-12 md:h-20 h-12 object-contain"
           />
+          </Link>
         </div>
         <div className="hidden px-10 md:flex md:flex-row justify-start items-center">
           <div>
             <ul>
-              {connected ? (
+              {connected && !loc.includes("portfolio") ? (
                 <div className="text-white text-lg md:text-xl font-sora-light flex flex-row gap-4">
                   <li>
-                    <Link href="/">Campaigns</Link>
+                    <Link href="/campaigns">Campaigns</Link>
                   </li>
                   <li>
-                    <Link href="/about">My Portfolio</Link>
+                    <Link href="/portfolio">My Portfolio</Link>
                   </li>
                 </div>
               ) : (
@@ -118,43 +126,55 @@ export const NavBar = () => {
                     onClick={() =>
                       setOpenRaiseCampaignModal(!openRaiseCampaignModal)
                     }
-                    className="w-[221px] h-[57px] text-white bg-primary-100 p-[17px_31px] flex flex-row justify-center items-center gap-[10px] rounded-[10px] connected-btn"
+                    className="w-[221px] h-[57px] text-white bg-[#06C4B2]  p-[17px_31px] flex flex-row justify-center items-center gap-[10px] rounded-[10px] "
                   >
                     Create Campaigns
                   </button>
-                  <button
-                    onClick={() => setOpenWalletOptions(true)}
-                    className="w-[221px] h-[57px] text-white bg-primary-900 p-[17px_31px] flex flex-row justify-center items-center gap-[10px] rounded-[10px] connected-btn"
-                  >
-                    {userAccount ? (
-                      userAccount.substring(0, 10) +
-                      "..." +
-                      userAccount.substring(35, 40)
-                    ) : (
+                <div>
+                  {userAccount ? (
+                    <button
+                      onClick={() => disconnect()}
+                      className="w-[221px] h-[57px] text-white bg-primary-100 p-[17px_31px] flex flex-row justify-center items-center gap-[10px] rounded-[10px] connected-btn"
+                    >
+                      {userAccount.substring(0, 10) +
+                        "*****" +
+                        userAccount.substring(35, 40)}
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => setOpenWalletOptions(true)}
+                      className="w-[221px] h-[57px] text-white bg-[#06C4B2]  p-[17px_31px] flex flex-row justify-center items-center gap-[10px] rounded-[10px] "
+                    >
                       <div className="flex flex-row gap-4">
                         <span className="text-sm">Connect Wallet</span>
                         <Image src={wallet_icon} alt="wallet" />
                       </div>
-                    )}
-                  </button>
+                    </button>
+                  )}
+                </div>
                 </div>
               ) : (
                 <div>
-                  <button
-                    onClick={() => setOpenWalletOptions(true)}
-                    className="w-[221px] h-[57px] text-white bg-primary-900 p-[17px_31px] flex flex-row justify-center items-center gap-[10px] rounded-[10px] connected-btn"
-                  >
-                    {userAccount ? (
-                      userAccount.substring(0, 10) +
-                      "..." +
-                      userAccount.substring(35, 40)
-                    ) : (
+                  {userAccount ? (
+                    <button
+                      onClick={() => disconnect()}
+                      className="w-[221px] h-[57px] text-white bg-[#06C4B2] p-[17px_31px] flex flex-row justify-center items-center gap-[10px] rounded-[10px] "
+                    >
+                      {userAccount.substring(0, 10) +
+                        "..." +
+                        userAccount.substring(35, 40)}
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => setOpenWalletOptions(true)}
+                      className="w-[221px] h-[57px] text-white bg-[#06C4B2] p-[17px_31px] flex flex-row justify-center items-center gap-[10px] rounded-[10px] "
+                    >
                       <div className="flex flex-row gap-4">
                         <span className="text-sm">Connect Wallet</span>`` ``
                         <Image src={wallet_icon} alt="wallet" />
                       </div>
-                    )}
-                  </button>
+                    </button>
+                  )}
                 </div>
               )}
             </div>
