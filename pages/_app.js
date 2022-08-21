@@ -6,7 +6,7 @@ import { CoinbaseWalletConnector } from "wagmi/connectors/coinbaseWallet";
 import { InjectedConnector } from "wagmi/connectors/injected";
 import { MetaMaskConnector } from "wagmi/connectors/metaMask";
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
-import Layout from "./layout";
+import Layout from "../components/layout";
 
 const { chains, provider, webSocketProvider } = configureChains(
   [chain.polygonMumbai, chain.polygon],
