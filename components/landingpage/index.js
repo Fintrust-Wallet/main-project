@@ -16,7 +16,6 @@ import { Banner } from "../Banner";
 const LandinPage = () => {
   return (
     <div>
-      <NavBar />
       <Hero />
       <SupportedWalletBanner />
       <AboutUs />
