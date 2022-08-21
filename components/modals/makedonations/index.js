@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import styles from "./makedonations.module.css";
 import { AiOutlineClose } from "react-icons/ai";
+import { donate } from "../../../Integrations/Implementations/Fintrust";
 const MakeDonations = ({ open, onClose, onConnect }) => {
   const [isBrowser, setIsBrowser] = useState(false);
   const [amount, setAmount] = useState("");
@@ -17,7 +18,10 @@ const MakeDonations = ({ open, onClose, onConnect }) => {
   }, []);
   if (isBrowser) {
     return ReactDOM.createPortal(
-      <form className={open ? styles.active : styles.makeDonationsContainer}>
+      <form 
+      className={open ? styles.active : styles.makeDonationsContainer}
+      onSubmit={handleSubmit}
+      >
         <div className={open ? styles.open : styles.modalContainer}>
           <div className={styles.modalContent}>
             <div className={styles.modalHeader}>

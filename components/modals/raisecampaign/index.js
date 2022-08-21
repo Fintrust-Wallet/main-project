@@ -18,15 +18,12 @@ const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
   const [campaignAmount, setCampaignAmount] = useState("");
   const [ArraySignatories, setArraySignatories] = useState([]);
   const [formOneData, setFormOneData] = useState({});
-  const [formTwoData, setFormTwoData] = useState({});
-
 
   const handleFormOneSubmit = async (formOneResultObject) => {
     setFormOneData(formOneResultObject);
   };
 
   const handleFormTwoSubmit = async (formOneResultObject) => {
-    setFormTwoData(formOneResultObject);
     await handleCreateCampaign(formOneResultObject);
   };
 
@@ -39,35 +36,25 @@ const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
   };
 
   const handleCreateCampaign = async (_formTwoData) => {
-    const signatoryArray = Object.assign({}, formTwoData.ArraySignatories);
-
+    const signatoryArray = Object.assign({}, _formTwoData.ArraySignatories);
     let { campaignTitle, campaignDescription, mediaFiles } = formOneData;
-    let { campaignAmount, _} = _formTwoData;
+    let { campaignAmount, _ } = _formTwoData;
 
-    try{
-      const files = [
-      new File([mediaFiles], "mediaFiles"),
-      new File([signatoryArray], "signatoryArray"),
-      new File([campaignDescription], campaignDescription),
-      new File([campaignTitle], campaignTitle),
-      new File([campaignAmount], campaignAmount),
-    ];
+    try { 
+      let files = [...mediaFiles]; 
+      
+      files = files.concat([
+        new File([campaignDescription], "campaignDescription", {type: "text/plain;charset=utf-8"}),
+        new File([campaignTitle], "campaignTitle", {type: "text/plain;charset=utf-8"}),
+        new File([campaignAmount], "campaignAmount", {type: "text/plain;charset=utf-8"}),
+      ]);
+           
+      let cid = await storeFiles(files);
 
-    let cid = await storeFiles(files);
-
-    console.log(campaignAmount, "Campaign Amount")
-    console.log(formTwoData, "form two data")
-    
-
-    let ttransaction = await createCampaign(cid, campaignAmount, formTwoData.ArraySignatories);
-    
-
-    console.log(ttransaction, "EVEEEEEEEEEEEEEEEEEEEEEEENt");
-    } catch (e){
-      console.log("Error", e.message)
+      await createCampaign(cid, campaignAmount, _formTwoData.ArraySignatories);
+    } catch (e) {
+      console.log("Error", e.message);
     }
-
-    
   };
 
   useEffect(() => {

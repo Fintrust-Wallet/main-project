@@ -1,8 +1,9 @@
 import { ethers } from "ethers";
 import fintrust from "../Abi/fintrust.json";
-import { convertStringToBytes32 } from "../Utils/bytes32Converter";
+import { retrieveFiles } from "../Utils/web3Storage";
+import axios from "axios";
 
-let fintrustContractAddress = "0x91714f5d287851931fA2c2983bb475dfe0776032";
+let fintrustContractAddress = "0x4065809e68a977B5AD49d0B8427E557F55328FD2";
 
 async function createFintrustContractInstance() {
   const { ethereum } = window;
@@ -58,8 +59,8 @@ async function createCampaign(cid, amount, arrayOfAddresses) {
   return waitedTransaction;
 }
 
-async function deposit(creatorsAddress, campaignId, amount) {
-  const contractInstance = await createDisputeContractInstance();
+async function donate(creatorsAddress, campaignId, amount) {
+  const contractInstance = await createFintrustContractInstance();
 
   let transaction = await contractInstance.deposit(
     creatorsAddress,
@@ -72,7 +73,7 @@ async function deposit(creatorsAddress, campaignId, amount) {
 }
 
 async function requestWithdraw(campaignId) {
-  const contractInstance = await createDisputeContractInstance();
+  const contractInstance = await createFintrustContractInstance();
 
   let transaction = await contractInstance.requestWithdraw(campaignId);
   transaction = await transaction.wait();
@@ -81,7 +82,7 @@ async function requestWithdraw(campaignId) {
 }
 
 async function confirmWithdraw(creatorsAddress, campaignId) {
-  const contractInstance = await createDisputeContractInstance();
+  const contractInstance = await createFintrustContractInstance();
 
   let transaction = await contractInstance.confirmWithdraw(
     creatorsAddress,
@@ -93,7 +94,7 @@ async function confirmWithdraw(creatorsAddress, campaignId) {
 }
 
 async function rejectWithdraw(creatorsAddress, campaignId) {
-  const contractInstance = await createDisputeContractInstance();
+  const contractInstance = await createFintrustContractInstance();
 
   let transaction = await contractInstance.rejectWithdraw(
     creatorsAddress,
@@ -105,7 +106,7 @@ async function rejectWithdraw(creatorsAddress, campaignId) {
 }
 
 async function withdraw(creatorsAddress, campaignId) {
-  const contractInstance = await createDisputeContractInstance();
+  const contractInstance = await createFintrustContractInstance();
 
   let transaction = await contractInstance.withdraw(
     campaignId,
@@ -117,7 +118,7 @@ async function withdraw(creatorsAddress, campaignId) {
 }
 
 async function getACampaign(creatorsAddress, campaignId) {
-  const contractInstance = await createDisputeContractInstance();
+  const contractInstance = await createFintrustContractInstance();
 
   const transaction = await contractInstance.getCampaign(
     campaignId,
@@ -129,16 +130,51 @@ async function getACampaign(creatorsAddress, campaignId) {
 }
 
 async function getAllCreatedCampaigns(creatorsAddress) {
-  const contractInstance = await createDisputeContractInstance();
-
+  const contractInstance = await createFintrustContractInstance();
   const transaction = await contractInstance.allCampaigns(creatorsAddress);
 
-  const campaign = await transaction.wait();
-  return campaign;
+  let items = await Promise.all(
+    transaction.map(async (campaign) => {
+      let targetAmount = ethers.utils.formatUnits(
+        campaign.amount.toString(),
+        "ether"
+      );
+      let totalRaised = ethers.utils.formatUnits(
+        campaign.deposited.toString(),
+        "ether"
+      );
+
+      let item = {
+        targetAmount,
+        campaignId: campaign.id.toNumber(),
+        requestedWithdraw: campaign.withdrawInitiated,
+        withdrawApprovals: campaign.confirmations,
+        creatorsAddress: campaign.initiator,
+        totalRaised,
+        url: campaign.url,
+      };
+
+      let files = await retrieveFiles(campaign.url);
+
+      if (files.length > 0) {
+        files.forEach(async (file, index) => {
+          if (file.name.includes(".jpg") || file.name.includes(".png")) {
+            item[`image${index}`] = `https://${file.cid}.ipfs.w3s.link/`;
+          } else {
+            const text = await axios.get(`https://${file.cid}.ipfs.w3s.link/`);
+            item[file.name] = text.data;
+          }
+        });
+      }     
+      return item;
+    })
+  );
+
+  return items;
 }
 
 async function getAllSignatoryCampaigns(signatoryAddress) {
-  const contractInstance = await createDisputeContractInstance();
+  const contractInstance = await createFintrustContractInstance();
 
   const transaction = await contractInstance.allRef(signatoryAddress);
 
@@ -147,7 +183,7 @@ async function getAllSignatoryCampaigns(signatoryAddress) {
 }
 
 async function getAllWithdrawRequest(signatoryAddress) {
-  const contractInstance = await createDisputeContractInstance();
+  const contractInstance = await createFintrustContractInstance();
 
   const transaction = await contractInstance.allWithdrawRequest(
     signatoryAddress
@@ -159,7 +195,7 @@ async function getAllWithdrawRequest(signatoryAddress) {
 
 export {
   createCampaign,
-  deposit,
+  donate,
   rejectWithdraw,
   requestWithdraw,
   confirmWithdraw,

@@ -15,13 +15,20 @@ import { TransactionHistory } from "../../mycampaignsdetailscomponents/transacti
 import { MyCampaignsTab } from "../../mycampaignsdetailscomponents/tabs";
 
 export const DonationPage = ({ amount, raised }) => {
+  
   const [showMakeDonationsModal, setShowMakeDonationsModal] = useState(false);
   const [showShareThisCampaignModal, setShowShareThisCampaignModal] = useState(false)
 
   return (
     <>
-    <MakeDonations open={showMakeDonationsModal} onClose={setShowMakeDonationsModal} />
-    <ShareCampaign open={showShareThisCampaignModal} onClose={setShowShareThisCampaignModal} />
+      <MakeDonations
+        open={showMakeDonationsModal}
+        onClose={setShowMakeDonationsModal}
+      />
+      <ShareCampaign
+        open={showShareThisCampaignModal}
+        onClose={setShowShareThisCampaignModal}
+      />
       <div className="mt-44 relative font-sora-light max-w-7xl mx-auto">
         <div className="mx-12">
           <div>
@@ -48,9 +55,10 @@ export const DonationPage = ({ amount, raised }) => {
             </div>
             {/* Next Stage */}
             <div>
-            <div  className="flex flex-row mt-12 gap-2 justify-between ">
-              <div className="w-full h-fit ">
-                 <MyCampaignsTab/> 
+              <div>
+                <div className="flex flex-row gap-4 font-monument font-[400] text-[16px] leading-[18.54px] text-white">
+                  <span>Campaign Description</span>
+                  <span>Campaign Media</span>
                 </div>
                 <TransactionHistory/>
               </div>
