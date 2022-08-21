@@ -21,7 +21,7 @@ export default function Donation() {
           <Image src={LBlurBg} alt="LBlurBg" className="object-contain" />
         </div>
         <NavBar />
-        <DonationPage />
+        <DonationPage  />
         <Banner />
         <Team />
         <Footer />

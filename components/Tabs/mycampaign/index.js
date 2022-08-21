@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import styles from "../tabs.module.css";
 import image1 from "../../../public/img1.png";
 import { Card } from "../../signedin/landingpage/components/card";
+import { CampaignDetails } from "../campaigndetails";
 
 const MyCampaigns = () => {
   const [showCampaignDetails, setShowCampaignDetails] = useState(false);
   const itemArray = Array(6).fill(0);
   return showCampaignDetails ? (
-    <div>campaign details</div>
+    <div>
+      <CampaignDetails handleBack={()=> setShowCampaignDetails(!showCampaignDetails)} />
+    </div>
   ) : (
     <div className={styles.cardWrapper}>
       {itemArray.length > 0 ? (
