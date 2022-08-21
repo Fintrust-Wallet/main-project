@@ -20,11 +20,9 @@ export default function Landing() {
         <div className="fixed top-0 left-0">
           <Image src={LBlurBg} alt="LBlurBg" className="object-contain" />
         </div>
-        <NavBar />
         <LandingPage />
         <Banner />
-        <Team />
-        <Footer />
+        <Team />       
       </main>
     </div>
   );

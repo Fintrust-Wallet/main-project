@@ -16,8 +16,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <LandinPage />
-      <Team />
-      <Footer />
+      <Team />     
     </div>
   );
 }
