@@ -29,7 +29,9 @@ export const LandingPage = ({ campaigns }) => {
           {campaigns ?? [].length < 0 ? (
             <div className="grid grid-cols-1 place-items-center md:grid-cols-3 gap-10 px-10 relative top-20 mb-32">
               {campaigns.map((campaign) => (
-                <Card key={campaign.id} campaign={campaign} />
+                <Link href={`/campaigns/${campaign?.id}`}>
+                  <Card key={campaign.id} campaign={campaign} />
+                </Link>
               ))}
             </div>
           ) : (
