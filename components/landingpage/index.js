@@ -11,12 +11,11 @@ import {
 import Image from "next/image";
 import { spiral } from "../../public/images";
 import styles from "./style.module.css";
-import { NavBar } from "../navbar";
 import { Banner } from "../Banner";
+
 const LandinPage = () => {
   return (
     <div>
-      <NavBar />
       <Hero />
       <SupportedWalletBanner />
       <AboutUs />

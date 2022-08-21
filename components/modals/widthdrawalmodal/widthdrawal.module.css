@@ -1,0 +1,249 @@
+.widthdrawalCampaignContainer {
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  z-index: -20;
+  transform: scale(0);
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+
+
+.modalContainer {
+  transition-delay: 0.3s;
+  transition: all 0.3s ease-in-out;
+  transform: scale(0);
+  height: 0;
+  width: 0;
+  overflow: scroll;
+}
+div.active {
+  position: absolute;
+  width: 100%;
+min-height: 100vh;
+  display: flex;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+  top: 0%;
+  left: 0%;
+  background: rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+  transform: scale(1);
+}
+
+div.open {
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+  transition: all 0.3s ease-in-out;
+  transform: scale(1);
+  transition-delay: 0.3s;
+  width: 735px;
+  background: #006685;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  /* border: 1px solid red; */
+}
+
+div.open > div {
+  padding: 25px 40px;
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+}
+
+div.open > div .modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+}
+
+div.open > div .modalHeader .close {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  color: #fff;
+}
+
+div.open > div .modalHeader .close:hover {
+  color: #006685;
+  background: #fff;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+div.open > div .modalHeader>h2 {
+  font-family: 'monument';
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  line-height: 141.9%;
+  color: #FFFFFF;
+}
+
+div.open > div .modalBodyParagraph {
+  font-family: 'sora';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 141.9%;
+  color: #FFFFFF;
+  margin-bottom: 47px;
+}
+
+div.open > div .modalBody {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 2rem;
+  position: relative;
+  overflow-x: hidden;
+}
+div.open > div .modalBody .inputWrap {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  height: fit-content;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+div.open > div .modalBody .inputWrap>label,
+.spanText {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 25px;
+  color: #EEFFFF;
+}
+
+div.open > div .modalBody .inputWrap>input {
+  box-sizing: border-box;
+  border: 1px solid red;
+  width: 100%;
+  height: 58px;
+  background: #005170;
+  border-radius: 10px;
+  border: 2px solid hsla(174, 94%, 40%, 1);
+  padding: 0 .5rem;
+  outline: none;
+  color: #FFFFFF;
+  transition: all .3s ease-in-out;
+}
+
+div.open > div .modalBody .inputWrap input::placeholder,
+div.open > div .modalBody .inputWrap textarea::placeholder {
+  color: #ddd;
+}
+
+div.open > div .modalBody .inputWrap>input:focus,
+div.open > div .modalBody .inputWrap>textarea:focus {
+  border: 2px solid #FFFFFF;
+  transition: all .3s ease-in-out;
+}
+
+
+div.open > div .modalBody .modalBodyBtn {
+  width: 100%;
+  display: flex;
+}
+
+div.open > div .modalBody .modalBodyBtn button {
+  width: fit-content;
+  height: 59px;
+  padding: 0 45px;
+  margin: 0 auto;
+  background: #06C4B2;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid transparent;
+}
+
+div.open > div .modalBody .modalBodyBtn button:hover {
+  background: #006685;
+  transition: all 0.3s ease-in-out;
+  border: 2px solid #fff;
+}
+.inputContainer {
+  display: flex;
+  height: 58px;
+  border: 2px solid #05FAE4;
+  /* border-image-source: linear-gradient(90.34deg, #05FAE4 0.73%, #0093BF 99.8%); */
+  background: #005170;
+  border-radius: 10px;
+  align-items: center;
+
+}
+
+.inputContainer>div {
+  width: 65%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 .5rem;
+}
+
+.inputContainer>div>label {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 141.9%;
+  color: #FFFFFF;
+}
+
+.inputContainer>div>input {
+  width: calc(90%);
+  border-radius: 10px 0 0 10px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 0 .2rem;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 141.9%;
+  color: #FFFFFF;
+}
+
+.inputContainer span {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+
+  color: #FFFFFF;
+  border-left: 1px solid #fff;
+  height: 80%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 0 .5rem;
+}
+.flexCol {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.flex1 {
+  display: flex;
+  gap: 1rem;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+}

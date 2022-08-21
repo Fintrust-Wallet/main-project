@@ -7,15 +7,10 @@ const MakeDonations = ({ open, onClose, onConnect }) => {
   const [isBrowser, setIsBrowser] = useState(false);
   const [amount, setAmount] = useState("");
 
-  const handleSubmit = async (creatorsAddress, campaignId) => {
+  const handleDonation = () => {
     if (!amount){
-      alert ("Please set amount")
-      return;
+      alert("Please fill in an amount");
     }
-
-    await donate(creatorsAddress, campaignId, amount);
-
-    //After the donate function modal can show
   }
 
   useEffect(() => {

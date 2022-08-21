@@ -1,13 +1,12 @@
 import Head from "next/head";
 import Image from "next/image";
 import { NavBar } from "../../components/navbar";
-import { LandingPage } from "../../components/signedin/landingpage";
-import { Banner } from "../../components/Banner";
-import { Team } from "../../components/Team";
 import { Footer } from "../../components/Footer";
 import LBlurBg from "../../public/Ellipse26.svg";
+import { ProfileCard } from "../../components/profilecard";
+import { Tabs } from "../../components/Tabs";
 
-export default function Landing() {
+export default function Profile() {
   return (
     <div>
       <Head>
@@ -16,15 +15,14 @@ export default function Landing() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="pb-10">
+      <main className="pb-10 ">
         <div className="fixed top-0 left-0">
           <Image src={LBlurBg} alt="LBlurBg" className="object-contain" />
+        </div>        
+        <div className="mt-44 relative font-sora-light max-w-7xl mx-auto">
+          <ProfileCard />
+          <Tabs />          
         </div>
-        <NavBar />
-        <LandingPage />
-        <Banner />
-        <Team />
-        <Footer />
       </main>
     </div>
   );

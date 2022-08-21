@@ -13,6 +13,10 @@ import upload from "./upload.png";
 import MetaMaskEmblem from "./MetaMaskicon.png";
 import trustIcon from "./trustIcon.png";
 import walletConnectIcon from "./wcicon.png";
+import teddy from "./teddy.svg";
+import medical from "./medical.svg";
+import wash from "./wash.svg";
+import bicycle from "./bicycle.svg";
 
 export {
   duck,
@@ -30,4 +34,8 @@ export {
   MetaMaskEmblem,
   trustIcon,
   walletConnectIcon,
+  teddy,
+  medical,
+  wash,
+  bicycle,
 };
