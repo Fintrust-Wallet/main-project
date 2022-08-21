@@ -21,7 +21,7 @@ export default function Profile() {
         </div>        
         <div className="mt-44 relative font-sora-light max-w-7xl mx-auto">
           <ProfileCard />
-          <Tabs />         
+          <Tabs />          
         </div>
       </main>
     </div>

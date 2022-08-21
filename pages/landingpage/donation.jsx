@@ -22,7 +22,7 @@ export default function Donation() {
         </div>       
         <DonationPage />
         <Banner />
-        <Team />        
+        <Team />       
       </main>
     </div>
   );
