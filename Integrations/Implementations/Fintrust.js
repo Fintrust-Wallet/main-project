@@ -3,7 +3,7 @@ import fintrust from "../Abi/fintrust.json";
 import { retrieveFiles } from "../Utils/web3Storage";
 import axios from "axios";
 
-let fintrustContractAddress = "0x4065809e68a977B5AD49d0B8427E557F55328FD2";
+let fintrustContractAddress = "0x27cbD6FA5CC38F057e91151A90907AE0E3e30040";
 
 async function createFintrustContractInstance() {
   const { ethereum } = window;
@@ -195,6 +195,51 @@ async function getAllWithdrawRequest(signatoryAddress) {
   return campaign;
 }
 
+async function getAllCampaigns() {
+  const contractInstance = await createFintrustContractInstance();
+
+  const transaction = await contractInstance.getAllCampaigns();
+
+  let items = await Promise.all(
+    transaction.map(async (campaign) => {
+      let targetAmount = ethers.utils.formatUnits(
+        campaign.amount.toString(),
+        "ether"
+      );
+      let totalRaised = ethers.utils.formatUnits(
+        campaign.deposited.toString(),
+        "ether"
+      );
+
+      let item = {
+        targetAmount,
+        campaignId: campaign.id.toNumber(),
+        requestedWithdraw: campaign.withdrawInitiated,
+        withdrawApprovals: campaign.confirmations,
+        creatorsAddress: campaign.initiator,
+        totalRaised,
+        url: campaign.url,
+      };
+
+      let files = await retrieveFiles(campaign.url);
+
+      if (files.length > 0) {
+        files.forEach(async (file, index) => {
+          if (file.name.includes(".jpg") || file.name.includes(".png")) {
+            item[`image${index}`] = `https://ipfs.io/ipfs/${file.cid}`;
+          } else {
+            const text = await axios.get(`https://${file.cid}.ipfs.w3s.link/`);
+            item[file.name] = text.data;
+          }
+        });
+      }
+      return item;
+    })
+  );
+
+  return items;
+}
+
 export {
   createCampaign,
   donate,
@@ -206,4 +251,5 @@ export {
   getAllCreatedCampaigns,
   getAllSignatoryCampaigns,
   getAllWithdrawRequest,
+  getAllCampaigns
 };
