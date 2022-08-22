@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    domains: ["ipfs.io"],
+  },
   reactStrictMode: true,
   swcMinify: true,
   webpack: (config) => {
@@ -7,9 +10,8 @@ const nextConfig = {
     config.experiments = { ...config.experiments, ...{ topLevelAwait: true } };
     // this will just update topLevelAwait property of config.experiments
     // config.experiments.topLevelAwait = true
-    config.resolve.fallback = {fs: false}
+    config.resolve.fallback = { fs: false };
     return config;
   },
 };
-
-module.exports = nextConfig
+https: module.exports = nextConfig;

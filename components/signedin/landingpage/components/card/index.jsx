@@ -3,14 +3,26 @@
 
 import Image from "next/image";
 
-export const Card = ({ title, img, description,amount, raised }) => {
+export const Card = ({
+  amount,
+  raised,
+  id,
+  title,
+  description,
+  initiator,
+  sentWithdrawalRequest,
+  withdrawApprovals,
+  imageSrc,
+}) => {
+  
   return (
     <>
       <div className="card-bg-blur relative hover:cursor-pointer">
         <Image
-          src={img}
+          src={imageSrc}
           alt="Image1"
           className="w-[385px] relative z-[9999] h-[294px] object-contain"
+          layout="fill"
         />
         <div className="">
           <div className="pt-5 px-4 pb-8 text-[#d6f6ff]">
@@ -18,7 +30,8 @@ export const Card = ({ title, img, description,amount, raised }) => {
               {title || "ENDSARS FUNDRAISE"}
             </h1>
             <p className="font-sora-light w-[349px] h-[75px] mb-8">
-              {description || `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              {description ||
+                `Lorem ipsum is not the description from the original source dolor sit amet, consectetur adipiscing elit.
               Suspendisse amet sed ut arcu, Eu id neque lacus, sit. Felis quis
               sed sed ut cursus.`}
             </p>
