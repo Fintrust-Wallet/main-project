@@ -1,0 +1,10 @@
+.hover{
+  transition: all 0.5s ease;
+  opacity: 1;
+   cursor: pointer;
+}
+.notHover{
+  transition: all 0.5s ease;
+   opacity: 0.4;
+   cursor: pointer;
+}
