@@ -6,10 +6,12 @@ import ukrain from "../../../public/ukrain.png";
 import polio from "../../../public/polio.png";
 import { EmptyState } from "../../emptystate";
 import { getAllCampaigns } from "../../../Integrations/Implementations/Fintrust";
+import { useEffect, useState } from "react";
 
 export const getStaticProps = async () => {
   const data = await getAllCampaigns();
   //const data = await fetch("api.fintrust.io/campaigns");
+  console.log(data, "data all campaigns");
   const campaigns = await data.json();
   return {
     props: {
@@ -19,6 +21,23 @@ export const getStaticProps = async () => {
 };
 
 export const LandingPage = ({ campaigns }) => {
+  const [campaign, setCampaign] = useState([]);
+  console.log(campaigns);
+
+  useEffect(() => {
+    let mounted = true;
+    const fetchCampaigns = async () => {
+      const data = await getAllCampaigns();
+      console.log(data, "data all campaigns");
+    };
+
+    if (mounted) {
+      fetchCampaigns();
+    }
+    return () => {
+      mounted = false;
+    };
+  }, []);
   return (
     <>
       <div className="mt-44  max-w-7xl mx-auto">
