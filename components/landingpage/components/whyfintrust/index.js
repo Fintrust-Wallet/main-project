@@ -1,11 +1,16 @@
 import React from "react";
 import styles from "./style.module.css";
+import {
+  explore,
+  secured,
+  support,
+} from "../../../../public/images/index.js";
 import Image from "next/image";
 const WhyFintrust = () => {
   const cards = [
-    { image: "", text: "Transparency" },
-    { image: "", text: "Secured" },
-    { image: "", text: "Support" },
+    { image: explore, text: "Transparency" },
+    { image: secured, text: "Secured" },
+    { image: support, text: "Support" },
   ].map(({ image, text }, i) => (
     <div className={styles.card} key={i}>
       <div className={styles.cardInner}>
