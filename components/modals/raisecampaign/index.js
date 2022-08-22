@@ -40,18 +40,25 @@ const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
     let { campaignTitle, campaignDescription, mediaFiles } = formOneData;
     let { campaignAmount, _ } = _formTwoData;
 
-    try { 
-      let files = [...mediaFiles]; 
-      
+    try {
+      let files = [...mediaFiles];
+
       files = files.concat([
-        new File([campaignDescription], "campaignDescription", {type: "text/plain;charset=utf-8"}),
-        new File([campaignTitle], "campaignTitle", {type: "text/plain;charset=utf-8"}),
-        new File([campaignAmount], "campaignAmount", {type: "text/plain;charset=utf-8"}),
+        new File([campaignDescription], "campaignDescription", {
+          type: "text/plain;charset=utf-8",
+        }),
+        new File([campaignTitle], "campaignTitle", {
+          type: "text/plain;charset=utf-8",
+        }),
+        new File([campaignAmount], "campaignAmount", {
+          type: "text/plain;charset=utf-8",
+        }),
       ]);
-           
+
       let cid = await storeFiles(files);
 
       await createCampaign(cid, campaignAmount, _formTwoData.ArraySignatories);
+      setOpenSuccessForm(true);
     } catch (e) {
       console.log("Error", e.message);
     }

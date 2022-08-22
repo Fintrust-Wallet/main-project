@@ -125,80 +125,12 @@ async function getACampaign(creatorsAddress, campaignId) {
     creatorsAddress
   );
 
-  const campaign = await transaction.wait();
-  return campaign;
+  return dataFormat(transaction);
 }
 
 async function getAllCreatedCampaigns(creatorsAddress) {
   const contractInstance = await createFintrustContractInstance();
   const transaction = await contractInstance.allCampaigns(creatorsAddress);
-
-  let items = await Promise.all(
-    transaction.map(async (campaign) => {
-      let targetAmount = ethers.utils.formatUnits(
-        campaign.amount.toString(),
-        "ether"
-      );
-      let totalRaised = ethers.utils.formatUnits(
-        campaign.deposited.toString(),
-        "ether"
-      );
-
-      let item = {
-        targetAmount,
-        campaignId: campaign.id.toNumber(),
-        requestedWithdraw: campaign.withdrawInitiated,
-        withdrawApprovals: campaign.confirmations,
-        creatorsAddress: campaign.initiator,
-        totalRaised,
-        url: campaign.url,
-      };
-
-      let files = await retrieveFiles(campaign.url);
-
-      if (files.length > 0) {
-        files.forEach(async (file, index) => {
-          if (file.name.includes(".jpg") || file.name.includes(".png")) {
-             item[`image${index}`] = 
-             `https://ipfs.io/ipfs/${file.cid}`              
-            ;
-          } else {
-            const text = await axios.get(`https://${file.cid}.ipfs.w3s.link/`);
-            item[file.name] = text.data;
-          }
-        });
-      }
-      return item;
-    })
-  );
-
-  return items;
-}
-
-async function getAllSignatoryCampaigns(signatoryAddress) {
-  const contractInstance = await createFintrustContractInstance();
-
-  const transaction = await contractInstance.allRef(signatoryAddress);
-
-  const campaign = await transaction.wait();
-  return campaign;
-}
-
-async function getAllWithdrawRequest(signatoryAddress) {
-  const contractInstance = await createFintrustContractInstance();
-
-  const transaction = await contractInstance.allWithdrawRequest(
-    signatoryAddress
-  );
-
-  const campaign = await transaction.wait();
-  return campaign;
-}
-
-async function getAllCampaigns() {
-  const contractInstance = await createFintrustContractInstance();
-
-  const transaction = await contractInstance.getAllCampaigns();
 
   let items = await Promise.all(
     transaction.map(async (campaign) => {
@@ -240,6 +172,70 @@ async function getAllCampaigns() {
   return items;
 }
 
+async function getAllSignatoryCampaigns(signatoryAddress) {
+  const contractInstance = await createFintrustContractInstance();
+
+  const transaction = await contractInstance.allRef(signatoryAddress);
+
+  return transaction;
+}
+
+async function getAllWithdrawRequest(signatoryAddress) {
+  const contractInstance = await createFintrustContractInstance();
+
+  const transaction = await contractInstance.allWithdrawRequest(
+    signatoryAddress
+  );
+
+  return transaction;
+}
+async function dataFormat(campaign) {
+  let targetAmount = ethers.utils.formatUnits(
+    campaign.amount.toString(),
+    "ether"
+  );
+  let totalRaised = ethers.utils.formatUnits(
+    campaign.deposited.toString(),
+    "ether"
+  );
+
+  let item = {
+    targetAmount,
+    campaignId: campaign.id.toNumber(),
+    requestedWithdraw: campaign.withdrawInitiated,
+    withdrawApprovals: campaign.confirmations,
+    creatorsAddress: campaign.initiator,
+    totalRaised,
+    url: campaign.url,
+  };
+
+  let files = await retrieveFiles(campaign.url);
+
+  if (files.length > 0) {
+    files.forEach(async (file, index) => {
+      if (file.name.includes(".jpg") || file.name.includes(".png")) {
+        item[`image${index}`] = `https://ipfs.io/ipfs/${file.cid}`;
+      } else {
+        const text = await axios.get(`https://${file.cid}.ipfs.w3s.link/`);
+        item[file.name] = text.data;
+      }
+    });
+  }
+  return item;
+}
+async function getAllCampaigns() {
+  const contractInstance = await createFintrustContractInstance();
+
+  const transaction = await contractInstance.getAllCampaigns();
+  let items = await Promise.all(
+    transaction.map(async (campaign) => {
+      dataFormat(campaign);
+    })
+  );
+
+  return items;
+}
+
 export {
   createCampaign,
   donate,
@@ -251,5 +247,5 @@ export {
   getAllCreatedCampaigns,
   getAllSignatoryCampaigns,
   getAllWithdrawRequest,
-  getAllCampaigns
+  getAllCampaigns,
 };

@@ -7,20 +7,21 @@ const MakeDonations = ({ open, onClose, onConnect }) => {
   const [isBrowser, setIsBrowser] = useState(false);
   const [amount, setAmount] = useState("");
 
-  const handleDonation = () => {
-    if (!amount){
+  const handleDonation = async (e) => {
+    e.preventDefault();
+    if (!amount) {
       alert("Please fill in an amount");
     }
-  }
+  };
 
   useEffect(() => {
     setIsBrowser(true);
   }, []);
   if (isBrowser) {
     return ReactDOM.createPortal(
-      <form 
-      className={open ? styles.active : styles.makeDonationsContainer}
-      onSubmit={handleSubmit}
+      <form
+        className={open ? styles.active : styles.makeDonationsContainer}
+        onSubmit={handleDonation}
       >
         <div className={open ? styles.open : styles.modalContainer}>
           <div className={styles.modalContent}>
@@ -47,7 +48,7 @@ const MakeDonations = ({ open, onClose, onConnect }) => {
                     placeholder="Enter amount"
                     className={styles.input}
                     id="amount"
-                    onChange={e => setAmount(e.target.value)}
+                    onChange={(e) => setAmount(e.target.value)}
                   />
                 </div>
                 <span className={styles.currency}>2.012 Polygon MATIC</span>
