@@ -38,7 +38,7 @@ div.open {
   transition: all 0.3s ease-in-out;
   transform: scale(1);
   transition-delay: 0.3s;
-  width: 645px;
+  width: 745px;
   height: fit-content;
   background: #006685;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -103,7 +103,7 @@ font-family: 'sora';
   flex-direction: column;
   align-items: center;
   justify-content: center;
-width: 191px;
+width: 170px;
   height: 191px;
   background: #0A708F;
   gap: 1rem;

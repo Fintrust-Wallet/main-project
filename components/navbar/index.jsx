@@ -9,14 +9,15 @@ import { RaiseCampaign } from "../modals/raisecampaign";
 import { SuccessForm } from "../modals/raisecampaign/successForm";
 import { AlertModal } from "../modals/alertmodal";
 import { useAccount, useConnect, useDisconnect } from "wagmi";
+import {useRouter} from "next/router"
 import { Cookies } from "next/dist/server/web/spec-extension/cookies";
+
 
 export const NavBar = () => {
   const { disconnect } = useDisconnect();
   const { connect } = useConnect();
   const { address, connector, isConnected } = useAccount();
-
- const loc = "/"
+   const router = useRouter()
   const [userAccount, setUserAccount] = useState("");
   const [openWalletOptions, setOpenWalletOptions] = useState(false);
   const [openRaiseCampaignModal, setOpenRaiseCampaignModal] = useState(false);
@@ -28,6 +29,8 @@ export const NavBar = () => {
     if (isConnected) {
       setConnected(isConnected)
       setUserAccount(address);
+      // Cookies.set("userAccount", address);
+       
     } else {
       disconnect();
       setUserAccount("");
@@ -40,6 +43,8 @@ export const NavBar = () => {
       connect({ connector });
       setConnected(isConnected)
       setUserAccount(address);
+      // Cookies.set("userAccount", address);
+      router.push("/campaigns")
     } catch (err) {
       setShowAlert(!showAlert);
 
@@ -87,7 +92,7 @@ export const NavBar = () => {
         <div className="hidden px-10 md:flex md:flex-row justify-start items-center">
           <div>
             <ul>
-              {connected && !loc.includes("portfolio") ? (
+              {connected ? (
                 <div className="text-white text-lg md:text-xl font-sora-light flex flex-row gap-4">
                   <li>
                     <Link href="/campaigns">Campaigns</Link>

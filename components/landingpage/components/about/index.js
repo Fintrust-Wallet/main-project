@@ -24,8 +24,8 @@ const AboutUs = () => {
             aliquam semper quam amet.
           </p>
           <div>
-            <a href="">
-              <button className={styles.button}>Create campaign</button>
+            <a href="/campaigns">
+              <button className={styles.button}>View campaign</button>
             </a>
           </div>
         </div>

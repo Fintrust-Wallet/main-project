@@ -95,14 +95,4 @@ const Tabs = () => {
   );
 };
 
-const EmptyState = ({ text }) => {
-  return (
-    <div className={styles.emptystateWrap}>
-      <div className={styles.imageCon}>
-        <img />
-      </div>
-      <p>{text}</p>
-    </div>
-  );
-};
 export { Tabs };
