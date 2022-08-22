@@ -17,6 +17,9 @@ import teddy from "./teddy.svg";
 import medical from "./medical.svg";
 import wash from "./wash.svg";
 import bicycle from "./bicycle.svg";
+import explore from "./explore.svg";
+import secured from "./secured.svg";
+import support from "./support.svg";
 import CoinbaseIcon from "./CoinbaseIcon.png";
 import injected from "./injected.svg";
 import prince2 from "./prince (2).svg";
@@ -55,4 +58,7 @@ export {
   medical,
   wash,
   bicycle,
+  explore,
+  secured,
+  support,
 };

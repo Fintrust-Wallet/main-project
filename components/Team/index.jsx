@@ -160,13 +160,14 @@ export const Team = () => {
               alt="Prince"
               className= {index === isHover ? `${styles.hover} md:w-100 md:h-100 w-[22px] h-[22px] object-contain rounded-full` : `${styles.notHover} md:w-100 md:h-100 w-[22px] h-[22px] object-contain rounded-full `}
               onMouseOver={() => setIsHover(index)}
+              key={index}
               
      />
   });
   const tabContent = tabData.map((item, index) => {
     return (
-      <span className={index === isHover ? "flex flex-col gap-y-4 text-left mt-20 md:mt-0 transition-all duration-500 ease-in-out opacity-100 w-fit overflow-unset": "flex flex-col gap-y-4 text-left mt-20 md:mt-0 transition-all duration-500 ease-in-out opacity-0 w-0 overflow-hidden"}>
-        <span className="font-sora-regular font-[600] text-[24px] leading-[179.9%]">
+      <span className={index === isHover ? "flex flex-col gap-y-4 text-left mt-20 md:mt-0 transition-all duration-500 ease-in-out opacity-100 w-fit overflow-unset": "flex flex-col gap-y-4 text-left mt-20 md:mt-0 transition-all duration-500 ease-in-out opacity-0 w-0 overflow-hidden"} key={index}>
+        <span className="font-sora-regular font-[600] text-[24px] leading-[179.9%]" >
           {item.name}
         </span>
         <span className="font-sora-light font-[600] text-[12px] leading-[179.9%]">
@@ -181,7 +182,7 @@ export const Team = () => {
               <a
                 href={social.link}
                 className="flex flex-col items-center justify-center"
-
+                key={index}
               >
                 <Image
                   src={social?.image}

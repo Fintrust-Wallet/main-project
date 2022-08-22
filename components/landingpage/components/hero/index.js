@@ -12,7 +12,6 @@ const Hero = () => {
     <>
       <VideoModal open={open} onClose={() => setOpen(!open)} />
       <div className={styles.container}>
-        <NavBar />
         <div className={styles.hero}>
           <div className={styles.heroText}>
             <h1>
@@ -22,13 +21,11 @@ const Hero = () => {
               <br /> blockchain.
             </h1>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse
+              Explore unparalleled access to donors and projects and support
               <br />
-              amet sed ut arcu, urna sagittis, vestibulum, curabitur volutpat.
-              Eu
+              innovative change that create the future. With secured funds and
               <br />
-              id neque lacus, sit. Felis quis sed sed ut cursus.
+              records and a transparent process. The future can be created.
             </p>
             <div className={styles.playBtn}>
               <button onClick={() => setOpen(!open)}>

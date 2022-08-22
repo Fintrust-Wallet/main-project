@@ -20,22 +20,19 @@ const RoadMap = () => {
               <ul className={styles.mapContentBody}>
                 <li>
                   {" "}
-                  <span className="before"></span>{" "}
-                  <span>hdb3jehfejfemfvefhef</span>
+                  <span className="before"></span> <span>Full branding</span>
                 </li>{" "}
                 <li>
                   {" "}
-                  <span className="before"></span>{" "}
-                  <span>hdb3jehfejfemfvefhef</span>
+                  <span className="before"></span> <span>Complete UiUX </span>
                 </li>
                 <li>
                   {" "}
-                  <span className="before"></span>{" "}
-                  <span>hdb3jehfejfemfvefhef</span>
+                  <span className="before"></span> <span>Create Campaigns</span>
                 </li>
                 <li>
                   <span className="before"></span>{" "}
-                  <span>hdb3jehfejfemfvefhef</span>
+                  <span>Donate and withdraw</span>
                 </li>
               </ul>
             </div>
@@ -53,22 +50,20 @@ const RoadMap = () => {
               <ul className={styles.mapContentBody}>
                 <li>
                   {" "}
-                  <span className="before"></span>{" "}
-                  <span>hdb3jehfejfemfvefhef</span>
+                  <span className="before"></span> <span>On-ramp feature</span>
                 </li>{" "}
                 <li>
                   {" "}
                   <span className="before"></span>{" "}
-                  <span>hdb3jehfejfemfvefhef</span>
+                  <span>Multi-network support</span>
                 </li>
                 <li>
                   {" "}
-                  <span className="before"></span>{" "}
-                  <span>hdb3jehfejfemfvefhef</span>
+                  <span className="before"></span> <span>B2B fundraising</span>
                 </li>
                 <li>
                   <span className="before"></span>{" "}
-                  <span>hdb3jehfejfemfvefhef</span>
+                  <span>Withdrawal in Fiat</span>
                 </li>
               </ul>
             </div>
@@ -85,24 +80,20 @@ const RoadMap = () => {
               <span className={styles.mapDot}></span>
               <ul className={styles.mapContentBody}>
                 <li>
-                  {" "}
-                  <span className="before"></span>{" "}
-                  <span>hdb3jehfejfemfvefhef</span>
-                </li>{" "}
-                <li>
-                  {" "}
-                  <span className="before"></span>{" "}
-                  <span>hdb3jehfejfemfvefhef</span>
-                </li>
-                <li>
-                  {" "}
-                  <span className="before"></span>{" "}
-                  <span>hdb3jehfejfemfvefhef</span>
+                  <span className="before"></span> <span>Shared wallet</span>
                 </li>
                 <li>
                   <span className="before"></span>{" "}
-                  <span>hdb3jehfejfemfvefhef</span>
+                  <span>Fintrust token $FTRST</span>
                 </li>
+                <li>
+                  <span className="before"></span>{" "}
+                  <span>Multi-level company organization</span>
+                </li>
+                {/* <li>
+                  <span className="before"></span>{" "}
+                  <span>hdb3jehfejfemfvefhef</span>
+                </li> */}
               </ul>
             </div>
           </div>

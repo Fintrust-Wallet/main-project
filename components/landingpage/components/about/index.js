@@ -14,14 +14,15 @@ const AboutUs = () => {
           <span>What we do at Fintrust</span>
           <h2>About Us</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lobortis
-            diam in lorem vitae quis faucibus platea amet at. Sed nullam
-            praesent condimentum aliquam. Eu ligula viverra vestibulum
-            elementum. Eu elit fermentum ut eget nunc. Posuere a tellus, et est
-            nulla eu tellus ullamcorper facilisis. Dictum id amet odio pharetra
-            et aliquam semper quam amet. Posuere a tellus, et est nulla eu
-            tellus ullamcorper facilisis. Dictum id amet odio pharetra et
-            aliquam semper quam amet.
+          What do you get when you put a team of people with expertise and interest in 
+          different fields ranging from development to design, research, startup 
+          building and fundraising. Nothing actually. However, when all of them have a 
+          commitment to creating the future securely and transparently, then you get 
+          us at Fintrust. We strongly believe that for world changing ideas to succeed, 
+          people with the knowledge and expertise in executing it and those with great 
+          interest and support are instrumental. With the control, security and 
+          transparency that the blockchain is known for, that can be achieved.
+
           </p>
           <div>
             <a href="/campaigns">

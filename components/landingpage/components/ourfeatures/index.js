@@ -23,39 +23,43 @@ const OurFeatures = () => {
             </div>
           </div>
           <div className={styles.card}>
-            <h3>Public Fundraise</h3>
+            <h3>Assign Signatories</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum
-              posuere eu orci, arcu. Quisque at sit mattis vel penatibus. Lorem
-              ipsum dolor sit amet, consectetur adipiscing elit. Elementum
-              posuere eu orci, arcu. Quisque at sit mattis vel penatibus.
+            Bring in other people vital to the project and add them in as Signatories. 
+            People who have this access sign the requests for withdrawal 
+            of funds for it to be granted. This is subject to agreement with 
+            the Campaign creator and/or other Signatories.
+
             </p>
           </div>
           <div className={styles.card}>
-            <h3>Public Fundraise</h3>
+            <h3>Transparency</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum
-              posuere eu orci, arcu. Quisque at sit mattis vel penatibus. Lorem
-              ipsum dolor sit amet, consectetur adipiscing elit. Elementum
-              posuere eu orci, arcu. Quisque at sit mattis vel penatibus.
+            Easily access and view records of how funds are raised, 
+            by whom as well as how they are withdrawn and used. Our records 
+            are visible and are also secure (immutable) so you can trust 
+            that you are indeed viewing as it is.
+
             </p>
           </div>
           <div className={styles.card}>
-            <h3>Public Fundraise</h3>
+            <h3>Decentralized Control</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum
-              posuere eu orci, arcu. Quisque at sit mattis vel penatibus. Lorem
-              ipsum dolor sit amet, consectetur adipiscing elit. Elementum
-              posuere eu orci, arcu. Quisque at sit mattis vel penatibus.
+            Only Campaign creators have access to the funds raised on 
+            Fintrust for a particular campaign. Fintrust provides the 
+            platform and everything needed to raise the funds. Campaign 
+            creators can place withdrawal requests and can access the funds 
+            once other signatories have signed.
+
             </p>
           </div>
           <div className={styles.card}>
-            <h3>Public Fundraise</h3>
+            <h3>No Government Censorship</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum
-              posuere eu orci, arcu. Quisque at sit mattis vel penatibus. Lorem
-              ipsum dolor sit amet, consectetur adipiscing elit. Elementum
-              posuere eu orci, arcu. Quisque at sit mattis vel penatibus.
+            Fintrust enables people to raise and contribute money to ideas 
+            and projects without attracting undue risk to their accounts 
+            or person. Transactions on Fintrust by virtue of the blockchain 
+            are censorship resistant and provide privacy. 
             </p>
           </div>
         </div>
