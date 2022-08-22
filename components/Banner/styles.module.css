@@ -3,3 +3,10 @@
   font-family: "monument";
     color: #FFFFFF;
 }
+
+
+@media screen and (max-width: 450px) {
+  .textmon{
+    font-size: 24px;
+  }
+}

@@ -16,7 +16,7 @@ export const Banner = () => {
           />
         </div>
         <h1
-          className={`${styles.textmon} text-white md:text-[41px] text-[32px] text-center leading-[115.9%] font-[400] md:w-[793px] w-[343px] h-[102px]`}
+          className={`${styles.textmon} z-10 text-white sm:text-[20px] md:text-[41px] text-[32px] text-center leading-[115.9%] font-[400] md:w-[793px] w-[343px] h-[102px]`}
         >
           All transactions on Fintrust are secured on Polygon network.
         </h1>
