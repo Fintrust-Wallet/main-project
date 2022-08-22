@@ -159,13 +159,15 @@ async function getAllCreatedCampaigns(creatorsAddress) {
       if (files.length > 0) {
         files.forEach(async (file, index) => {
           if (file.name.includes(".jpg") || file.name.includes(".png")) {
-            item[`image${index}`] = `https://${file.cid}.ipfs.w3s.link/`;
+             item[`image${index}`] = 
+             `https://ipfs.io/ipfs/${file.cid}`              
+            ;
           } else {
             const text = await axios.get(`https://${file.cid}.ipfs.w3s.link/`);
             item[file.name] = text.data;
           }
         });
-      }     
+      }
       return item;
     })
   );
