@@ -10,19 +10,19 @@ const HowItWorks = () => {
       icon: mark,
       headingtext: "Setup Campaign",
       paragraph:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est at libero, cras eu auctor hac lacus, tempus. Eget sit in sit nunc, aliquam. ",
+        "Begin the process by registering your project’s details easily. ",
     },
     {
       icon: upload,
       headingtext: "Share Invite",
       paragraph:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est at libero, cras eu auctor hac lacus, tempus. Eget sit in sit nunc, aliquam. ",
+        "Invite others and those on the platform. ",
     },
     {
       icon: pocket,
       headingtext: "Receive Donations",
       paragraph:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est at libero, cras eu auctor hac lacus, tempus. Eget sit in sit nunc, aliquam. ",
+        "Invite others and those on the platform. ",
     },
   ];
   return (

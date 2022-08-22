@@ -17,6 +17,9 @@ import teddy from "./teddy.svg";
 import medical from "./medical.svg";
 import wash from "./wash.svg";
 import bicycle from "./bicycle.svg";
+import explore from "./explore.svg"
+import secured from "./secured.svg"
+import support from "./support.svg"
 
 export {
   duck,
@@ -38,4 +41,7 @@ export {
   medical,
   wash,
   bicycle,
+  explore,
+  secured,
+  support
 };

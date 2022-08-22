@@ -80,6 +80,9 @@
   border: 1px solid #05bbac;
   border-radius: 100%;
   background: #31697a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .cardInner .image img{
   height: 100%;

@@ -21,9 +21,9 @@ const RoadMap = () => {
                 <li>
                   {" "}
                   <span className="before"></span>{" "}
-                  <span>hdb3jehfejfemfvefhef</span>
+                  <span>MVP</span>
                 </li>{" "}
-                <li>
+                {/* <li>
                   {" "}
                   <span className="before"></span>{" "}
                   <span>hdb3jehfejfemfvefhef</span>
@@ -36,7 +36,7 @@ const RoadMap = () => {
                 <li>
                   <span className="before"></span>{" "}
                   <span>hdb3jehfejfemfvefhef</span>
-                </li>
+                </li> */}
               </ul>
             </div>
             <div className={styles.mapContentBody}></div>
@@ -54,22 +54,23 @@ const RoadMap = () => {
                 <li>
                   {" "}
                   <span className="before"></span>{" "}
-                  <span>hdb3jehfejfemfvefhef</span>
+                  <span>On-ramp feature</span>
                 </li>{" "}
                 <li>
                   {" "}
                   <span className="before"></span>{" "}
-                  <span>hdb3jehfejfemfvefhef</span>
+                  <span>Multi-network support</span>
                 </li>
                 <li>
                   {" "}
                   <span className="before"></span>{" "}
-                  <span>hdb3jehfejfemfvefhef</span>
+                  <span>B2B fundraising</span>
                 </li>
                 <li>
                   <span className="before"></span>{" "}
-                  <span>hdb3jehfejfemfvefhef</span>
+                  <span>Withdrawal in Fiat</span>
                 </li>
+                
               </ul>
             </div>
             <div className={styles.mapContentBody}></div>
@@ -84,25 +85,22 @@ const RoadMap = () => {
             <div className={styles.mapContent}>
               <span className={styles.mapDot}></span>
               <ul className={styles.mapContentBody}>
-                <li>
-                  {" "}
+              <li>
                   <span className="before"></span>{" "}
-                  <span>hdb3jehfejfemfvefhef</span>
-                </li>{" "}
-                <li>
-                  {" "}
-                  <span className="before"></span>{" "}
-                  <span>hdb3jehfejfemfvefhef</span>
-                </li>
-                <li>
-                  {" "}
-                  <span className="before"></span>{" "}
-                  <span>hdb3jehfejfemfvefhef</span>
+                  <span>Shared wallet</span>
                 </li>
                 <li>
                   <span className="before"></span>{" "}
-                  <span>hdb3jehfejfemfvefhef</span>
+                  <span>Fintrust token $FTRST</span>
                 </li>
+                <li>
+                  <span className="before"></span>{" "}
+                  <span>Multi-level company organization</span>
+                </li>
+                {/* <li>
+                  <span className="before"></span>{" "}
+                  <span>hdb3jehfejfemfvefhef</span>
+                </li> */}
               </ul>
             </div>
           </div>

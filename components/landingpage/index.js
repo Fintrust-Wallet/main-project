@@ -24,11 +24,11 @@ const LandinPage = () => {
           <Image src={spiral} alt="spiral" />
         </div>
         <HowItWorks />
-        <OurFeatures />
+        {/* <OurFeatures /> */}
       </div>
       <Banner />
-      <WhyFintrust />
-      <RoadMap />
+      {/* <WhyFintrust /> */}
+      {/* <RoadMap /> */}
     </div>
   );
 };
