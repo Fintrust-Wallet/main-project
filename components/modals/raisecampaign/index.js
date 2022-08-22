@@ -39,7 +39,7 @@ const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
     const signatoryArray = Object.assign({}, _formTwoData.ArraySignatories);
     let { campaignTitle, campaignDescription, mediaFiles } = formOneData;
     let { campaignAmount, _ } = _formTwoData;
-
+    alert("creating campaign");
     try {
       let files = [...mediaFiles];
 
@@ -59,6 +59,9 @@ const RaiseCampaign = ({ open, onClose, onConnect, setOpenSuccessForm }) => {
 
       await createCampaign(cid, campaignAmount, _formTwoData.ArraySignatories);
       setOpenSuccessForm(true);
+      setShowForm("detailsForm");
+      handleReset();
+      onClose();
     } catch (e) {
       console.log("Error", e.message);
     }

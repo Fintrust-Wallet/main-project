@@ -13,12 +13,12 @@ import { ShareCampaign } from "../../modals/sharecampaign";
 import { Transact } from "../../mycampaignsdetailscomponents/transact";
 import { TransactionHistory } from "../../mycampaignsdetailscomponents/transactionhistory";
 import { MyCampaignsTab } from "../../mycampaignsdetailscomponents/tabs";
-
+import {useRouter} from "next/router";
 export const DonationPage = ({ amount, raised,campaign }) => {
   
   const [showMakeDonationsModal, setShowMakeDonationsModal] = useState(false);
   const [showShareThisCampaignModal, setShowShareThisCampaignModal] = useState(false)
-
+   const router = useRouter()
   return (
     <>
       <MakeDonations
@@ -32,7 +32,9 @@ export const DonationPage = ({ amount, raised,campaign }) => {
       <div className="mt-44 relative font-sora-light max-w-7xl mx-auto">
         <div className="mx-12">
           <div>
-            <button className="w-[221px] h-[57px] text-white bg-primary-900 p-[17px_31px] flex flex-row justify-center items-center gap-[10px] rounded-[10px] connected-btn">
+            <button className="w-[221px] h-[57px] text-white bg-primary-900 p-[17px_31px] flex flex-row justify-center items-center gap-[10px] rounded-[10px] connected-btn" onClick={()=> {
+              router.back()
+            }}>
               <Image src={back} alt="back" />
               <span>Go Back</span>
             </button>
@@ -55,10 +57,9 @@ export const DonationPage = ({ amount, raised,campaign }) => {
             </div>
             {/* Next Stage */}
             <div>
-              <div>
-                <div className="flex flex-row gap-4 font-monument font-[400] text-[16px] leading-[18.54px] text-white">
-                  <span>Campaign Description</span>
-                  <span>Campaign Media</span>
+              <div className="flex gap-8 m-[2rem_0]" >
+                <div >
+                  <MyCampaignsTab />
                 </div>
                 <TransactionHistory/>
               </div>

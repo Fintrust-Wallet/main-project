@@ -34,18 +34,10 @@ const CampaignDetails = ({
             return alert("File size is too big");
         }
       }
-      let formInput = { campaignTitle, campaignDescription, mediaFiles };      
+      let formInput = { campaignTitle, campaignDescription, mediaFiles };
       handleFormOneSubmit(formInput);
       setLoading(true);
       setShowForm("transactForm");
-
-      try {
-        //make request to server
-        // setUploadProgress(progress)
-      } catch {
-        setLoading(false);
-        alert("Something went wrong");
-      }
     } else {
       alert("Please fill all the fields");
     }
@@ -53,7 +45,7 @@ const CampaignDetails = ({
 
   const handleDeleteFileItem = (i) => {
     setFiles([...mediaFiles].filter((item, index) => index !== i));
-  };  
+  };
 
   return (
     <form
