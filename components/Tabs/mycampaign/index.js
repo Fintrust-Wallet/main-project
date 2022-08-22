@@ -27,7 +27,7 @@ const MyCampaigns = () => {
     }
     fetchdata();
   }, []);
-  
+
   return showCampaignDetails ? (
     <div>
       <CampaignDetails
@@ -41,6 +41,7 @@ const MyCampaigns = () => {
         campaigns.map((campaign, i) => {
           return (
             <span
+              key={i}
               onClick={() => {
                 setShowCampaignDetails(!showCampaignDetails);
                 setCurrentCampaign(campaign);
@@ -56,7 +57,6 @@ const MyCampaigns = () => {
                 sentWithdrawalRequest={campaign.requestedWithdraw}
                 withdrawApprovals={campaign.withdrawApprovals}
                 imageSrc={campaign.image0 ? campaign.image0 : importedImage}
-                key={i}
               />
             </span>
           );
@@ -64,7 +64,7 @@ const MyCampaigns = () => {
       ) : (
         <div className={styles.empty}>
           <div className={styles.imageWrap}>
-            <Image src={emptyStateImage} />
+            <Image alt="" src={emptyStateImage} />
           </div>
           <span className={styles.headingText}>
             <h2> You have not created any campaign yet.</h2>
