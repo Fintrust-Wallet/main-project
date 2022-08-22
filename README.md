@@ -83,4 +83,4 @@ To deploy this project run
 
 ## Screenshots
 
-![App Screenshot](https://drive.google.com/file/d/10m2xrdy6jPj6IusC2cI2AmluCUIrS7rH/view?usp=sharing)
+![App Screenshot]([https://drive.google.com/file/d/10m2xrdy6jPj6IusC2cI2AmluCUIrS7rH/view?usp=sharing](https://drive.google.com/file/d/1-7kKzxo0imeZxYAZbKFnN9EtWLbGa7ZN/view?usp=sharing))
