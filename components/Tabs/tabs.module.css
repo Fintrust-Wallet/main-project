@@ -75,10 +75,9 @@
   margin: 0 auto;
 }
 .empty .imageWrap {
-
+  width: fit-content;
   margin: 0 auto;
   margin-bottom: 2rem;
-  border: 1px solid red;
   margin-top: 3rem;
 }
 .btnWrap{

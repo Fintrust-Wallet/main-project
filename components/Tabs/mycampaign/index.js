@@ -5,7 +5,8 @@ import { Card } from "../../signedin/landingpage/components/card";
 import { CampaignDetails } from "../campaigndetails";
 import { useAccount } from "wagmi";
 import { getAllCreatedCampaigns } from "../../../Integrations/Implementations/Fintrust";
-
+import emptyStateImage from "../../../public/Group 26795.png";
+import Image from "next/image";
 const MyCampaigns = () => {
   const { address, connector, isConnected } = useAccount();
 
@@ -14,21 +15,17 @@ const MyCampaigns = () => {
 
   const getAllCampaigns = async () => {
     let campaigns = await getAllCreatedCampaigns(address);
-    setCampaigns(campaigns);    
+    setCampaigns(campaigns);
   };
 
   const itemArray = Array(6).fill(0);
 
-  useEffect(
-    () =>{
-       async function fetchdata() {
-        await getAllCampaigns(address);
-      }
-      fetchdata();
+  useEffect(() => {
+    async function fetchdata() {
+      await getAllCampaigns(address);
     }
-     ,
-    []
-  );
+    fetchdata();
+  }, []);
 
   // campaignId: 0;
   // creatorsAddress: "0x1a003097504dfB5474ea81194Dd17f133C5a5cBB";
@@ -46,17 +43,22 @@ const MyCampaigns = () => {
   ) : (
     <div className={styles.cardWrapper}>
       {campaigns.length > 0 ? (
-        campaigns.map((campaign, i) => {         
+        campaigns.map((campaign, i) => {
           return (
             <span onClick={() => setShowCampaignDetails(!showCampaignDetails)}>
-              <Card img={image1} amount={campaign.targetAmount} raised={campaign.totalRaised} key={i} />
+              <Card
+                img={image1}
+                amount={campaign.targetAmount}
+                raised={campaign.totalRaised}
+                key={i}
+              />
             </span>
           );
         })
       ) : (
         <div className={styles.empty}>
           <div className={styles.imageWrap}>
-            <img />
+            <Image src={emptyStateImage} />
           </div>
           <span className={styles.headingText}>
             <h2> You have not created any campaign yet.</h2>
