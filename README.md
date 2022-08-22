@@ -39,7 +39,7 @@ What optimizations did you make in your code? E.g. refactors, performance improv
 Clone the project
 
 ```bash
-  git clone https://github.com/Fintrust-Wallet/main-project.gitt
+  git clone https://github.com/Fintrust-Wallet/main-project.git
 ```
 
 Go to the project directory
