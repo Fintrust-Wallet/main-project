@@ -27,7 +27,7 @@ const LandinPage = () => {
         <OurFeatures />
       </div>
       <Banner />
-      {/* <WhyFintrust /> */}
+      <WhyFintrust />
       {/* <RoadMap /> */}
     </div>
   );
