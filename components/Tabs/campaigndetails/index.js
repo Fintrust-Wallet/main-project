@@ -9,7 +9,8 @@ import Image from "next/image";
 import { WidthdrawalModal } from "../../modals/widthdrawalmodal";
 import { SuccessModal } from "../../modals/widthdrawalmodal/successModal";
 
-const CampaignDetails = ({ handleBack }) => {
+const CampaignDetails = ({ handleBack, campaign }) => {
+  console.log(campaign, "THE CAMPAIHN")
   const [showMakeDonationsModal, setShowMakeDonationsModal] = useState(false);
   const [showShareThisCampaignModal, setShowShareThisCampaignModal] =
     useState(false);
