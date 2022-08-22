@@ -14,7 +14,7 @@ export const Card = ({
   withdrawApprovals,
   imageSrc,
 }) => {
-  
+  // console.log({ title, description });
   return (
     <>
       <div className="card-bg-blur relative hover:cursor-pointer">
@@ -28,10 +28,10 @@ export const Card = ({
         <div className="">
           <div className="pt-5 px-4 pb-8 text-[#d6f6ff]">
             <h1 className="pb-4 uppercase font-sora-light font-[600] leading-[179.9%]">
-              {title }
+              {title}
             </h1>
             <p className="font-sora-light w-[100%] box-border  h-[75px] mb-8">
-              {description }
+              {description}
             </p>
             <div className="relative top-3">
               <svg
@@ -65,7 +65,7 @@ export const Card = ({
               <div className="text-white grid gap-y-4">
                 <h1>Target Amount</h1>
                 <span className="text-xl leading-[179.9%] text-green-500 font-sora-bold">
-                  ${amount }
+                  ${amount}
                 </span>
               </div>
               <div className="text-white grid gap-y-4">

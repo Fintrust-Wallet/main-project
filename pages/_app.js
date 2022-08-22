@@ -1,4 +1,5 @@
-import "../styles/globals.css";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
@@ -6,6 +7,8 @@ import { CoinbaseWalletConnector } from "wagmi/connectors/coinbaseWallet";
 import { InjectedConnector } from "wagmi/connectors/injected";
 import { MetaMaskConnector } from "wagmi/connectors/metaMask";
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
+
+import "../styles/globals.css";
 import Layout from "../components/layout";
 
 const { chains, provider, webSocketProvider } = configureChains(
@@ -45,11 +48,13 @@ const client = createClient({
 });
 
 function MyApp({ Component, pageProps }) {
+  console.log("appp");
   return (
     <WagmiConfig client={client}>
+      <ToastContainer />
       <Layout>
         <Component {...pageProps} />
-      </Layout>      
+      </Layout>
     </WagmiConfig>
   );
 }

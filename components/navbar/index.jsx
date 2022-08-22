@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
-import Link from "next/Link";
+import Link from "next/link";
 import logo from "../../public/logo.svg";
 import wallet_icon from "../../public/wallet-check.svg";
 import { Search } from "./components/search";
@@ -9,28 +9,26 @@ import { RaiseCampaign } from "../modals/raisecampaign";
 import { SuccessForm } from "../modals/raisecampaign/successForm";
 import { AlertModal } from "../modals/alertmodal";
 import { useAccount, useConnect, useDisconnect } from "wagmi";
-import {useRouter} from "next/router"
+import { useRouter } from "next/router";
 import { Cookies } from "next/dist/server/web/spec-extension/cookies";
-
 
 export const NavBar = () => {
   const { disconnect } = useDisconnect();
   const { connect } = useConnect();
   const { address, connector, isConnected } = useAccount();
-   const router = useRouter()
+  const router = useRouter();
   const [userAccount, setUserAccount] = useState("");
   const [openWalletOptions, setOpenWalletOptions] = useState(false);
   const [openRaiseCampaignModal, setOpenRaiseCampaignModal] = useState(false);
   const [openSuccessForm, setOpenSuccessForm] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-  const [connected, setConnected] = useState(false)
+  const [connected, setConnected] = useState(false);
 
   useEffect(() => {
     if (isConnected) {
-      setConnected(isConnected)
+      setConnected(isConnected);
       setUserAccount(address);
       // Cookies.set("userAccount", address);
-       
     } else {
       disconnect();
       setUserAccount("");
@@ -41,10 +39,10 @@ export const NavBar = () => {
     try {
       setShowAlert(!showAlert);
       connect({ connector });
-      setConnected(isConnected)
+      setConnected(isConnected);
       setUserAccount(address);
       // Cookies.set("userAccount", address);
-      router.push("/campaigns")
+      router.push("/campaigns");
     } catch (err) {
       setShowAlert(!showAlert);
 
@@ -82,11 +80,13 @@ export const NavBar = () => {
       <div className="neon left-40  absolute top-10 max-w-6xl  flex flex-row items-center px-8 py-6 bg-[rgba(5,_124,_160,_0.79)] rounded-[20px] mx-auto container z-50">
         <div>
           <Link href={"/"} className="cursor pointer">
-            <Image
-              src={logo}
-              alt="Fintrust Wallet Logo"
-              className="md:w-20 w-12 md:h-20 h-12 object-contain"
-            />
+            <a>
+              <Image
+                src={logo}
+                alt="Fintrust Wallet Logo"
+                className="md:w-20 w-12 md:h-20 h-12 object-contain"
+              />
+            </a>
           </Link>
         </div>
         <div className="hidden px-10 md:flex md:flex-row justify-start items-center">

@@ -8,8 +8,8 @@
   height: fit-content;
   border-bottom: 2px solid rgba(6, 196, 178, 0.32);
   display: flex;
-  justify-content: start;
-  gap:2rem;
+  justify-content: flex-start;
+  gap: 2rem;
   margin: auto;
 }
 
@@ -41,7 +41,6 @@
   cursor: pointer;
   position: relative;
   isolation: isolate;
-
 }
 
 .activeTab:after {
@@ -68,12 +67,12 @@
 }
 
 .headingText h2 {
-  font-family: 'monument';
+  font-family: "monument";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 115.9%;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .tabContent .cardWrapper {
@@ -105,7 +104,7 @@
   align-items: center;
   padding: 17px 31px;
   width: fit-content;
-  background: #06C4B2;
+  background: #06c4b2;
   color: #fff;
   border-radius: 10px;
   margin: 1rem auto;
@@ -117,7 +116,7 @@
 .btnWrap:hover {
   cursor: pointer;
   background-color: transparent;
-  border-color: #06C4B2;
+  border-color: #06c4b2;
 }
 
 .sortBox {
@@ -194,5 +193,5 @@
   font-weight: 300;
   font-size: 14px;
   line-height: 179.9%;
-  color: #D6F6FF;
+  color: #d6f6ff;
 }

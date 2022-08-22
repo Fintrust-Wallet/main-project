@@ -7,6 +7,7 @@ import { Team } from "../../components/Team";
 import { Footer } from "../../components/Footer";
 import LBlurBg from "../../public/Ellipse26.svg";
 
+// console.log('campaign page')
 export default function Landing() {
   return (
     <div>

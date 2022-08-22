@@ -229,7 +229,8 @@ async function getAllCampaigns() {
   const transaction = await contractInstance.getAllCampaigns();
   let items = await Promise.all(
     transaction.map(async (campaign) => {
-      dataFormat(campaign);
+      let formattedData = await dataFormat(campaign);
+      return formattedData;
     })
   );
 

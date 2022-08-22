@@ -19,7 +19,7 @@ export async function storeFiles(files) {
 export async function retrieveFiles(cid) {
   const client = makeStorageClient();
   const res = await client.get(cid);
-  console.log(`Got a response! [${res.status}] ${res.statusText}`);
+  // console.log(`Got a response! [${res.status}] ${res.statusText}`);
   if (!res.ok) {
     return (false, null);
   }

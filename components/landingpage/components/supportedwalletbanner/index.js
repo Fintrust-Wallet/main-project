@@ -9,6 +9,7 @@ import {
   walletConnect,
 } from "../../../../public/images";
 import styles from "./style.module.css";
+import crypto from "crypto";
 const SupportedWalletBanner = () => {
   const supportedWallets = [
     MetaMaskIcon,
@@ -17,7 +18,7 @@ const SupportedWalletBanner = () => {
     Exoduslogo,
     salfal,
   ].map((item, i) => (
-    <div className={styles.box}>
+    <div key={crypto.randomBytes(7).toString("hex")} className={styles.box}>
       <Image src={item} />
     </div>
   ));
