@@ -41,9 +41,6 @@ const CampaignTransactionsDetails = ({
         alert("Please add atleast 3 signatories");
         return;
       }
-      setShowForm("detailsForm");
-      onClose();
-      // setShowSuccessForm(true);
       let formTwoData = { campaignAmount, ArraySignatories };
       handleFormTwoSubmit(formTwoData);
       reset();

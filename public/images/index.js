@@ -17,8 +17,11 @@ import teddy from "./teddy.svg";
 import medical from "./medical.svg";
 import wash from "./wash.svg";
 import bicycle from "./bicycle.svg";
-
+import CoinbaseIcon from "./CoinbaseIcon.png";
+import injected from "./injected.svg";
 export {
+  CoinbaseIcon,
+  injected,
   duck,
   spiral,
   walletImage,

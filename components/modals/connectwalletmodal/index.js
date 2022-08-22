@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import styles from "./connectWalletModal.module.css";
 import { AiOutlineClose } from "react-icons/ai";
 import {
+  CoinbaseIcon,
+  injected,
   MetaMaskEmblem,
   trustIcon,
   walletConnectIcon,
@@ -20,12 +22,9 @@ const ConnectWallet = ({ open, onClose, onConnect }) => {
     setIsBrowser(true);
   }, []);
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    document.body.style.overflow = open ? "hidden" : "auto";
   }, [open]);
+
   if (isBrowser) {
     return ReactDOM.createPortal(
       <div className={open ? styles.active : styles.connectWalletModal}>
@@ -49,7 +48,7 @@ const ConnectWallet = ({ open, onClose, onConnect }) => {
                 },
                 {
                   name: "Coinbase",
-                  icon: trustIcon,
+                  icon: CoinbaseIcon,
                   connector: connectors[1],
                 },
                 {
@@ -59,7 +58,7 @@ const ConnectWallet = ({ open, onClose, onConnect }) => {
                 },
                 {
                   name: "Injected Connector",
-                  icon: walletConnectIcon,
+                  icon: injected,
                   connector: connectors[3],
                 },
               ].map((_, index) => (
@@ -72,7 +71,13 @@ const ConnectWallet = ({ open, onClose, onConnect }) => {
                   }}
                 >
                   <div className={styles.walletIcon}>
-                    <Image src={_.icon} alt={_.connector.name} />
+                    <Image
+                      src={_.icon}
+                      alt={_.connector.name}
+                      height="90px"
+                      width={"90px"}
+                      className="object-contain"
+                    />
                   </div>
                   <div className={styles.walletName}>
                     <h3>{_.connector.name}</h3>

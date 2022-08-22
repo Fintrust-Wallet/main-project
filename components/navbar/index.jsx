@@ -93,7 +93,7 @@ export const NavBar = () => {
           <div>
             <ul>
               {connected ? (
-                <div className="text-white text-lg md:text-xl font-sora-light flex flex-row gap-4">
+                <div className="text-white text-[1rem] font-sora-light flex flex-row gap-4">
                   <li>
                     <Link href="/campaigns">Campaigns</Link>
                   </li>
@@ -102,7 +102,7 @@ export const NavBar = () => {
                   </li>
                 </div>
               ) : (
-                <div className="text-white text-lg md:text-xl font-sora-light flex flex-row gap-4">
+                <div className="text-white text-[1rem] font-sora-light flex flex-row gap-4">
                   <li>
                     <Link href="/">Home</Link>
                   </li>
