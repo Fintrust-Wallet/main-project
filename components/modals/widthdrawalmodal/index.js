@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 
 import { AiOutlineClose } from "react-icons/ai";
+import { requestWithdraw } from "../../../Integrations/Implementations/Fintrust";
 import styles from "./widthdrawal.module.css";
 const WidthdrawalModal = ({
   open,
@@ -23,18 +24,20 @@ const WidthdrawalModal = ({
       const canRequest =
         walletAdress !== "" && campaignReasons !== "" && campaignAmount !== 0;
       if (canRequest) {
-        setOpenSuccessForm(true); // open success form when withdrawal is done
-        onClose();
-        // close modal form when withdrawal is done
-        //reset form fields
-        setAmount(campaignAmount);
-        setCampaignAmount(0);
-        setCampaignReasons("");
-        setWalletAdress("");
-        checkedRef1.current.checked = false;
-        checkedRef2.current.checked = false;
+       
 
         try {
+          requestWithdraw()
+           setOpenSuccessForm(true); // open success form when withdrawal is done
+           onClose();
+           // close modal form when withdrawal is done
+           //reset form fields
+           setAmount(campaignAmount);
+           setCampaignAmount(0);
+           setCampaignReasons("");
+           setWalletAdress("");
+           checkedRef1.current.checked = false;
+           checkedRef2.current.checked = false;
           //try to connect to the api server
         } catch (error) {
           console.log(error);
