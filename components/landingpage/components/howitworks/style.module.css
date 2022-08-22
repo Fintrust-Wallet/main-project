@@ -97,9 +97,65 @@ font-style: normal;
   color: #D6F6FF;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 450px) {
   .howItWorksContainer .wrap {
     width: 90%;
     margin: 0 auto;
   }
+
+  .howItWorksContainer .howItWorksTitle {
+    font-weight: 200;
+    font-size: 24px;
+    margin-bottom: 0px;
+    font-family: "monument";
+    align-self: flex-start;
+    padding-left: 1.5rem;
+    color: #fff;
+  }
+
+  .spanNum {
+    height: 56px;
+    width: 52px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color:hsla(194, 100%, 44%, 1);
+    margin-bottom: 29px;
+  }
+  .spanNum  img {
+    max-width: 50px;
+    max-height: 50px;
+    /* border: 1px solid red; */
+  }
+
+  .howItWorksContainer .wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 1.5rem;
+  }
+  
+
+  .miniCardWrap {
+    width: 100%;
+    margin: auto;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 1.5rem;
+    position: relative;
+  }
+
+  .miniCardWrap p{
+    align-self: flex-start;
+    text-align: left;
+
+  }
+  
+  .miniCardWrap .textc{
+    align-self: flex-start;
+    text-align: left;
+  }
+  
 }
