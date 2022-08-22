@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 
 import { AiOutlineClose } from "react-icons/ai";
 import { requestWithdraw } from "../../../Integrations/Implementations/Fintrust";
+import { getRandomKey } from "../../../utils";
 import styles from "./widthdrawal.module.css";
 const WidthdrawalModal = ({
   open,
@@ -24,20 +25,18 @@ const WidthdrawalModal = ({
       const canRequest =
         walletAdress !== "" && campaignReasons !== "" && campaignAmount !== 0;
       if (canRequest) {
-       
-
         try {
-          requestWithdraw()
-           setOpenSuccessForm(true); // open success form when withdrawal is done
-           onClose();
-           // close modal form when withdrawal is done
-           //reset form fields
-           setAmount(campaignAmount);
-           setCampaignAmount(0);
-           setCampaignReasons("");
-           setWalletAdress("");
-           checkedRef1.current.checked = false;
-           checkedRef2.current.checked = false;
+          requestWithdraw();
+          setOpenSuccessForm(true); // open success form when withdrawal is done
+          onClose();
+          // close modal form when withdrawal is done
+          //reset form fields
+          setAmount(campaignAmount);
+          setCampaignAmount(0);
+          setCampaignReasons("");
+          setWalletAdress("");
+          checkedRef1.current.checked = false;
+          checkedRef2.current.checked = false;
           //try to connect to the api server
         } catch (error) {
           console.log(error);
@@ -58,7 +57,7 @@ const WidthdrawalModal = ({
         className={open ? styles.active : styles.widthdrawalCampaignContainer}
       >
         <div className={open ? styles.open : styles.modalContainer}>
-          <div classname={styles.modalInner}>
+          <div key={getRandomKey()} className={styles.modalInner}>
             <div className={styles.modalHeader}>
               <h2>Withdrawal Request</h2>
               <button

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "../form.module.css";
 import { AiOutlineClose } from "react-icons/ai";
+import { getRandomKey } from "../../../../utils";
 
 const CampaignTransactionsDetails = ({
   showForm,
@@ -115,7 +116,7 @@ const CampaignTransactionsDetails = ({
           <div className={styles.flexCol}>
             {ArraySignatories?.map((_, i) => {
               return (
-                <div className={styles.filepreview}>
+                <div key={getRandomKey()} className={styles.filepreview}>
                   <div>
                     <span className={styles.filepreviewtext}>{_}</span>
                   </div>

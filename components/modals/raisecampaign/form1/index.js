@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "../form.module.css";
 import { AiOutlineClose } from "react-icons/ai";
+import { getRandomKey } from "../../../../utils";
 
 const CampaignDetails = ({
   showForm,
@@ -106,7 +107,7 @@ const CampaignDetails = ({
           <div className={styles.flexCol}>
             {[...mediaFiles]?.map((_, i) => {
               return (
-                <div className={styles.filepreview}>
+                <div key={getRandomKey()} className={styles.filepreview}>
                   <div>
                     <span className={styles.filepreviewtext}>{_?.name}</span>
                     <span className={styles.filepreviewsize}>

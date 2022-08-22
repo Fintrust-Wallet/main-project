@@ -33,7 +33,7 @@ export const NavBar = () => {
       disconnect();
       setUserAccount("");
     }
-  }, [address]);
+  }, [address, disconnect, isConnected]);
 
   const handleConnect = async (connector) => {
     try {

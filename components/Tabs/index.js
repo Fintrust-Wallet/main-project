@@ -3,6 +3,9 @@ import { Card } from "../signedin/landingpage/components/card";
 import styles from "./tabs.module.css";
 import { MyCampaigns } from "./mycampaign";
 import { WithdrawalCard } from "./withdrawalcard";
+import { EmptyState } from "../emptystate";
+import { getRandomKey } from "../../utils";
+
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [pendingCampaignRequest, setPendingCampaignRequest] = useState([
@@ -76,6 +79,7 @@ const Tabs = () => {
   const Tab = tabs.map(({ name, content }, i) => {
     return (
       <div
+        key={getRandomKey()}
         className={activeTab === i ? styles.activeTab : styles.tab}
         onClick={() => setActiveTab(i)}
       >

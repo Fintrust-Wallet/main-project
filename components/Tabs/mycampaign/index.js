@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import styles from "../tabs.module.css";
 import importedImage from "../../../public/img1.png";
 import { Card } from "../../signedin/landingpage/components/card";
@@ -7,6 +7,7 @@ import { useAccount } from "wagmi";
 import { getAllCreatedCampaigns } from "../../../Integrations/Implementations/Fintrust";
 import emptyStateImage from "../../../public/Group 26795.png";
 import Image from "next/image";
+
 const MyCampaigns = () => {
   const { address, connector, isConnected } = useAccount();
 
@@ -14,10 +15,10 @@ const MyCampaigns = () => {
   const [campaigns, setCampaigns] = useState([]);
   const [currentCampaign, setCurrentCampaign] = useState({});
 
-  const getAllCampaigns = async () => {
+  const getAllCampaigns = useCallback(async () => {
     let campaigns = await getAllCreatedCampaigns(address);
     setCampaigns(campaigns);
-  };
+  }, [address]);
 
   const itemArray = Array(6).fill(0);
 
@@ -26,7 +27,7 @@ const MyCampaigns = () => {
       await getAllCampaigns(address);
     }
     fetchdata();
-  }, []);
+  }, [address, getAllCampaigns]);
 
   return showCampaignDetails ? (
     <div>

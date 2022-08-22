@@ -28,7 +28,7 @@ export default function Donation({ campaigns}) {
     return () => {
       mounted = false;
     }
-  } , [campaigns]);
+  } , [address, campaigns]);
   return (
     <div>
       <Head>
