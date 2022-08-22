@@ -5,9 +5,11 @@ import image1 from "../../../public/img1.png";
 import ukrain from "../../../public/ukrain.png";
 import polio from "../../../public/polio.png";
 import { EmptyState } from "../../emptystate";
+import { getAllCampaigns } from "../../../Integrations/Implementations/Fintrust";
 
 export const getStaticProps = async () => {
-  const data = await fetch("api.fintrust.io/campaigns");
+  const data = await getAllCampaigns();
+  //const data = await fetch("api.fintrust.io/campaigns");
   const campaigns = await data.json();
   return {
     props: {

@@ -9,7 +9,8 @@ import {
 
 import Image from "next/image";
 import styles from "./tabs.module.css";
-const MyCampaignsTab = () => {
+const MyCampaignsTab = ({campaign}) => {
+  console.log(campaign, "MY CAMPAIGN TABS")
   const [activeTab, setActiveTab] = useState(0);
 
   const tabs = [
