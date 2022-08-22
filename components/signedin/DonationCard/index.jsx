@@ -14,7 +14,7 @@ import { Transact } from "../../mycampaignsdetailscomponents/transact";
 import { TransactionHistory } from "../../mycampaignsdetailscomponents/transactionhistory";
 import { MyCampaignsTab } from "../../mycampaignsdetailscomponents/tabs";
 
-export const DonationPage = ({ amount, raised }) => {
+export const DonationPage = ({ amount, raised,campaign }) => {
   
   const [showMakeDonationsModal, setShowMakeDonationsModal] = useState(false);
   const [showShareThisCampaignModal, setShowShareThisCampaignModal] = useState(false)

@@ -5,7 +5,8 @@ import { Card } from "../../signedin/landingpage/components/card";
 import { CampaignDetails } from "../campaigndetails";
 import { useAccount } from "wagmi";
 import { getAllCreatedCampaigns } from "../../../Integrations/Implementations/Fintrust";
-
+import emptyStateImage from "../../../public/Group 26795.png";
+import Image from "next/image";
 const MyCampaigns = () => {
   const { address, connector, isConnected } = useAccount();
 
@@ -31,7 +32,7 @@ const MyCampaigns = () => {
     <div>
       <CampaignDetails
         handleBack={() => setShowCampaignDetails(!showCampaignDetails)}
-        campaign = {currentCampaign}
+        campaign={currentCampaign}
       />
     </div>
   ) : (
@@ -42,7 +43,7 @@ const MyCampaigns = () => {
             <span
               onClick={() => {
                 setShowCampaignDetails(!showCampaignDetails);
-                setCurrentCampaign(campaign)
+                setCurrentCampaign(campaign);
               }}
             >
               <Card
@@ -63,7 +64,7 @@ const MyCampaigns = () => {
       ) : (
         <div className={styles.empty}>
           <div className={styles.imageWrap}>
-            <img />
+            <Image src={emptyStateImage} />
           </div>
           <span className={styles.headingText}>
             <h2> You have not created any campaign yet.</h2>

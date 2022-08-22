@@ -21,19 +21,17 @@ export const Card = ({
         <Image
           src={imageSrc}
           alt="Image1"
-          className="w-[385px] relative z-[9999] h-[294px] object-contain"
-          layout="fill"
+          className="w-[385px] border relative z-[9999] h-[294px] object-cover rounded-t-[10px]"
+          height={"294px"}
+          width="385px"
         />
         <div className="">
           <div className="pt-5 px-4 pb-8 text-[#d6f6ff]">
             <h1 className="pb-4 uppercase font-sora-light font-[600] leading-[179.9%]">
-              {title || "ENDSARS FUNDRAISE"}
+              {title }
             </h1>
-            <p className="font-sora-light w-[349px] h-[75px] mb-8">
-              {description ||
-                `Lorem ipsum is not the description from the original source dolor sit amet, consectetur adipiscing elit.
-              Suspendisse amet sed ut arcu, Eu id neque lacus, sit. Felis quis
-              sed sed ut cursus.`}
+            <p className="font-sora-light w-[100%] box-border  h-[75px] mb-8">
+              {description }
             </p>
             <div className="relative top-3">
               <svg
@@ -67,13 +65,13 @@ export const Card = ({
               <div className="text-white grid gap-y-4">
                 <h1>Target Amount</h1>
                 <span className="text-xl leading-[179.9%] text-green-500 font-sora-bold">
-                  {amount || "$200,000"}
+                  ${amount }
                 </span>
               </div>
               <div className="text-white grid gap-y-4">
                 <h1>Target Raised</h1>
                 <span className="text-xl w-[88px] h-[36px] leading-[179.9%] text-green-500 font-sora-bold">
-                  {raised || "$10,000"}
+                  ${raised}
                 </span>
               </div>
             </div>

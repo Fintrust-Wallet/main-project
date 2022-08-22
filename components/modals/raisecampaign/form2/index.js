@@ -43,9 +43,9 @@ const CampaignTransactionsDetails = ({
       }
       setShowForm("detailsForm");
       onClose();
-      setShowSuccessForm(true);
+      // setShowSuccessForm(true);
       let formTwoData = { campaignAmount, ArraySignatories };
-     handleFormTwoSubmit(formTwoData);
+      handleFormTwoSubmit(formTwoData);
       reset();
     } else {
       alert("Please fill all the fields");

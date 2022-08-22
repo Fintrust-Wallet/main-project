@@ -6,27 +6,29 @@ import { Banner } from "../../components/Banner";
 import { Team } from "../../components/Team";
 import { Footer } from "../../components/Footer";
 import LBlurBg from "../../public/Ellipse26.svg";
-export const getStaticPaths = async () => {
-const res = await fetch("https://api.fintrust.io/api/campaigns");
-const data = await res.json();
-const paths = data.map((campaign) => ({
-path: `/campaigns/${campaign.id}`,
-params: { id: campaign.id },
-}));
-return { paths, fallback: false };
-};
-export const getStaticProps = async (context) => {
-  //GET DATA CAMPAIGNS FROM DATABASE
-  const id = context.params.id;
-  const res = await fetch(`https://api.fintrust.io/api/campaigns/${id}`);
-    const data = await res.json();
-  return {
-    props: { campaign: data },
-  };
-}
+import { useAccount } from "wagmi";
+import { getACampaign } from "../../Integrations/Implementations/Fintrust";
+import { useEffect, useState } from "react";
+
 
 export default function Donation({ campaigns}) {
-  //get params from url
+  const { address, connector, isConnected } = useAccount();
+  const [campaign, setCampaign] = useState([]);
+  
+  useEffect(() => {
+    let mounted = true;
+    const fetchCampaign = async () => {
+      const campaign = await getACampaign(address,0)
+      console.log("campaigns", campaign);
+      setCampaign(campaign)
+    }
+    if (mounted) {
+      fetchCampaign();
+    }
+    return () => {
+      mounted = false;
+    }
+  } , [campaigns]);
   return (
     <div>
       <Head>
@@ -39,7 +41,7 @@ export default function Donation({ campaigns}) {
         <div className="fixed top-0 left-0">
           <Image src={LBlurBg} alt="LBlurBg" className="object-contain" />
         </div>       
-        <DonationPage />
+        <DonationPage campaign={campaign} />
         <Banner />
         <Team />        
       </main>
