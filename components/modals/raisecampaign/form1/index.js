@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../form.module.css";
 import { AiOutlineClose } from "react-icons/ai";
 
@@ -38,6 +38,14 @@ const CampaignDetails = ({
       handleFormOneSubmit(formInput);
       setLoading(true);
       setShowForm("transactForm");
+
+      try {
+        //make request to server
+        // setUploadProgress(progress)
+      } catch {
+        setLoading(false);
+        alert("Something went wrong");
+      }
     } else {
       alert("Please fill all the fields");
     }
@@ -96,7 +104,7 @@ const CampaignDetails = ({
             </div>
           </div>
           <div className={styles.flexCol}>
-            {[...mediaFiles].map((_, i) => {
+            {[...mediaFiles]?.map((_, i) => {
               return (
                 <div className={styles.filepreview}>
                   <div>

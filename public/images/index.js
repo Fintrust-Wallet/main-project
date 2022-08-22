@@ -19,7 +19,21 @@ import wash from "./wash.svg";
 import bicycle from "./bicycle.svg";
 import CoinbaseIcon from "./CoinbaseIcon.png";
 import injected from "./injected.svg";
+import prince2 from "./prince (2).svg";
+import alex from "./alex.svg";
+import salam from "./salam.svg";
+import endee from "./endee.svg";
+import wisdom from "./wisdom.svg";
+import tobi from "./tobi.svg";
+import githubIcon from "./githubIcon.svg";
 export {
+  githubIcon,
+  endee,
+  wisdom,
+  tobi,
+  prince2,
+  alex,
+  salam,
   CoinbaseIcon,
   injected,
   duck,
