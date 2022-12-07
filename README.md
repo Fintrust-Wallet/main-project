@@ -4,13 +4,11 @@ Fintrust is a fundraising platform utilizing the blockchain to ensure massive so
 
 
 
-## Contributors
+## Repo Contributors
 
-- [@ogubuikealex](ogubuikealex@gmail.com)
-- [@princeugbuta17](princeugbuta17@gmail.com)
-- [@chrisnonso8](chrisnonso8@gmail.com)
-- [@wisdomjohnsonn](wisdomjohnsonn@gmail.com)
-- [@salamolayemimoshood](salamolayemimoshood@gmail.com)
+- [@ogubuikealex - Blockchain/Backend developer](ogubuikealex@gmail.com)
+- [@princeugbuta17 - Product Designer](princeugbuta17@gmail.com)
+- [@chrisnonso8 - Frontend developer](chrisnonso8@gmail.com)
 
 ## Tech Stack
 
